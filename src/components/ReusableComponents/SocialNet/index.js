@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import './style.css';
 
-import firebase from 'firebase';
+import firebase from '../../../config/firebaseConfig';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-
-firebase.initializeApp({
-	apiKey: "AIzaSyAfZSlUAkIL21lbSL31x_9dowk5OyuGR4A",
-    authDomain: "dogwalker-88634.firebaseapp.com",
-    databaseURL: "https://dogwalker-88634.firebaseio.com",
-    projectId: "dogwalker-88634",
-    storageBucket: "dogwalker-88634.appspot.com",
-    messagingSenderId: "192510245330"
-})
 
 class SocialNet extends Component {
 	state = {
