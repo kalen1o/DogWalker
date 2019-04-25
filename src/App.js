@@ -7,8 +7,8 @@ import Header from './components/Header';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faPaw, faBars } from '@fortawesome/free-solid-svg-icons';
-library.add(fab, faPaw, faBars);
+import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle);
 
 function App() {
   return (
