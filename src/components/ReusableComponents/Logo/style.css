@@ -7,3 +7,9 @@
 	color: #00bd70;
 	font-size: 25px;
 }
+
+@media (min-width: 768px) {
+	.logo {
+		color: white;
+	}
+}

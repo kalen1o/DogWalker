@@ -12,3 +12,9 @@ body {
 #root {
 	overflow: hidden;
 }
+
+@media (min-width: 768px) {
+	body {
+		background-color: #f1f1f1;
+	}
+}

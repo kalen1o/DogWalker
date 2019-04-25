@@ -1,0 +1,27 @@
+.left-menu, .right-menu {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.left-menu, .right-menu {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.left-menu {
+		margin-right: auto;
+	}
+
+	.left-menu li, .right-menu li {
+		margin-left: 10px;
+	}
+
+	.left-menu li a, .right-menu li a {
+		color: white;
+		text-decoration: none;
+	}
+}
