@@ -3,6 +3,8 @@ import classes from './Menu.module.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { ButtonNonAuth, ButtonAuth } from '../Header';
+
 class Menu extends Component {
 	render() {
 		return (
@@ -13,8 +15,7 @@ class Menu extends Component {
 					<li><Link to="create-pet" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="dog"/></span> Create Pet</Link></li>
 				</ul>
 				<ul className={classes["right-menu"]}>
-					<li><Link to="signup" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="id-card"/></span> Sign up</Link></li>
-					<li><Link to="signin" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="user-circle"/></span> Sign in</Link></li>
+					{this.props.authWalker ? <ButtonAuth /> : <ButtonNonAuth />}
 					<li><Link to="help" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="question-circle"/></span> Help</Link></li>
 				</ul>
 			</>

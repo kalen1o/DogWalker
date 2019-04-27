@@ -42,3 +42,9 @@ export const CreatePetSchema = Yup.object().shape({
 		.min(8, "Must be longer than 8 characters")
 		.required("Required")
 })
+
+export const SignInSchema = Yup.object().shape({
+	email: Yup.string()
+		.email("Please specify a valid email.")
+		.required("Required")
+})

@@ -20,8 +20,16 @@ class CreatePet extends Component {
 							password: ''
 						}}
 						validationSchema={CreatePetSchema}
-						onSubmit={values => {
+						onSubmit={( values, { resetForm } ) => {
 							console.log(values)
+							resetForm({
+								breed: '',
+								petname: '',
+								petage: 1,
+								size: 'small',
+								email: '',
+								password: ''
+							})
 						}}
 						render={({errors, touched}) => (
 							<Form>
@@ -100,8 +108,6 @@ class CreatePet extends Component {
 								</div>
 
 								<button type="submit" className={classes.btn}>Create Pet</button>
-								<p className={classes.info}>By signing in or signing up, I agree to Rover.com's Terms of Service and Privacy Policy, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
-								<p className={classes["have-account"]}>Already have a Rover account? <Link to="/signin">Sign in now.</Link></p>
 							</Form>
 						)}
 					/>

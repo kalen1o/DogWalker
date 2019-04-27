@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import classes from './Registration.module.css';
-import { Formik, Field, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import { RegistrationSchema } from '../../config/yupConfig';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
-class Registration extends Component {
+import { withFirebase } from '../../config/Firebase';
+import { compose } from 'recompose';
+
+class RegistrationBase extends Component {
 	render() {
 		return (
 			<div className={classes["form-holder"]}>
@@ -18,8 +21,22 @@ class Registration extends Component {
 							password: ''
 						}}
 						validationSchema={RegistrationSchema}
-						onSubmit={values => {
+						onSubmit={( values, { resetForm } ) => {
 							console.log(values)
+							this.props.firebase
+								.doCreateUserWithEmailAndPassword(values.email, values.password)
+								.then(() => {
+									resetForm({
+										firstname: '',
+										lastname: '',
+										email: '',
+										password: ''
+									})
+									this.props.history.push("/signin")
+								})
+								.catch(error => {
+									console.log(error)
+								})
 						}}
 						render={({errors, touched}) => (
 							<Form>
@@ -75,7 +92,7 @@ class Registration extends Component {
 									)}
 								</div>
 
-								<button type="submit">Sign up</button>
+								<button type="submit" className={classes.btn}>Sign up</button>
 								<p className={classes.info}>By signing in or signing up, I agree to Rover.com's Terms of Service and Privacy Policy, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
 								<p className={classes["have-account"]}>Already have a Rover account? <Link to="/signin">Sign in now.</Link></p>
 							</Form>
@@ -86,5 +103,16 @@ class Registration extends Component {
 		)
 	}
 }
+
+const Registration = compose(
+	withRouter,
+	withFirebase,
+)(RegistrationBase)
+
+export const SignUpLink = () => (
+	<p>
+	  Don't have an account? <Link to="/signup">Sign Up</Link>
+	</p>
+);
 
 export default Registration;
