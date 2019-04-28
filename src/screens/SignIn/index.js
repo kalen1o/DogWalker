@@ -4,8 +4,10 @@ import classes from './SignIn.module.css';
 import { Formik, Form, Field } from "formik";
 import { SignInSchema } from '../../config/yupConfig';
 
-import SocialNet from '../../components/ReusableComponents/SocialNet';
+import SignInGoogle from '../../components/SignInGoogle';
+import SignInFacebook from '../../components/SignInFacebook';
 import { SignUpLink } from '../Registration';
+import { PasswordForgetLink } from '../PasswordForget';
 import { withRouter } from 'react-router-dom';
 
 import { withFirebase } from '../../config/Firebase';
@@ -15,7 +17,8 @@ class SignInBase extends Component {
 		return (
 			<div className={classes["signin-form-holder"]}>
 				<h1 className={classes.h1}>Sign in to DogWalker</h1>
-				<SocialNet />
+				<SignInGoogle />
+				<SignInFacebook />
 				<h6 className={classes.h6}>— or —</h6>
 				<div className={classes["signin-form-wrapper"]}>
 					<Formik
@@ -25,7 +28,7 @@ class SignInBase extends Component {
 						}}
 						validationSchema={SignInSchema}
 						onSubmit={( values, { resetForm } ) => {
-							console.log(values)
+							// console.log(values)
 							this.props.firebase
 								.doSignInWithEmailAndPassword(values.email, values.password)
 									.then(() => {
@@ -36,6 +39,10 @@ class SignInBase extends Component {
 										this.props.history.push("/")
 									})
 									.catch(error => {
+										resetForm({
+											email: values.email,
+											password: ''
+										})
 										console.log(error)
 									})
 						}}
@@ -65,6 +72,7 @@ class SignInBase extends Component {
 								</div>
 
 								<button type="submit" className={classes.btn}>Sign in</button>
+								<PasswordForgetLink />
 								<SignUpLink />
 							</Form>
 						)}

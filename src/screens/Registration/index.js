@@ -25,6 +25,15 @@ class RegistrationBase extends Component {
 							console.log(values)
 							this.props.firebase
 								.doCreateUserWithEmailAndPassword(values.email, values.password)
+								.then((authWalker) => {
+									console.log(authWalker)
+									return this.props.firebase
+										.user(authWalker.user.uid)
+										.set({
+											name: `${values.firstname} ${values.lastname}`,
+											email: values.email
+										})
+								})
 								.then(() => {
 									resetForm({
 										firstname: '',
@@ -32,7 +41,7 @@ class RegistrationBase extends Component {
 										email: '',
 										password: ''
 									})
-									this.props.history.push("/signin")
+									this.props.history.push("/")
 								})
 								.catch(error => {
 									console.log(error)

@@ -16,6 +16,8 @@ import SignUp from './screens/SignUp';
 import Registration from './screens/Registration';
 import CreatePet from './screens/CreatePet';
 import SignIn from './screens/SignIn';
+import PasswordForgetPage from './screens/PasswordForget';
+import Account from './screens/Account';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -51,6 +53,8 @@ class App extends Component {
             <Route path="/registration" component = { Registration } exact />
             <Route path="/create-pet" component = { CreatePet } exact />
             <Route path="/signin" component = { SignIn } exact />
+            <Route path="/password-forget" component = { PasswordForgetPage } exact />
+            <Route path="/account" component = { Account } exact />
           </Switch>
       </BrowserRouter>
     );
