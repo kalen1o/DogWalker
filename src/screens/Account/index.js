@@ -14,9 +14,12 @@ class Account extends Component {
 					return (
 						(
 							<div className={classes.account}>
-							<h1>Account Page: {authWalker.email}</h1>
-							<PasswordChange />
-						</div>
+								<h1 className={classes.h1}>
+									<img src={authWalker.photoURL} className={classes.avatar} alt={authWalker.displayName} />
+									{authWalker.displayName}
+								</h1>
+								<PasswordChange />
+							</div>
 						)
 					)
 				}}

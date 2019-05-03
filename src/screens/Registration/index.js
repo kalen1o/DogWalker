@@ -7,8 +7,33 @@ import {Link, withRouter} from 'react-router-dom';
 import { withFirebase } from '../../config/Firebase';
 import { compose } from 'recompose';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 class RegistrationBase extends Component {
+	state = {
+		showPassword: false,
+		image: null,
+		imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b'
+	}
+
+	handleShowPassword = () => {
+		this.setState({showPassword: !this.state.showPassword})
+	}
+
+	handleChange = (event) => {
+		if(event.target.files[0]) {
+			const image = event.target.files[0];
+			this.setState({ image })
+		}
+	}
+
+	handleGetUrl = (imageUrl) => {
+		this.setState({ imageUrl })
+	}
+
 	render() {
+		console.log(this.state)
+		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
 			<div className={classes["form-holder"]}>
 				<h1 className={classes.h1}>Sign up for DogWalker</h1>
@@ -17,27 +42,37 @@ class RegistrationBase extends Component {
 						initialValues={{
 							firstname: '',
 							lastname: '',
+							city: '',
 							email: '',
 							password: ''
 						}}
 						validationSchema={RegistrationSchema}
-						onSubmit={( values, { resetForm } ) => {
-							console.log(values)
-							this.props.firebase
+						onSubmit={ async ( values, { resetForm } ) => {
+							await console.log(values, '1')
+							if (this.state.image) {
+								await this.props.firebase.uploadProfileImage(this.state.image, this.handleGetUrl);
+							}
+							await this.props.firebase
 								.doCreateUserWithEmailAndPassword(values.email, values.password)
 								.then((authWalker) => {
-									console.log(authWalker)
+									console.log(authWalker, '3')
+									authWalker.user.updateProfile({
+										displayName: `${values.firstname} ${values.lastname}`,
+										photoURL: this.state.imageUrl
+									})
 									return this.props.firebase
 										.user(authWalker.user.uid)
 										.set({
 											name: `${values.firstname} ${values.lastname}`,
-											email: values.email
+											email: values.email,
+											city: values.city
 										})
 								})
 								.then(() => {
 									resetForm({
 										firstname: '',
 										lastname: '',
+										city: '',
 										email: '',
 										password: ''
 									})
@@ -76,6 +111,19 @@ class RegistrationBase extends Component {
 								</div>
 
 								<div className={classes["input-wrapper"]}>
+									<label htmlFor="walkerCity" className={classes.label}>City</label>
+									<Field
+										id="walkerCity"
+										className={classes.input}
+										name="city"
+										type="text"
+									/>
+									{errors.city && touched.city && (
+										<div className={classes.error}>{errors.city}</div>
+									)}
+								</div>
+
+								<div className={classes["input-wrapper"]}>
 									<label htmlFor="walkerEmail" className={classes.label}>Email</label>
 									<Field
 										id="walkerEmail"
@@ -94,11 +142,16 @@ class RegistrationBase extends Component {
 										id="walkerPassword"
 										className={classes.input}
 										name="password"
-										type="password"
+										type={this.state.showPassword ? 'text': 'password'}
 									/>
+									<button onClick={this.handleShowPassword} type="button" className={classes.eye}><FontAwesomeIcon icon={showPassword} /></button>
 									{errors.password && touched.password && (
 										<div className={classes.error}>{errors.password}</div>
 									)}
+								</div>
+
+								<div className={classes["input-wrapper"]}>
+									<input className={classes["input-file"]} type="file" onChange={this.handleChange.bind(this)}/>
 								</div>
 
 								<button type="submit" className={classes.btn}>Sign up</button>

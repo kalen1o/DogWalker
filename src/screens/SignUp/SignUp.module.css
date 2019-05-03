@@ -10,6 +10,12 @@
 	margin-top: 0;
 }
 
+.signup-wrapper {
+	width: 100%;
+	max-width: 220px;
+	margin: 0 auto;
+}
+
 .h6-registration {
 	text-align: center;
 	font-size: 16px;

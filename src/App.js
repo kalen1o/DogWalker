@@ -21,8 +21,8 @@ import Account from './screens/Account';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes } from '@fortawesome/free-solid-svg-icons';
-library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes);
+import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes, faEye, faEyeSlash);
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -45,9 +45,11 @@ class App extends Component {
     this.listener();
   }
   render() {
+    console.log(this.state, 'here Redux')
     return (
       <BrowserRouter history = {createHistory()}>
         <Header />
+        <div className="content-wrapper">
           <Switch>
             <Route path="/signup" component = { SignUp } exact />
             <Route path="/registration" component = { Registration } exact />
@@ -56,6 +58,7 @@ class App extends Component {
             <Route path="/password-forget" component = { PasswordForgetPage } exact />
             <Route path="/account" component = { Account } exact />
           </Switch>
+          </div>
       </BrowserRouter>
     );
   }

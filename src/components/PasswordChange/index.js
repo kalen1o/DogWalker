@@ -7,9 +7,18 @@ import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../config/Firebase';
 import { ChangeSchema } from '../../config/yupConfig';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 class PasswordChangeBase extends Component {
+	state = {
+		showPassword: false
+	}
+
+	handleShowPassword = () => {
+		this.setState({showPassword: !this.state.showPassword})
+	}
 	render() {
-		console.log(this.props)
+		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
 			<div className={classes["change-form-wrapper"]}>
 				<Formik
@@ -43,8 +52,9 @@ class PasswordChangeBase extends Component {
 									id="changePasswordOne"
 									className={classes.input}
 									name="passwordOne"
-									type="password"
+									type={this.state.showPassword ? 'text': 'password'}
 								/>
+								<button onClick={this.handleShowPassword} type="button" className={classes.eye}><FontAwesomeIcon icon={showPassword} /></button>
 								{errors.passwordOne && touched.passwordOne && (
 									<div className={classes.error}>{errors.passwordOne}</div>
 								)}
@@ -56,8 +66,9 @@ class PasswordChangeBase extends Component {
 									id="changePasswordTwo"
 									className={classes.input}
 									name="passwordTwo"
-									type="password"
+									type={this.state.showPassword ? 'text': 'password'}
 								/>
+								<button onClick={this.handleShowPassword} type="button" className={classes.eye}><FontAwesomeIcon icon={showPassword} /></button>
 								{errors.passwordTwo && touched.passwordTwo && (
 									<div className={classes.error}>{errors.passwordTwo}</div>
 								)}
@@ -69,8 +80,9 @@ class PasswordChangeBase extends Component {
 									id="newPassword"
 									className={classes.input}
 									name="newPassword"
-									type="password"
+									type={this.state.showPassword ? 'text': 'password'}
 								/>
+								<button onClick={this.handleShowPassword} type="button" className={classes.eye}><FontAwesomeIcon icon={showPassword} /></button>
 								{errors.newPassword && touched.newPassword && (
 									<div className={classes.error}>{errors.newPassword}</div>
 								)}

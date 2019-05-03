@@ -11,7 +11,6 @@ import { withFirebase } from '../../config/Firebase';
 
 class PasswordForgetBase extends Component {
 	render() {
-		console.log(this.props)
 		return (
 			<div className={classes["forget-form-wrapper"]}>
 				<Formik

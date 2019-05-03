@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import 'firebase/storage';
 
 // Initialize Firebase
 var config = {
@@ -18,6 +19,7 @@ class Firebase {
 
         this.auth = app.auth();
         this.db = app.database();
+        this.storage = app.storage();
 
         this.googleProvider = new app.auth.GoogleAuthProvider();
         this.facebookProvider = new app.auth.FacebookAuthProvider();
@@ -47,5 +49,24 @@ class Firebase {
     // *** User API ***
 
     user = uid => this.db.ref(`users/${uid}`);
+
+    // *** Storage API ***
+    uploadProfileImage = async (image, getUrl) => {
+        const UploadTask = this.storage.ref(`profileImages/${image.name}`).put(image);
+        console.log(UploadTask, 'here')
+        await UploadTask.on('state_changed', 
+        (snapshot) => {
+            //progress
+        },
+        (error) => {
+            console.log(error)
+        },
+        () => {
+            this.storage.ref('profileImages').child(image.name).getDownloadURL().then(url => {
+                console.log(url, '2')
+                getUrl(`${url}`)
+            })
+        })
+    }
 }
 export default Firebase;

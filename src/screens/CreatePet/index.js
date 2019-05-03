@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 import classes from './CreatePet.module.css';
 import { Formik, Field, Form } from "formik";
 import { CreatePetSchema } from '../../config/yupConfig';
-import {Link} from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class CreatePet extends Component {
+	state = {
+		showPassword: false
+	}
+
+	handleShowPassword = () => {
+		this.setState({showPassword: !this.state.showPassword})
+	}
 	render() {
+		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
 			<div className={classes["form-create-pet-holder"]}>
 				<h1 className={classes.h1}>Create Pet</h1>
@@ -60,24 +69,12 @@ class CreatePet extends Component {
 								</div>
 
 								<div className={classes["input-wrapper"]}>
-									<label htmlFor="petage" className={classes.label}>Age</label>
-									<Field
-										id="petage"
-										className={classes.input}
-										name="petage"
-										type="number"
-									/>
-									{errors.petage && touched.petage && (
-										<div className={classes.error}>{errors.petage}</div>
-									)}
-								</div>
-
-								<div className={classes["input-wrapper"]}>
 									<label htmlFor="size" className={classes.label}>Size</label>
 									<Field component="select" id="size" name="size" className={classes.select}>
 									<option value="small">Small</option>
 									<option value="medium">Medium</option>
 									<option value="large">Large</option>
+									<option value="giant">Giant</option>
 								</Field>
 								</div>
 
@@ -100,8 +97,9 @@ class CreatePet extends Component {
 										id="petPassword"
 										className={classes.input}
 										name="password"
-										type="password"
+										type={this.state.showPassword ? 'text': 'password'}
 									/>
+									<button onClick={this.handleShowPassword} type="button" className={classes.eye}><FontAwesomeIcon icon={showPassword} /></button>
 									{errors.password && touched.password && (
 										<div className={classes.error}>{errors.password}</div>
 									)}
