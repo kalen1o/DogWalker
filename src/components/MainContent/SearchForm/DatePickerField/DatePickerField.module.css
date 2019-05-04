@@ -1,0 +1,25 @@
+.datePickerField{
+  display: flex;
+}
+
+.datePicker {
+  color: green;
+  border: 1px solid #00bd70;
+  font-size: 14px;
+  width: 125px;
+  font-family: FontAwesome;
+  padding: 5px;
+}
+.arrow{
+  margin-right:  10px;
+  color: #7B7B7B;
+}
+.calcIcon {
+    position: relative;
+    z-index: 1;
+    left: -25px;
+    top: 5px;
+    color: #7B7B7B;
+    cursor:pointer;
+    width: 0;
+}

@@ -1,0 +1,30 @@
+.header{
+  font-size: 26px;
+  margin-top: 80px;
+  align-items: center;
+
+  margin: 0 auto;
+}
+
+.servicesForEveryDogAndCat{
+  width: 100%;
+}
+.iconServices{
+  font-size: 42px;
+  color: #00bd70;
+  margin-right: 18px;
+  display: block;
+}
+label{
+  font-size: 16px;
+  font-weight: 700;
+}
+.description{
+  font-size: 16px;
+  line-height: 25.6px;
+  color: #66727c;
+}
+.descriptionColumn{
+  width: 50%;
+  display: flex;
+}
