@@ -6,6 +6,7 @@ import createHistory from "history/createBrowserHistory";
 import Header from './components/Header';
 import SignUp from './screens/SignUp';
 import Registration from './screens/Registration'
+import MainContent from './components/MainContent/MainContent';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" component = { SignUp } exact />
           <Route path="/registration" component = { Registration } exact />
         </Switch>
+      <MainContent />
     </BrowserRouter>
   );
 }
