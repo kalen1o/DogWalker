@@ -1,0 +1,107 @@
+.searchForm {
+  display: grid;
+  grid-template-areas:
+  'checkbox checkbox'
+  'categoryButtons categoryButtons'
+  'searchPanel searchPanel'
+  'dogSize searchButton'
+  ;
+  grid-template-columns:  4fr 3fr;
+  background-color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 1%;
+  grid-row-gap: 10px;
+  color: black;
+  text-align: left;
+
+}
+
+.categoryButtons button{
+  padding: 10px;
+  border: 1px solid #A9A9A9;
+  border-radius: 5%;
+  margin-right:  5px;
+  background-color: transparent;
+  color: #696969;
+  text-decoration: none;
+  width: 140px;
+}
+.categoryButtons button:hover{
+  cursor: pointer;
+  color: black;
+}
+.categoryButtons svg:hover{
+  font-size: 14px;
+  color: #00bd70;
+}
+.categoryButtons button:active{
+  cursor: pointer;
+  color: black;
+  border-top: 3px solid #66CDAA;
+}
+
+.categoryButtons{
+  grid-area: categoryButtons;
+  display: grid;
+  grid-template-areas:
+  'away dayCare '
+  ;
+grid-template-columns:  4fr 3fr;
+}
+
+.searchPanel{
+  grid-area: searchPanel;
+  display: grid;
+  grid-template-areas:
+  'zipCode calendar';
+grid-template-columns:  4fr 3fr;
+}
+
+.checkbox{
+  grid-area: checkbox;
+}
+.away{
+  grid-area: away;
+}
+.dayCare{
+  grid-area: dayCare;
+}
+.zipCode{
+  grid-area: zipCode;
+}
+.zipCode input{
+  width: 98%;
+  font-size: 14px;
+  padding: 4px;
+}
+.calendar{
+  grid-area: calendar;
+}
+
+.dogSize {
+  grid-area: dogSize;
+}
+
+.dogSize button{
+  padding: 10px;
+  border: 1px solid #A9A9A9;
+  border-radius: 5%;
+  margin-right:  5px;
+  background-color: transparent;
+  color: #696969;
+  text-decoration: none;
+  width: 104px;
+}
+
+.searchButton{
+  grid-area: searchButton;
+}
+.searchButton button{
+  width: 88%;
+  height: 100%;
+  background-color: rgb( 20, 169, 109);
+  border-color:  #14a96d;
+  color: #fff;
+}

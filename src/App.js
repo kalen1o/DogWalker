@@ -13,6 +13,8 @@ import createHistory from "history/createBrowserHistory";
 
 import Header from './components/Header';
 import SignUp from './screens/SignUp';
+import MainContent from './components/MainContent/MainContent';
+
 import Registration from './screens/Registration';
 import CreatePet from './screens/CreatePet';
 import SignIn from './screens/SignIn';
@@ -58,10 +60,12 @@ class App extends Component {
             <Route path="/password-forget" component = { PasswordForgetPage } exact />
             <Route path="/account" component = { Account } exact />
           </Switch>
+          <MainContent />
           </div>
       </BrowserRouter>
     );
   }
+
 }
 
 App = compose(
