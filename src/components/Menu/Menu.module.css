@@ -2,6 +2,12 @@
 	display: none;
 }
 
+.menu-elem-wrapper {
+	display: inline-block;
+	text-align: center;
+	width: 25px;
+}
+
 @media (min-width: 768px) {
 	.left-menu, .right-menu {
 		display: flex;

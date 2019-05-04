@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './style.css';
+import classes from './Logo.module.css';
 
 const Logo = () => (
-	<span className="logo-wrapper">
-		<Link to="/" className="logo">
+	<span className={classes["logo-wrapper"]}>
+		<Link to="/" className={classes.logo}>
 			<FontAwesomeIcon icon="paw" /> DogWalker
 		</Link>
 	</span>

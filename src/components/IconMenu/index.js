@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './style.css';
+import classes from './IconMenu.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class IconMenu extends Component {
 	render() {
 		return (
 			<>
-				<div className="menu-icon" onClick={this.props.openMenu}>
+				<div className={classes["menu-icon"]} onClick={this.props.openMenu}>
 					<FontAwesomeIcon icon="bars" />
 				</div>
 			</>
