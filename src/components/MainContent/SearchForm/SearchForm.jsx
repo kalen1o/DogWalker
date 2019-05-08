@@ -35,7 +35,7 @@ class SearchForm extends Component{
                                     :null  );
   let dogButtonsNight=data.dog.map(data=> data.timeOfTheDay=="night"?
                             <button key={Math.random()}><FontAwesomeIcon icon={data.icon} /><br/>{data.text}</button>:null)
-  let dogSizeButtons=data.weights.map(data=>data.dogSize?<button>{data.dogSize}<br/>{data.weight}</button>:null)
+  let dogSizeButtons=data.weights.map(data=>data.dogSize?<button key={Math.random()>{data.dogSize}<br/>{data.weight}</button>:null)
   return(
     <form>
           <div className={classes.searchForm}>
@@ -70,7 +70,7 @@ class SearchForm extends Component{
             <div>
                 <div className={classes.oftenNeedService}>
                 <input type="radio" className={classes.radioRepeat} name="radios" id="first" onChange={this.handleOftenNeedServiceRadio} />
-                      <label for="first"><FontAwesomeIcon icon='calculator' className={classes.fontAwesome}/>One Time</label>
+                      <label for="first"><FontAwesomeIcon icon='calculator' className={classes.fontAwesome} />One Time</label>
                 <input type="radio"  className={classes.radioRepeat} name="radios" id="second"/>
                         <label for="second"> <FontAwesomeIcon icon='sync' className={classes.fontAwesome}/> Repeat Weekly</label>
                 </div>
@@ -78,7 +78,7 @@ class SearchForm extends Component{
                   For what dates?
                   <DatePickerField firstField="Start date" secondField='End date'/>
                 </div>
-                
+
             </div>
 
             <div className={classes.dogSize}>
