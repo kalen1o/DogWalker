@@ -51,10 +51,9 @@ class Firebase {
     user = uid => this.db.ref(`users/${uid}`);
 
     // *** Storage API ***
-    uploadProfileImage = async (image, getUrl) => {
+    uploadProfileImage = (image, getUrl) => {
         const UploadTask = this.storage.ref(`profileImages/${image.name}`).put(image);
-        console.log(UploadTask, 'here')
-        await UploadTask.on('state_changed', 
+        UploadTask.on('state_changed', 
         (snapshot) => {
             //progress
         },
@@ -63,7 +62,7 @@ class Firebase {
         },
         () => {
             this.storage.ref('profileImages').child(image.name).getDownloadURL().then(url => {
-                console.log(url, '2')
+                console.log(url, '1')
                 getUrl(`${url}`)
             })
         })

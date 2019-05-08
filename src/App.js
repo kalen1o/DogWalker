@@ -53,6 +53,7 @@ class App extends Component {
         <Header />
         <div className="content-wrapper">
           <Switch>
+            <Route path="/" component = { MainContent } exact />
             <Route path="/signup" component = { SignUp } exact />
             <Route path="/registration" component = { Registration } exact />
             <Route path="/create-pet" component = { CreatePet } exact />
@@ -60,7 +61,6 @@ class App extends Component {
             <Route path="/password-forget" component = { PasswordForgetPage } exact />
             <Route path="/account" component = { Account } exact />
           </Switch>
-          <MainContent />
           </div>
       </BrowserRouter>
     );

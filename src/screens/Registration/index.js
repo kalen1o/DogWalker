@@ -32,7 +32,7 @@ class RegistrationBase extends Component {
 	}
 
 	render() {
-		console.log(this.state)
+		console.log(this.state, 'here')
 		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
 			<div className={classes["form-holder"]}>
@@ -48,39 +48,35 @@ class RegistrationBase extends Component {
 						}}
 						validationSchema={RegistrationSchema}
 						onSubmit={ async ( values, { resetForm } ) => {
-							await console.log(values, '1')
-							if (this.state.image) {
-								await this.props.firebase.uploadProfileImage(this.state.image, this.handleGetUrl);
+							try {
+								if (this.state.image) {
+									await this.props.firebase.uploadProfileImage(this.state.image, this.handleGetUrl);
+								}
+								console.log('2')
+								let createAuthWalker = await this.props.firebase.doCreateUserWithEmailAndPassword(values.email, values.password)
+								console.log(this.state.imageUrl, 'imageUrl')
+								await createAuthWalker.user.updateProfile({
+									displayName: `${values.firstname} ${values.lastname}`,
+									photoURL: this.state.imageUrl
+								})
+								await this.props.firebase
+									.user(createAuthWalker.user.uid)
+									.set({
+										name: `${values.firstname} ${values.lastname}`,
+										email: values.email,
+										city: values.city
+									})
+								await resetForm({
+									firstname: '',
+									lastname: '',
+									city: '',
+									email: '',
+									password: ''
+								})
+								await this.props.history.push("/")
+							} catch (error) {
+								console.log(error)
 							}
-							await this.props.firebase
-								.doCreateUserWithEmailAndPassword(values.email, values.password)
-								.then((authWalker) => {
-									console.log(authWalker, '3')
-									authWalker.user.updateProfile({
-										displayName: `${values.firstname} ${values.lastname}`,
-										photoURL: this.state.imageUrl
-									})
-									return this.props.firebase
-										.user(authWalker.user.uid)
-										.set({
-											name: `${values.firstname} ${values.lastname}`,
-											email: values.email,
-											city: values.city
-										})
-								})
-								.then(() => {
-									resetForm({
-										firstname: '',
-										lastname: '',
-										city: '',
-										email: '',
-										password: ''
-									})
-									this.props.history.push("/")
-								})
-								.catch(error => {
-									console.log(error)
-								})
 						}}
 						render={({errors, touched}) => (
 							<Form>
