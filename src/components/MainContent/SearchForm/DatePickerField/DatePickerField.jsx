@@ -42,7 +42,11 @@ class DatePickerField extends Component{
           startDate={this.state.startDate}
           endDate={this.state.endDate}
           onChange={this.handleChangeStart}
-          placeholderText="Drop off"
+          placeholderText={this.props.firstField}
+          dateFormat="MMMM d, yyyy "
+          dayClassName={date => date.getDate() <  31 ? classes.dayColor : undefined}
+          minDate={new Date()}
+
 
       />
     <FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/>
@@ -56,7 +60,10 @@ class DatePickerField extends Component{
         startDate={this.state.startDate}
         endDate={this.state.endDate}
         onChange={this.handleChangeEnd}
-        placeholderText="Pick up"
+        placeholderText={this.props.secondField}
+        dateFormat="MMMM d, yyyy "
+        dayClassName={date => date.getDate() <=  31 ? classes.dayColor : undefined}
+
   />
   <FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/>
     </div>
