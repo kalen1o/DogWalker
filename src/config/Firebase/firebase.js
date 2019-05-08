@@ -55,7 +55,7 @@ class Firebase {
         const UploadTask = this.storage.ref(`profileImages/${image.name}`).put(image);
         UploadTask.on('state_changed', 
         (snapshot) => {
-            //progress
+            console.log(snapshot)
         },
         (error) => {
             console.log(error)

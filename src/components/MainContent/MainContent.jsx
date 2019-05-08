@@ -7,7 +7,7 @@ const MainContent =()=>{
   return(
     <div>
       <div className={classes.localLovingPetCare}>
-      <h1>Local, Loving Pet Care </h1>
+      <h1 className={classes.h1}>Local, Loving Pet Care </h1>
       <h2>Book trusted sitters and dog walkers who'll <br/>treat your pets like family.</h2>
         <SearchForm />
       </div>

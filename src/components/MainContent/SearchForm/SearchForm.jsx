@@ -22,7 +22,7 @@ let SearchForm =()=>{
                                     :null  );
   let dogButtonsNight=data.dog.map(data=> data.timeOfTheDay=="night"?
                             <button key={Math.random()}><FontAwesomeIcon icon={data.icon} /><br/>{data.text}</button>:null)
-  let dogSizeButtons=data.weights.map(data=>data.dogSize?<button>{data.dogSize}<br/>{data.weight}</button>:null)
+  let dogSizeButtons=data.weights.map(data=>data.dogSize?<button key={Math.random()}>{data.dogSize}<br/>{data.weight}</button>:null)
   return(
     <form>
           <div className={classes.searchForm}>

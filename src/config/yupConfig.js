@@ -56,3 +56,10 @@ export const ChangeSchema = Yup.object().shape({
 		.min(8, "Must be longer than 8 characters")
 		.required("Required")
 })
+
+export const InfoChangeSchema = Yup.object().shape({
+	city: Yup.string()
+		.matches(/^[a-zA-Z]+$/, {
+			message: 'Please specify a valid city name.'
+		})
+})

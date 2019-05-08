@@ -11,7 +11,7 @@ library.add(faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat )
 
 let ServicesForEveryDogAndCat=()=>{
   let servicesList=data.dog.map(data=> <div className={classes.descriptionColumn}><FontAwesomeIcon className={classes.iconServices}icon={data.icon}/>
-                                        <div className={classes.descriptionBlock}><label>{data.text}</label>
+                                        <div className={classes.descriptionBlock}><label className={classes.label}>{data.text}</label>
                                         <div className={classes.description}>{data.description}</div></div></div>)
 
 
