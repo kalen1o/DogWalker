@@ -1,20 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classes from './SearchForm.module.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat, faLongArrowAltRight, faSync, faCalculator } from '@fortawesome/free-solid-svg-icons';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePickerField from './DatePickerField/DatePickerField';
 import data from './../../constants/data'
 
 
-library.add(faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat )
+library.add(faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
 
 
 
 
-let SearchForm =()=>{
+class SearchForm extends Component{
+  constructor(props) {
+    super(props);
+    this.state={
+      oneTimeDateDisplay: "none",
+      repeatWeeklyDisplayDays: "none"
+    }
+  }
+  handleOftenNeedServiceRadio=()=>{
+      this.setState({oneTimeDateDisplay: "block"})
+  }
+
+  render(){
+    console.log(this.state.dateDisplay)
 
   let dogButtonsDay=data.dog.map(data=> data.timeOfTheDay=="day"?
                             <button key={Math.random()}>
@@ -22,13 +35,18 @@ let SearchForm =()=>{
                                     :null  );
   let dogButtonsNight=data.dog.map(data=> data.timeOfTheDay=="night"?
                             <button key={Math.random()}><FontAwesomeIcon icon={data.icon} /><br/>{data.text}</button>:null)
+<<<<<<< HEAD
   let dogSizeButtons=data.weights.map(data=>data.dogSize?<button key={Math.random()}>{data.dogSize}<br/>{data.weight}</button>:null)
+=======
+  let dogSizeButtons=data.weights.map(data=>data.dogSize?<button key={Math.random()>{data.dogSize}<br/>{data.weight}</button>:null)
+>>>>>>> 2ef88e1dd92ad772402a3e7c1de219b0f9f5c231
   return(
     <form>
           <div className={classes.searchForm}>
             <div className={classes.checkbox}>
-              <label><input type="checkbox"/> Dog</label>
-              <label><input type="checkbox"/> Cat</label>
+            I'm looking for service for my:
+              <label> <input type="checkbox"/> Dog</label>
+              <label> <input type="checkbox"/> Cat</label>
             </div>
 
             <div className={classes.categoryButtons}>
@@ -49,8 +67,22 @@ let SearchForm =()=>{
               </div>
               <div className={classes.calendar}>
                 <p> For these days</p>
-                <DatePickerField />
+                <DatePickerField firstField="Drop Off" secondField='Pick up'/>
               </div>
+            </div>
+
+            <div>
+                <div className={classes.oftenNeedService}>
+                <input type="radio" className={classes.radioRepeat} name="radios" id="first" onChange={this.handleOftenNeedServiceRadio} />
+                      <label for="first"><FontAwesomeIcon icon='calculator' className={classes.fontAwesome} />One Time</label>
+                <input type="radio"  className={classes.radioRepeat} name="radios" id="second"/>
+                        <label for="second"> <FontAwesomeIcon icon='sync' className={classes.fontAwesome}/> Repeat Weekly</label>
+                </div>
+                <div className={classes.whatDates} style={{display:this.state.oneTimeDateDisplay}}>
+                  For what dates?
+                  <DatePickerField firstField="Start date" secondField='End date'/>
+                </div>
+
             </div>
 
             <div className={classes.dogSize}>
@@ -63,7 +95,8 @@ let SearchForm =()=>{
 
           </div>
       </form>
-  )
+    )
+  }
 }
 
 export default SearchForm
