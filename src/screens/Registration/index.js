@@ -20,10 +20,15 @@ class RegistrationBase extends Component {
 	}
 
 	handleFiles = (event) => {
-		let fileReader = new window.FileReader()
-		fileReader.readAsDataURL(event.target.files[0])
-		fileReader.onload = ( event ) => {
-			this.setState({imageSrc: event.target.result})
+		let fileReader = new FileReader()
+		console.log(event.target.files, 'files')
+		if (event.target.files[0]) {
+			fileReader.readAsDataURL(event.target.files[0])
+			fileReader.onload = ( event ) => {
+				this.setState({imageSrc: event.target.result})
+			}
+		} else {
+			this.setState({imageSrc: ''})
 		}
 	}
 
@@ -144,7 +149,7 @@ class RegistrationBase extends Component {
 
 								<div className={classes["input-wrapper"]}>
 									<input type="file" onChange={this.handleFiles.bind(this)} />
-									<img src={this.state.imageSrc} className={classes.file}/>
+									<img src={this.state.imageSrc} className={classes.file} alt="" />
 								</div>
 
 								<button type="submit" className={classes.btn}>Sign up</button>

@@ -3,7 +3,6 @@ import classes from './SearchForm.module.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat, faLongArrowAltRight, faSync, faCalculator } from '@fortawesome/free-solid-svg-icons';
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePickerField from './DatePickerField/DatePickerField';
 import data from './../../constants/data'
