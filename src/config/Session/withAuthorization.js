@@ -23,7 +23,7 @@ const withAuthorization = condition => Component => {
 		return (
 			<AuthWalkerContext.Consumer>
 				{authWalker => 
-					condition(authWalker) ? <Component {...this.props} /> : null
+					condition(authWalker) ? <Component {...this.props} authWalker={authWalker} /> : null
 				}
 			</AuthWalkerContext.Consumer>
 		)

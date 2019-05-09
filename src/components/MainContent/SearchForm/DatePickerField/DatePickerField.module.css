@@ -23,10 +23,10 @@
     cursor:pointer;
     width: 0;
 }
-.dayColor{
+.dayColor {
   color:  #00bd70;
   font-size: 14px;
 }
-.react-datepicker__day--disabled{
+.dayColor-disabled {
   color: grey;
 }

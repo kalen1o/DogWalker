@@ -20,7 +20,8 @@ class SignInFacebookBase extends Component {
 								.user(socialAuthWalker.user.uid)
 								.set({
 									name: socialAuthWalker.user.displayName,
-									email: socialAuthWalker.user.email
+									email: socialAuthWalker.user.email,
+									city: socialAuthWalker.additionalUserInfo.profile.location.name
 								})
 						})
 						.then(() => {

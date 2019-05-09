@@ -12,23 +12,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class RegistrationBase extends Component {
 	state = {
 		showPassword: false,
-		image: null,
-		imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b'
+		imageSrc: ''
 	}
 
 	handleShowPassword = () => {
 		this.setState({showPassword: !this.state.showPassword})
 	}
 
-	handleChange = (event) => {
-		if(event.target.files[0]) {
-			const image = event.target.files[0];
-			this.setState({ image })
+	handleFiles = (event) => {
+		let fileReader = new window.FileReader()
+		fileReader.readAsDataURL(event.target.files[0])
+		fileReader.onload = ( event ) => {
+			this.setState({imageSrc: event.target.result})
 		}
-	}
-
-	handleGetUrl = (imageUrl) => {
-		this.setState({ imageUrl })
 	}
 
 	render() {
@@ -47,36 +43,36 @@ class RegistrationBase extends Component {
 							password: ''
 						}}
 						validationSchema={RegistrationSchema}
-						onSubmit={ async ( values, { resetForm } ) => {
-							try {
-								if (this.state.image) {
-									await this.props.firebase.uploadProfileImage(this.state.image, this.handleGetUrl);
-								}
-								console.log('2')
-								let createAuthWalker = await this.props.firebase.doCreateUserWithEmailAndPassword(values.email, values.password)
-								console.log(this.state.imageUrl, 'imageUrl')
-								await createAuthWalker.user.updateProfile({
-									displayName: `${values.firstname} ${values.lastname}`,
-									photoURL: this.state.imageUrl
-								})
-								await this.props.firebase
-									.user(createAuthWalker.user.uid)
-									.set({
-										name: `${values.firstname} ${values.lastname}`,
-										email: values.email,
-										city: values.city
+						onSubmit={ ( values, { resetForm } ) => {
+							this.props.firebase
+								.doCreateUserWithEmailAndPassword(values.email, values.password)
+								.then((authWalker) => {
+									console.log(authWalker, '3')
+									authWalker.user.updateProfile({
+										displayName: `${values.firstname} ${values.lastname}`
 									})
-								await resetForm({
-									firstname: '',
-									lastname: '',
-									city: '',
-									email: '',
-									password: ''
+									return this.props.firebase
+										.user(authWalker.user.uid)
+										.set({
+											name: `${values.firstname} ${values.lastname}`,
+											email: values.email,
+											city: values.city,
+											photo: this.state.imageSrc ? this.state.imageSrc : 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b'
+										})
 								})
-								await this.props.history.push("/")
-							} catch (error) {
-								console.log(error)
-							}
+								.then(() => {
+									resetForm({
+										firstname: '',
+										lastname: '',
+										city: '',
+										email: '',
+										password: ''
+									})
+									this.props.history.push("/")
+								})
+								.catch(error => {
+									console.log(error)
+								})
 						}}
 						render={({errors, touched}) => (
 							<Form>
@@ -147,7 +143,8 @@ class RegistrationBase extends Component {
 								</div>
 
 								<div className={classes["input-wrapper"]}>
-									<input className={classes["input-file"]} type="file" onChange={this.handleChange.bind(this)}/>
+									<input type="file" onChange={this.handleFiles.bind(this)} />
+									<img src={this.state.imageSrc} className={classes.file}/>
 								</div>
 
 								<button type="submit" className={classes.btn}>Sign up</button>

@@ -7,35 +7,15 @@ import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../config/Firebase';
 import { InfoChangeSchema } from '../../config/yupConfig';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 class InfoChangeBase extends Component {
-	state = {
-		info: {}
-	}
-
-	componentWillMount() {
-		this.props.firebase.user(this.props.authWalker.uid).on('value', snapshot => {
-			const userInfo = snapshot.val()
-			console.log(userInfo)
-			this.setState({
-				info: userInfo
-			})
-		})
-	}
-
-	componentWillUnmount() {
-		this.props.firebase.user().off();
-	}
 	render() {
-		console.log(this.state)
 		return (
 			<div className={classes["info-change-form-wrapper"]}>
 				<h1 className={classes.h1}>Change account info</h1>
 				<div className={classes["info-change-form-holder"]}></div>
 				<Formik
 					initialValues={{
-						city: ''
+						city: this.props.authWalkerInfo.city
 					}}
 					validationSchema={InfoChangeSchema}
 					onSubmit={values => {

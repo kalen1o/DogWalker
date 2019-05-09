@@ -44,7 +44,7 @@ class DatePickerField extends Component{
           onChange={this.handleChangeStart}
           placeholderText={this.props.firstField}
           dateFormat="MMMM d, yyyy "
-          dayClassName={date => date.getDate() <  31 ? classes.dayColor : undefined}
+          dayClassName={date => date.getTime() + 8.64e+7 > new Date().getTime() ? classes.dayColor : classes["dayColor-disabled"]}
           minDate={new Date()}
 
 

@@ -4,7 +4,6 @@ import classes from './SignIn.module.css';
 import { Formik, Form, Field } from "formik";
 import { SignInSchema } from '../../config/yupConfig';
 
-import SignInGoogle from '../../components/SignInGoogle';
 import SignInFacebook from '../../components/SignInFacebook';
 import { SignUpLink } from '../Registration';
 import { PasswordForgetLink } from '../PasswordForget';
@@ -27,7 +26,6 @@ class SignInBase extends Component {
 			<div className={classes["signin-form-holder"]}>
 				<h1 className={classes.h1}>Sign in to DogWalker</h1>
 				<div className={classes["signin-form-wrapper"]}>
-					<SignInGoogle />
 					<SignInFacebook />
 					<h6 className={classes.h6}>— or —</h6>
 					<Formik

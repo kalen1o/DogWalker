@@ -35,11 +35,7 @@ class SearchForm extends Component{
                                     :null  );
   let dogButtonsNight=data.dog.map(data=> data.timeOfTheDay=="night"?
                             <button key={Math.random()}><FontAwesomeIcon icon={data.icon} /><br/>{data.text}</button>:null)
-<<<<<<< HEAD
   let dogSizeButtons=data.weights.map(data=>data.dogSize?<button key={Math.random()}>{data.dogSize}<br/>{data.weight}</button>:null)
-=======
-  let dogSizeButtons=data.weights.map(data=>data.dogSize?<button key={Math.random()>{data.dogSize}<br/>{data.weight}</button>:null)
->>>>>>> 2ef88e1dd92ad772402a3e7c1de219b0f9f5c231
   return(
     <form>
           <div className={classes.searchForm}>
@@ -74,9 +70,9 @@ class SearchForm extends Component{
             <div>
                 <div className={classes.oftenNeedService}>
                 <input type="radio" className={classes.radioRepeat} name="radios" id="first" onChange={this.handleOftenNeedServiceRadio} />
-                      <label for="first"><FontAwesomeIcon icon='calculator' className={classes.fontAwesome} />One Time</label>
+                      <label htmlFor="first"><FontAwesomeIcon icon='calculator' className={classes.fontAwesome} />One Time</label>
                 <input type="radio"  className={classes.radioRepeat} name="radios" id="second"/>
-                        <label for="second"> <FontAwesomeIcon icon='sync' className={classes.fontAwesome}/> Repeat Weekly</label>
+                        <label htmlFor="second"> <FontAwesomeIcon icon='sync' className={classes.fontAwesome}/> Repeat Weekly</label>
                 </div>
                 <div className={classes.whatDates} style={{display:this.state.oneTimeDateDisplay}}>
                   For what dates?
