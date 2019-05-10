@@ -21,6 +21,20 @@
 	margin-bottom: 20px;
 }
 
+.checkboxes-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 0;
+}
+
+.box {
+	width: calc(20% - 5px);
+	text-align: center;
+	position: relative;
+}
+
 .label {
 	display: block;
 	margin-bottom: 5px;

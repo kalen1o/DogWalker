@@ -12,6 +12,8 @@ import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../config/Firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { toast } from 'react-toastify';
+
 class SignInBase extends Component {
 	state = {
 		showPassword: false
@@ -50,7 +52,7 @@ class SignInBase extends Component {
 											email: values.email,
 											password: ''
 										})
-										console.log(error)
+										toast.error(`${error.message}`)
 									})
 						}}
 						render={({errors, touched}) => (

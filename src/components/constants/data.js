@@ -12,10 +12,10 @@
     {text:"Drop-In Visits" , icon: "walking" }
   ],
   weights:[
-    { dogSize:" Small", weight:"0-6 kg"},
-    { dogSize:" Medium", weight:"7-18 kg"},
-    {dogSize:" Large" , weight:"19-45 kg"},
-    {dogSize:" Giant", weight:"46+ kg"}
+    {dogSize:"Small", weight:"0-6 kg"},
+    {dogSize:"Medium", weight:"7-18 kg"},
+    {dogSize:"Large" , weight:"19-45 kg"},
+    {dogSize:"Giant", weight:"46+ kg"}
   ]
 }
 

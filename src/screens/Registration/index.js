@@ -4,10 +4,15 @@ import { Formik, Form, Field } from "formik";
 import { RegistrationSchema } from '../../config/yupConfig';
 import {Link, withRouter} from 'react-router-dom';
 
+import Checkbox from '../../components/ReusableComponents/Checkbox';
+import data from '../../components/constants/data'
+
 import { withFirebase } from '../../config/Firebase';
 import { compose } from 'recompose';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { toast } from 'react-toastify';
 
 class RegistrationBase extends Component {
 	state = {
@@ -33,7 +38,13 @@ class RegistrationBase extends Component {
 	}
 
 	render() {
-		console.log(this.state, 'here')
+		console.log(data.dog, 'here')
+		let services = data.dog.map(item => (
+			<Checkbox name="checkboxes" value={item.text} icon={item.icon} box={classes.box} key={item.text}/>
+		))
+		let dogSizes = data.weights.map(item => (
+			<Checkbox name="dogSizes" value={item.dogSize} text={item.weight} box={classes.box} key={item.dogSize} />
+		))
 		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
 			<div className={classes["form-holder"]}>
@@ -44,11 +55,14 @@ class RegistrationBase extends Component {
 							firstname: '',
 							lastname: '',
 							city: '',
+							checkboxes: [],
+							dogSizes: [],
 							email: '',
 							password: ''
 						}}
 						validationSchema={RegistrationSchema}
 						onSubmit={ ( values, { resetForm } ) => {
+							console.log(values)
 							this.props.firebase
 								.doCreateUserWithEmailAndPassword(values.email, values.password)
 								.then((authWalker) => {
@@ -62,7 +76,9 @@ class RegistrationBase extends Component {
 											name: `${values.firstname} ${values.lastname}`,
 											email: values.email,
 											city: values.city,
-											photo: this.state.imageSrc ? this.state.imageSrc : 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b'
+											photo: this.state.imageSrc ? this.state.imageSrc : 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b',
+											services: values.checkboxes,
+											dogSizes: values.dogSizes
 										})
 								})
 								.then(() => {
@@ -70,13 +86,15 @@ class RegistrationBase extends Component {
 										firstname: '',
 										lastname: '',
 										city: '',
+										checkboxes: [],
+										dogSizes: [],
 										email: '',
 										password: ''
 									})
 									this.props.history.push("/")
 								})
 								.catch(error => {
-									console.log(error)
+									toast.error(`${error.message}`)
 								})
 						}}
 						render={({errors, touched}) => (
@@ -108,7 +126,7 @@ class RegistrationBase extends Component {
 								</div>
 
 								<div className={classes["input-wrapper"]}>
-									<label htmlFor="walkerCity" className={classes.label}>City</label>
+									<label htmlFor="walkerCity" className={classes.label}>City or Adress</label>
 									<Field
 										id="walkerCity"
 										className={classes.input}
@@ -117,6 +135,26 @@ class RegistrationBase extends Component {
 									/>
 									{errors.city && touched.city && (
 										<div className={classes.error}>{errors.city}</div>
+									)}
+								</div>
+
+								<div className={classes["input-wrapper"]}>
+									<label className={classes.label}>Services</label>
+									<div className={classes["checkboxes-wrapper"]}>
+										{services}
+									</div>
+									{errors.checkboxes && touched.checkboxes && (
+										<div className={classes.error}>{errors.checkboxes}</div>
+									)}
+								</div>
+
+								<div className={classes["input-wrapper"]}>
+									<label className={classes.label}>Dog sizes</label>
+									<div className={classes["checkboxes-wrapper"]}>
+										{dogSizes}
+									</div>
+									{errors.dogSizes && touched.dogSizes && (
+										<div className={classes.error}>{errors.dogSizes}</div>
 									)}
 								</div>
 

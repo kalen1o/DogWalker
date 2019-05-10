@@ -13,6 +13,10 @@ export const RegistrationSchema = Yup.object().shape({
 		}),
 	city: Yup.string()
 		.required("Required"),
+	checkboxes: Yup.array()
+		.required('At least one service is required'),
+	dogSizes: Yup.array()
+		.required('At least one size is required'),
 	email: Yup.string()
 		.email("Please specify a valid email.")
 		.required("Required"),
@@ -59,7 +63,9 @@ export const ChangeSchema = Yup.object().shape({
 
 export const InfoChangeSchema = Yup.object().shape({
 	city: Yup.string()
-		.matches(/^[a-zA-Z]+$/, {
-			message: 'Please specify a valid city name.'
-		})
+		.required("Required"),
+	checkboxes: Yup.array()
+		.required('At least one service is required'),
+	dogSizes: Yup.array()
+		.required('At least one size is required'),
 })

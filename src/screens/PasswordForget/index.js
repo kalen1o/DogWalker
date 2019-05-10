@@ -9,6 +9,8 @@ import { withRouter } from 'react-router-dom';
 
 import { withFirebase } from '../../config/Firebase';
 
+import { toast } from 'react-toastify';
+
 class PasswordForgetBase extends Component {
 	render() {
 		return (
@@ -27,6 +29,9 @@ class PasswordForgetBase extends Component {
 									email: ''
 								})
 								this.props.history.push("/signin")
+							})
+							.catch(error => {
+								toast.error(`${error.message}`)
 							})
 					}}
 					render={({errors, touched}) => (

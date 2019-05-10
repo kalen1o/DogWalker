@@ -8,6 +8,8 @@ import { withFirebase } from '../../config/Firebase';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { toast } from 'react-toastify';
+
 class SignInFacebookBase extends Component {
 	render() {
 		return (
@@ -21,14 +23,16 @@ class SignInFacebookBase extends Component {
 								.set({
 									name: socialAuthWalker.user.displayName,
 									email: socialAuthWalker.user.email,
-									city: socialAuthWalker.additionalUserInfo.profile.location.name
+									city: socialAuthWalker.additionalUserInfo.profile.location.name,
+									services: [ "Dog Boarding", "House Sitting", "Drop-In Visits", "Doggy Day Care", "Dog Walking" ],
+									dogSizes: [ "Small", "Medium", "Large", "Giant" ]
 								})
 						})
 						.then(() => {
 							this.props.history.push("/")
 						})
 						.catch(error => {
-							console.log(error)
+							toast.error(`${error.message}`)
 						})
 				}}
 				render={() => (

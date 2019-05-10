@@ -8,7 +8,7 @@ import DatePickerField from './DatePickerField/DatePickerField';
 import data from './../../constants/data'
 
 
-library.add(faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
+library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
 
 
 

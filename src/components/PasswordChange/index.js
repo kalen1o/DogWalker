@@ -9,6 +9,8 @@ import { ChangeSchema } from '../../config/yupConfig';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { toast } from 'react-toastify';
+
 class PasswordChangeBase extends Component {
 	state = {
 		showPassword: false
@@ -40,7 +42,7 @@ class PasswordChangeBase extends Component {
 								})
 							})
 							.catch(error => {
-								console.log(error)
+								toast.error(`${error.message}`)
 							})
 					}}
 					render={({errors, touched}) => (

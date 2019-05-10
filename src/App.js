@@ -3,6 +3,9 @@ import './App.css';
 import { compose } from 'recompose';
 import { withAuthentication } from './config/Session';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import {Provider, connect}   from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
@@ -27,6 +30,15 @@ import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCirc
 library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes, faEye, faEyeSlash);
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
+
+toast.configure({
+  position: "top-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true
+})
 
 class App extends Component {
   state= {
