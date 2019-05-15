@@ -18,6 +18,9 @@ import Header from './components/Header';
 import SignUp from './screens/SignUp';
 import MainContent from './components/MainContent/MainContent';
 
+import Footer from './components/Footer/Footer';
+
+
 import Registration from './screens/Registration';
 import CreatePet from './screens/CreatePet';
 import SignIn from './screens/SignIn';
@@ -76,6 +79,7 @@ class App extends Component {
             <Route path="/search" component = { Search } exact />
           </Switch>
           </div>
+          <Footer />
       </BrowserRouter>
     );
   }
