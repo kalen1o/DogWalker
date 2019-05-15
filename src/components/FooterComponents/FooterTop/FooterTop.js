@@ -54,7 +54,7 @@ class FooterTop extends Component {
         ],
 
         listTopCities2: [
-            { id: 1, title: <span>.</span>},
+            { id: 1, title: <span className={classes.span}>.</span>},
             { id: 15, content: 'Poltava' },
             { id: 16, content: 'Rivne' },
             { id: 17, content: 'Sevastopol' },
