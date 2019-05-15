@@ -26,7 +26,6 @@ class RegistrationBase extends Component {
 
 	handleFiles = (event) => {
 		let fileReader = new FileReader()
-		console.log(event.target.files, 'files')
 		if (event.target.files[0]) {
 			fileReader.readAsDataURL(event.target.files[0])
 			fileReader.onload = ( event ) => {
@@ -43,7 +42,7 @@ class RegistrationBase extends Component {
 			<Checkbox name="checkboxes" value={item.text} icon={item.icon} box={classes.box} key={item.text}/>
 		))
 		let dogSizes = data.weights.map(item => (
-			<Checkbox name="dogSizes" value={item.dogSize} text={item.weight} box={classes.box} key={item.dogSize} />
+			<Checkbox name="dogSizes" value={item.dogSize} text={item.weight} box={classes["box-dog"]} key={item.dogSize} />
 		))
 		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
@@ -55,6 +54,7 @@ class RegistrationBase extends Component {
 							firstname: '',
 							lastname: '',
 							city: '',
+							salary: 10,
 							checkboxes: [],
 							dogSizes: [],
 							email: '',
@@ -76,6 +76,7 @@ class RegistrationBase extends Component {
 											name: `${values.firstname} ${values.lastname}`,
 											email: values.email,
 											city: values.city,
+											salary: values.salary,
 											photo: this.state.imageSrc ? this.state.imageSrc : 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b',
 											services: values.checkboxes,
 											dogSizes: values.dogSizes
@@ -86,6 +87,7 @@ class RegistrationBase extends Component {
 										firstname: '',
 										lastname: '',
 										city: '',
+										salary: 10,
 										checkboxes: [],
 										dogSizes: [],
 										email: '',
@@ -135,6 +137,19 @@ class RegistrationBase extends Component {
 									/>
 									{errors.city && touched.city && (
 										<div className={classes.error}>{errors.city}</div>
+									)}
+								</div>
+
+								<div className={classes["input-wrapper"]}>
+									<label htmlFor="walkerSalary" className={classes.label}>Salary</label>
+									<Field
+										id="walkerSalary"
+										className={classes.input}
+										name="salary"
+										type="number"
+									/>
+									{errors.salary && touched.salary && (
+										<div className={classes.error}>{errors.salary}</div>
 									)}
 								</div>
 

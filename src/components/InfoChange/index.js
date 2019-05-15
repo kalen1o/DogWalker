@@ -18,13 +18,15 @@ class InfoChangeBase extends Component {
 		let dogSizes = data.weights.map(item => (
 			<Checkbox name="dogSizes" value={item.dogSize} text={item.weight} box={classes.box} key={item.dogSize} />
 		))
+		let city = this.props.authWalkerInfo.city.split(",")[0]
 		return (
 			<div className={classes["info-change-form-wrapper"]}>
 				<h1 className={classes.h1}>Set account info</h1>
 				<div className={classes["info-change-form-holder"]}></div>
 				<Formik
 					initialValues={{
-						city: this.props.authWalkerInfo.city,
+						city: city,
+						salary: this.props.authWalkerInfo.salary,
 						checkboxes: this.props.authWalkerInfo.services,
 						dogSizes: this.props.authWalkerInfo.dogSizes
 					}}
@@ -34,6 +36,7 @@ class InfoChangeBase extends Component {
 							.user(this.props.authWalker.uid)
 								.update({
 									city: values.city,
+									salary: values.salary,
 									services: values.checkboxes,
 									dogSizes: values.dogSizes
 						})
@@ -50,6 +53,19 @@ class InfoChangeBase extends Component {
 								/>
 								{errors.city && touched.city && (
 									<div className={classes.error}>{errors.city}</div>
+								)}
+							</div>
+
+							<div className={classes["input-wrapper"]}>
+								<label htmlFor="walkerSalaryChange" className={classes.label}>Salary</label>
+								<Field
+									id="walkerSalaryChange"
+									className={classes.input}
+									name="salary"
+									type="number"
+								/>
+								{errors.salary && touched.salary && (
+									<div className={classes.error}>{errors.salary}</div>
 								)}
 							</div>
 

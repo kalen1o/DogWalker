@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import classes from './Account.module.css';
 
-import PasswordChange from '../../components/PasswordChange';
+import ProfileImageChange from '../../components/ProfileImageChange';
 import InfoChange from '../../components/InfoChange';
+import PasswordChange from '../../components/PasswordChange';
+import ButtonDeleteAccount from '../../components/ButtonDeleteAccount';
 
 import { withAuthorization } from '../../config/Session'; //protected routing
 
@@ -40,16 +42,12 @@ class Account extends Component {
 		console.log(this.state, 'here acc')
 		return (
 			<div className={classes.account}>
-				<h1 className={classes.h1}>
-					{
-						this.props.authWalker.providerData[0].providerId === 'password' ? 
-							<img src={`${this.state.info.photo}`} alt={this.props.authWalker.displayName} className={classes.avatar} /> : 
-							<img src={`${this.props.authWalker.photoURL}`} alt={this.props.authWalker.displayName} className={classes.avatar}/>
-					}
-					{this.props.authWalker.displayName}
-				</h1>
-				<InfoChange authWalkerInfo={this.state.info} authWalker={this.props.authWalker}/>
+				<div className={classes["account-info"]}>
+					<ProfileImageChange profileImage={this.state.info.photo} authWalker={this.props.authWalker} />
+					<InfoChange authWalkerInfo={this.state.info} authWalker={this.props.authWalker}/>
+				</div>
 				<PasswordChange />
+				<ButtonDeleteAccount authWalker={this.props.authWalker}/>
 			</div>
 		)
 	}

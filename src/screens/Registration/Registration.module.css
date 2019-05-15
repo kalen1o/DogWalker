@@ -38,6 +38,12 @@
 	margin-bottom: 20px;
 }
 
+.box-dog {
+	width: calc(25% - 5px);
+	text-align: center;
+	position: relative;
+}
+
 .eye {
 	border: none;
 	outline: none;

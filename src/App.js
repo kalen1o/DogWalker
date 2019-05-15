@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {Provider, connect}   from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './store/reducers/rootReducer';
+import searchReducer from './store/reducers/searchReducer';
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import createHistory from "history/createBrowserHistory";
@@ -23,13 +23,14 @@ import CreatePet from './screens/CreatePet';
 import SignIn from './screens/SignIn';
 import PasswordForgetPage from './screens/PasswordForget';
 import Account from './screens/Account';
+import Search from './screens/Search';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes, faEye, faEyeSlash);
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = createStore(searchReducer, applyMiddleware(thunk))
 
 toast.configure({
   position: "top-right",
@@ -59,7 +60,7 @@ class App extends Component {
     this.listener();
   }
   render() {
-    console.log(this.state, 'here Redux')
+    console.log(this.props, 'here Redux')
     return (
       <BrowserRouter history = {createHistory()}>
         <Header />
@@ -72,6 +73,7 @@ class App extends Component {
             <Route path="/signin" component = { SignIn } exact />
             <Route path="/password-forget" component = { PasswordForgetPage } exact />
             <Route path="/account" component = { Account } exact />
+            <Route path="/search" component = { Search } exact />
           </Switch>
           </div>
       </BrowserRouter>
@@ -82,7 +84,7 @@ class App extends Component {
 
 App = compose(
   withAuthentication,
-  connect(state => ({auth: state.auth}), null)
+  connect(state => ({walkers: state.walkers}), null)
 )(App)
 
 const AppWrapper = () => (
