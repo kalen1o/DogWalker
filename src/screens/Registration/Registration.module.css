@@ -75,6 +75,34 @@
 	color: #e5281a;
 }
 
+.file-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 14px;
+    color: white;
+	background-color: #14a96d;
+	padding: 10px 16px;
+	border: none;
+	border-radius: 4px;
+	display: inline-block;
+	cursor: pointer;
+}
+
 .btn {
 	width: 100%;
 	background-color: #14a96d;

@@ -22,7 +22,6 @@ import Footer from './components/Footer/Footer';
 
 
 import Registration from './screens/Registration';
-import CreatePet from './screens/CreatePet';
 import SignIn from './screens/SignIn';
 import PasswordForgetPage from './screens/PasswordForget';
 import Account from './screens/Account';
@@ -30,8 +29,8 @@ import Search from './screens/Search';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faDog, faUserCog, faUserTimes, faEye, faEyeSlash);
+import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload } from '@fortawesome/free-solid-svg-icons';
+library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload);
 
 const store = createStore(searchReducer, applyMiddleware(thunk))
 
@@ -72,7 +71,6 @@ class App extends Component {
             <Route path="/" component = { MainContent } exact />
             <Route path="/signup" component = { SignUp } exact />
             <Route path="/registration" component = { Registration } exact />
-            <Route path="/create-pet" component = { CreatePet } exact />
             <Route path="/signin" component = { SignIn } exact />
             <Route path="/password-forget" component = { PasswordForgetPage } exact />
             <Route path="/account" component = { Account } exact />
@@ -88,7 +86,7 @@ class App extends Component {
 
 App = compose(
   withAuthentication,
-  connect(state => ({walkers: state.walkers}), null)
+  connect(state => ({search: state.searchParam}), null)
 )(App)
 
 const AppWrapper = () => (

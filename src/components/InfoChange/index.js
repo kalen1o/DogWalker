@@ -9,6 +9,7 @@ import { InfoChangeSchema } from '../../config/yupConfig';
 
 import data from '../constants/data';
 import Checkbox from '../ReusableComponents/Checkbox';
+import DefaultInput from '../ReusableComponents/DefaultInput';
 
 class InfoChangeBase extends Component {
 	render() {
@@ -43,31 +44,9 @@ class InfoChangeBase extends Component {
 					}}
 					render={({errors, touched}) => (
 						<Form>
-							<div className={classes["input-wrapper"]}>
-								<label htmlFor="walkerCityChange" className={classes.label}>City</label>
-								<Field
-									id="walkerCityChange"
-									className={classes.input}
-									name="city"
-									type="text"
-								/>
-								{errors.city && touched.city && (
-									<div className={classes.error}>{errors.city}</div>
-								)}
-							</div>
+							<DefaultInput id="walkerCityChange" label="City" name="city" type="text" errors={errors} touched={touched} />
 
-							<div className={classes["input-wrapper"]}>
-								<label htmlFor="walkerSalaryChange" className={classes.label}>Salary</label>
-								<Field
-									id="walkerSalaryChange"
-									className={classes.input}
-									name="salary"
-									type="number"
-								/>
-								{errors.salary && touched.salary && (
-									<div className={classes.error}>{errors.salary}</div>
-								)}
-							</div>
+							<DefaultInput id="walkerSalaryChange" label="Salary" name="salary" type="number" errors={errors} touched={touched} />
 
 							<div className={classes["input-wrapper"]}>
 								<label className={classes.label}>Services</label>

@@ -4,6 +4,8 @@ import classes from './ProfileImageChange.module.css';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../config/Firebase';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 class ProfileImageChangeBase extends Component {
 	state = {
 		photo: this.props.profileImage
@@ -32,11 +34,14 @@ class ProfileImageChangeBase extends Component {
 		console.log(this.state)
 		return (
 			<div className={classes["profile-image-change-wrapper"]}>
-				<h1>
+				<h1 className={classes.h1}>
 					<img src={`${this.state.photo}`} alt={this.props.authWalker.displayName} className={classes.avatar} />
 					{this.props.authWalker.displayName}
 				</h1>
-				<input type="file" onChange={this.handleFiles.bind(this)} className={classes.input}/>
+				<input type="file" onChange={this.handleFiles.bind(this)} className={classes.inputfile} id="fileChange"/>
+				<label htmlFor="fileChange">
+					<FontAwesomeIcon icon="download" /> Choose a file
+				</label>
 				<button type="button" onClick={this.handleClick.bind(this)} className={classes.btn}>Set new avatar</button>
 			</div>
 		)

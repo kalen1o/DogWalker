@@ -6,7 +6,7 @@ import WalkersComponent from '../../components/WalkersComponent';
 class Search extends Component {
 	render() {
 		return (
-			<div>
+			<div className={classes["search-wrapper"]}>
 				<WalkersComponent />
 			</div>
 		)

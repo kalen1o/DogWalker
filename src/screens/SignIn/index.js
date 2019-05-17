@@ -5,6 +5,7 @@ import { Formik, Form, Field } from "formik";
 import { SignInSchema } from '../../config/yupConfig';
 
 import SignInFacebook from '../../components/SignInFacebook';
+import DefaultInput from '../../components/ReusableComponents/DefaultInput';
 import { SignUpLink } from '../Registration';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withRouter } from 'react-router-dom';
@@ -57,18 +58,7 @@ class SignInBase extends Component {
 						}}
 						render={({errors, touched}) => (
 							<Form>
-								<div className={classes["input-wrapper"]}>
-									<label htmlFor="signInEmail" className={classes.label}>Email</label>
-									<Field
-										id="signInEmail"
-										className={classes.input}
-										name="email"
-										type="email"
-									/>
-									{errors.email && touched.email && (
-										<div className={classes.error}>{errors.email}</div>
-									)}
-								</div>
+								<DefaultInput id="signInEmail" label="Email" name="email" type="email" errors={errors} touched={touched} />
 
 								<div className={classes["input-wrapper"]}>
 									<label htmlFor="signInPassword" className={classes.label}>Password</label>
