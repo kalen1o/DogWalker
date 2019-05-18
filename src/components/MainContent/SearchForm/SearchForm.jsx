@@ -22,7 +22,7 @@ library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSy
 
 const SearchForm=()=>(
   <>
-  <h1 >Some text</h1>
+  
   <div className={classes.searchFormContainer}>
       <Formik
         initialValues={{
