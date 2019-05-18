@@ -105,7 +105,7 @@ class RegistrationBase extends Component {
 								
 								<DefaultInput id="walkerLastName" label="Lastname" name="lastname" type="text" errors={errors} touched={touched} />
 
-								<DefaultInput id="walkerCity" label="City and Adress" name="city" type="text" errors={errors} touched={touched} />
+								<DefaultInput id="walkerCity" label="City" name="city" type="text" errors={errors} touched={touched} />
 
 								<DefaultInput id="walkerSalary" label="Salary" name="salary" type="number" errors={errors} touched={touched} />
 

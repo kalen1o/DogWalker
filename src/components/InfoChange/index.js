@@ -23,7 +23,6 @@ class InfoChangeBase extends Component {
 		return (
 			<div className={classes["info-change-form-wrapper"]}>
 				<h1 className={classes.h1}>Set account info</h1>
-				<div className={classes["info-change-form-holder"]}></div>
 				<Formik
 					initialValues={{
 						city: city,

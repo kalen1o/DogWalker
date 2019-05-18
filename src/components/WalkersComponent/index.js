@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './WalkersComponent.module.css';
 
 import { withFirebase } from '../../config/Firebase';
+import { Link } from 'react-router-dom';
 
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
@@ -58,11 +59,15 @@ class WalkersComponentBase extends Component {
 	render() {
 		const { walkers, loading } = this.state;
 		console.log(this.state, 'state')
-		return (
-			<div>
-				{!loading && <div className={classes.loading}>
+		if (!loading) {
+			return (
+				<div className={classes.loading}>
 					<img alt="loading" src="https://cdn.dribbble.com/users/238583/screenshots/3630870/lagif-grande.gif"/>
-				</div>}
+				</div>
+			)
+		}
+		return (
+			<div className={classes["walkers-holder"]}>
 				{walkers ? (
 					<div className={classes["walkers-wrapper"]}>
 						{walkers.map(( item, index ) => (
@@ -70,7 +75,7 @@ class WalkersComponentBase extends Component {
 								<img src={item.photo} alt={item.name} className={classes.avatar} />
 								<div className={classes["walker-info-wrapper"]}>
 									<div>
-										<h1 className={classes.h1}>{++index}. <span className={classes.name}>{item.name}</span></h1>
+										<h1 className={classes.h1}>{++index}. <Link to={`walker/${item.uid}`} className={classes.name}>{item.name}</Link></h1>
 										<p className={classes.city}>{item.city}</p>
 									</div>
 									<div>

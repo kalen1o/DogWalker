@@ -26,6 +26,7 @@ import SignIn from './screens/SignIn';
 import PasswordForgetPage from './screens/PasswordForget';
 import Account from './screens/Account';
 import Search from './screens/Search';
+import Walker from './screens/Walker';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -75,6 +76,7 @@ class App extends Component {
             <Route path="/password-forget" component = { PasswordForgetPage } exact />
             <Route path="/account" component = { Account } exact />
             <Route path="/search" component = { Search } exact />
+            <Route path="/walker/:uid" component = { Walker } exact />
           </Switch>
           </div>
           <Footer />

@@ -1,10 +1,10 @@
 .loading {
-	width: 100%;
 	text-align: center;
 }
 
 .walkers-wrapper {
 	width: 100%;
+	min-width: 320px;
 	padding: 10px;
 }
 
@@ -40,6 +40,7 @@
 }
 
 .name {
+	text-decoration: none;
 	color: #06748a;
 }
 
@@ -57,4 +58,14 @@
 .salary {
 	margin: 0;
 	font-weight: 700;
+}
+
+@media (min-width: 768px) {
+	.loading {
+		width: 50%;
+	}
+
+	.walkers-holder {
+		width: 50%;
+	}
 }
