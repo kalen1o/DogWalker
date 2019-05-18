@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './DatePickerField.module.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,67 +9,56 @@ import "react-datepicker/dist/react-datepicker.css";
 
 library.add( faCalendarAlt, faLongArrowAltRight )
 
-class DatePickerField extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: "",
-      endDate:  "",
-    };
-    // this.handleChange = this.handleChange.bind(this);
-  }
 
-  handleChangeStart=(date)=> {
-    this.setState({
-      startDate: date
-    });
-  }
-  handleChangeEnd=(date)=> {
-    this.setState({
-      endDate: date
-    });
-  }
+const DatePickerField=({
+  field: { name, value, onChange, onBlur },
+  form: { errors, touched, setFieldValue },
+  ...props
+}) =>{
+    return(
+                      <div className={classes.datePickerField}>
 
-  render(){
-    console.log(this.state)
-  return(
-    <div className={classes.datePickerField}>
-
-      <DatePicker
-          className={classes.datePicker}
-          selected={this.state.startDate}
-          selectsStart
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          onChange={this.handleChangeStart}
-          placeholderText={this.props.firstField}
-          dateFormat="MMMM d, yyyy "
-          dayClassName={date => date.getDate() <  31 ? classes.dayColor : undefined}
-          minDate={new Date()}
-
-
-      />
-    <FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/>
-    <div className={classes.arrow}>
-      <FontAwesomeIcon icon='long-arrow-alt-right'/>
-    </div>
-  <DatePicker
-        className={classes.datePicker}
-        selected={this.state.endDate}
-        selectsEnd
-        startDate={this.state.startDate}
-        endDate={this.state.endDate}
-        onChange={this.handleChangeEnd}
-        placeholderText={this.props.secondField}
-        dateFormat="MMMM d, yyyy "
-        dayClassName={date => date.getDate() <=  31 ? classes.dayColor : undefined}
-
-  />
-  <FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/>
-    </div>
-    )
-  }
+                            <DatePicker
+                                className={classes.datePicker}
+                                selected={value.startDate}
+                                selectsStart
+                                startDate={value.startDate}
+                                endDate={value.endDate}
+                                onChange={(e)=>{
+                                    setFieldValue('startDate',e)
+                                    // new Date(e).toLocaleDateString()
+                                } }
+                                placeholderText={props.firstField}
+                                dateFormat="MMMM d, yyyy "
+                                dayClassName={date => date.getTime() + 8.64e+7 >= new Date().getTime() ? classes.dayColor : classes["dayColor-disabled"]}
+                                minDate={new Date()}
+                                name='startDate'
+                            />
+                          <span><FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/></span>
+                          <div className={classes.arrow}>
+                            <FontAwesomeIcon icon='long-arrow-alt-right'/>
+                          </div>
+                        <DatePicker
+                              className={classes.datePicker}
+                              selected={value.endDate}
+                              selectsEnd
+                              startDate={value.startDate}
+                              endDate={value.endDate}
+                              onChange={(e)=>{
+                                  setFieldValue('endDate',e)
+                                  // new Date(e).toLocaleDateString()
+                              } }
+                              placeholderText={props.secondField}
+                              dateFormat="MMMM d, yyyy "
+                              dayClassName={date => date.getDate() <=  31 ? classes.dayColor : undefined}
+                              minDate={new Date()}
+                              name='endDate'
+                        />
+                        <span>  <FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/> </span>
+                          </div>
+  )
 }
 
 
-export default DatePickerField
+
+export default DatePickerField;

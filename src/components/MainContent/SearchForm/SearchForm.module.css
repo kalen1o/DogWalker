@@ -1,141 +1,105 @@
-.searchForm {
-  display: grid;
-  grid-template-areas:
-  'checkbox checkbox'
-  'categoryButtons categoryButtons'
-  'searchPanel searchPanel'
-  'oftenNeedService oftenNeedService'
-  'dogSize searchButton'
-  ;
-  grid-template-columns:  4fr 3fr;
-  background-color: white;
-  max-width: 800px;
+
+.searchFormContainer{
+  margin-top: 30px;
+  max-width: 850px;
+  box-sizing: border-box;
+  color: #1b1f23;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.searchFormBox{
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 15px 25px;
+  box-sizing: border-box;  
+}
+.petType{
+  background-color: #f4f5f6;
+  display: flex;
+  padding: 15px 30px 0;
+  margin: -15px -25px 0;
+  border-radius: inherit;
+  font-weight: 700;
+  text-align: center;
+}
+.submitButton {
+  background-color: #7FFFD4;
+}
+
+.buttonsBox {
   margin: 0 auto;
-  padding: 15px;
-  border-radius: 1%;
-  grid-row-gap: 10px;
-  color: black;
-  text-align: left;
-
-}
-
-.categoryButtons button{
-  padding: 10px;
-  border: 1px solid #A9A9A9;
-  border-radius: 5%;
-  margin-right:  5px;
-  background-color: transparent;
-  color: #696969;
-  text-decoration: none;
-  width: 140px;
-}
-.categoryButtons button:hover{
-  cursor: pointer;
-  color: black;
-}
-.categoryButtons svg:hover{
-  font-size: 14px;
-  color: #00bd70;
-}
-.categoryButtons button:active{
-  cursor: pointer;
-  color: black;
-  border-top: 3px solid #66CDAA;
-}
-
-.categoryButtons{
-  grid-area: categoryButtons;
   display: grid;
-  grid-template-areas:
-  'away dayCare '
-  ;
-grid-template-columns:  4fr 3fr;
+  grid-template-columns: 3fr 2fr;
+  margin-bottom: 10px;
+  height: calc(100% - 22px)
 }
-
-.searchPanel{
-  grid-area: searchPanel;
+.dogAwayButtonsDiv {
   display: grid;
-  grid-template-areas:
-  'zipCode calendar';
-grid-template-columns:  4fr 3fr;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+.dogAtWorkButtonsDiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.checkbox{
-  grid-area: checkbox;
+.cityInputAndDatePicker{
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  margin-bottom: 10px;
 }
-.away{
-  grid-area: away;
+
+.datePickerField{
+  box-sizing: border-box;
+  height: 40px;
 }
-.dayCare{
-  grid-area: dayCare;
-}
-.zipCode{
-  grid-area: zipCode;
-}
-.zipCode input{
-  width: 98%;
+.datePickerField label{
+  position: relative;
+  min-height: 1px;
+  color: #40484f;
   font-size: 14px;
-  padding: 4px;
-}
-.calendar{
-  grid-area: calendar;
-}
+  line-height: 1.6;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: block;
 
-.dogSize {
-  grid-area: dogSize;
 }
-
-.dogSize button{
-  padding: 10px;
-  border: 1px solid #A9A9A9;
-  border-radius: 5%;
-  margin-right:  5px;
-  background-color: transparent;
-  color: #696969;
-  text-decoration: none;
-  width: 104px;
+.lastField{
+  display: grid;
+  grid-template-columns: 3fr 2fr;
 }
-
-.searchButton{
-  grid-area: searchButton;
+.dogSizeAndWeights{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.searchButton button{
-  width: 88%;
-  height: 100%;
-  background-color: rgb( 20, 169, 109);
-  border-color:  #14a96d;
+.submitButton{
+  display: block;
+  width: 95%;
+  background: #14a96d;
+  border-color: #14a96d;
   color: #fff;
-}
-
-.oftenNeedService{
-  grid-area: oftenNeedService;
-  color: #66727c;
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.oftenNeedService label{
-  display: inline-block;
-  padding: 7px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
   cursor: pointer;
-  border: 1px solid  rgb( 20, 169, 109);
-  margin-left: 10px;
-  margin: 5;
-  border-radius: 6%;
-  width:200px;
+  border: 1px solid;
+  padding: 8px 15px;
+  font-size: 14px;
+  line-height: 1.6;
+  border-radius: 4px;
 }
-
-.radioRepeat {
-  display: none;
+.cityInputAndRegularity{
+  display: grid;
+  grid-template-columns: 3fr 4fr;
 }
-
-.radioRepeat:checked+label{
-  border: 4px solid rgb( 20, 169, 109);
+.oftenNeedService{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.radioRepeat:checked+.fontAwesome{
-  color: rgb( 20, 169, 109);
-}
-
-.oftenNeedService .fontAwesome{
-  margin-right: 5px;  
+.daysOfTheWeek{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
