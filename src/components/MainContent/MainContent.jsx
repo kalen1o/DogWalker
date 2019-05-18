@@ -5,6 +5,14 @@ import ServicesForEveryDogAndCat from './ServicesForEveryDogAndCat/ServicesForEv
 import HowItWorks from './HowItWorks/HowItWorks';
 
 
+// import {
+//   SafeAreaView,
+//   TextInput,
+//   Button,
+//   ActivityIndicator,
+// } from 'react-native';
+
+import { Formik } from 'formik';
 
 const MainContent =()=>{
   return(
@@ -15,7 +23,8 @@ const MainContent =()=>{
         <SearchForm />
       </div>
 
-      < ServicesForEveryDogAndCat />
+      // < ServicesForEveryDogAndCat />
+
 
       <HowItWorks />
 

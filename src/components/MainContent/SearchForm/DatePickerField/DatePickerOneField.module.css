@@ -39,11 +39,10 @@
 .calcIcon{
 
 }
-
-.dayColor {
-  color:  #00bd70;
+.dayColor{
+  color:  green;
   font-size: 14px;
 }
-.dayColor-disabled {
+.react-datepicker__day--disabled{
   color: grey;
 }
