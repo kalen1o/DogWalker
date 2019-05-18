@@ -4,35 +4,46 @@ import { Formik, Form, Field } from "formik";
 import { RegistrationSchema } from '../../config/yupConfig';
 import {Link, withRouter} from 'react-router-dom';
 
+import Checkbox from '../../components/ReusableComponents/Checkbox';
+import DefaultInput from '../../components/ReusableComponents/DefaultInput';
+import data from '../../components/constants/data'
+
 import { withFirebase } from '../../config/Firebase';
 import { compose } from 'recompose';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { toast } from 'react-toastify';
+
 class RegistrationBase extends Component {
 	state = {
 		showPassword: false,
-		image: null,
-		imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b'
+		imageSrc: ''
 	}
 
 	handleShowPassword = () => {
 		this.setState({showPassword: !this.state.showPassword})
 	}
 
-	handleChange = (event) => {
-		if(event.target.files[0]) {
-			const image = event.target.files[0];
-			this.setState({ image })
+	handleFiles = (event) => {
+		let fileReader = new FileReader()
+		if (event.target.files[0]) {
+			fileReader.readAsDataURL(event.target.files[0])
+			fileReader.onload = ( event ) => {
+				this.setState({imageSrc: event.target.result})
+			}
+		} else {
+			this.setState({imageSrc: ''})
 		}
 	}
 
-	handleGetUrl = (imageUrl) => {
-		this.setState({ imageUrl })
-	}
-
 	render() {
-		console.log(this.state, 'here')
+		let services = data.dog.map(item => (
+			<Checkbox name="checkboxes" value={item.text} icon={item.icon} box={classes.box} key={item.text}/>
+		))
+		let dogSizes = data.weights.map(item => (
+			<Checkbox name="dogSizes" value={item.dogSize} text={item.weight} box={classes["box-dog"]} key={item.dogSize} />
+		))
 		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
 			<div className={classes["form-holder"]}>
@@ -43,94 +54,82 @@ class RegistrationBase extends Component {
 							firstname: '',
 							lastname: '',
 							city: '',
+							salary: 10,
+							checkboxes: [],
+							dogSizes: [],
 							email: '',
 							password: ''
 						}}
 						validationSchema={RegistrationSchema}
-						onSubmit={ async ( values, { resetForm } ) => {
-							try {
-								if (this.state.image) {
-									await this.props.firebase.uploadProfileImage(this.state.image, this.handleGetUrl);
-								}
-								console.log('2')
-								let createAuthWalker = await this.props.firebase.doCreateUserWithEmailAndPassword(values.email, values.password)
-								console.log(this.state.imageUrl, 'imageUrl')
-								await createAuthWalker.user.updateProfile({
-									displayName: `${values.firstname} ${values.lastname}`,
-									photoURL: this.state.imageUrl
-								})
-								await this.props.firebase
-									.user(createAuthWalker.user.uid)
-									.set({
-										name: `${values.firstname} ${values.lastname}`,
-										email: values.email,
-										city: values.city
+						onSubmit={ ( values, { resetForm } ) => {
+							console.log(values)
+							this.props.firebase
+								.doCreateUserWithEmailAndPassword(values.email, values.password)
+								.then((authWalker) => {
+									console.log(authWalker, '3')
+									authWalker.user.updateProfile({
+										displayName: `${values.firstname} ${values.lastname}`
 									})
-								await resetForm({
-									firstname: '',
-									lastname: '',
-									city: '',
-									email: '',
-									password: ''
+									return this.props.firebase
+										.user(authWalker.user.uid)
+										.set({
+											name: `${values.firstname} ${values.lastname}`,
+											email: values.email,
+											city: values.city,
+											salary: values.salary,
+											photo: this.state.imageSrc ? this.state.imageSrc : 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b',
+											services: values.checkboxes,
+											dogSizes: values.dogSizes
+										})
 								})
-								await this.props.history.push("/")
-							} catch (error) {
-								console.log(error)
-							}
+								.then(() => {
+									resetForm({
+										firstname: '',
+										lastname: '',
+										city: '',
+										salary: 10,
+										checkboxes: [],
+										dogSizes: [],
+										email: '',
+										password: ''
+									})
+									this.props.history.push("/")
+								})
+								.catch(error => {
+									toast.error(`${error.message}`)
+								})
 						}}
 						render={({errors, touched}) => (
 							<Form>
-								<div className={classes["input-wrapper"]}>
-									<label htmlFor="walkerFirstName" className={classes.label}>First name</label>
-									<Field
-										id="walkerFirstName"
-										className={classes.input}
-										name="firstname"
-										type="text"
-									/>
-									{errors.firstname && touched.firstname && (
-										<div className={classes.error}>{errors.firstname}</div>
-									)}
-								</div>
+								<DefaultInput id="walkerFirstName" label="Firstname" name="firstname" type="text" errors={errors} touched={touched} />
 								
+								<DefaultInput id="walkerLastName" label="Lastname" name="lastname" type="text" errors={errors} touched={touched} />
+
+								<DefaultInput id="walkerCity" label="City and Adress" name="city" type="text" errors={errors} touched={touched} />
+
+								<DefaultInput id="walkerSalary" label="Salary" name="salary" type="number" errors={errors} touched={touched} />
+
 								<div className={classes["input-wrapper"]}>
-									<label htmlFor="walkerLastName" className={classes.label}>Last name</label>
-									<Field
-										id="walkerLastName"
-										className={classes.input}
-										name="lastname"
-										type="text"
-									/>
-									{errors.lastname && touched.lastname && (
-										<div className={classes.error}>{errors.lastname}</div>
+									<label className={classes.label}>Services</label>
+									<div className={classes["checkboxes-wrapper"]}>
+										{services}
+									</div>
+									{errors.checkboxes && touched.checkboxes && (
+										<div className={classes.error}>{errors.checkboxes}</div>
 									)}
 								</div>
 
 								<div className={classes["input-wrapper"]}>
-									<label htmlFor="walkerCity" className={classes.label}>City</label>
-									<Field
-										id="walkerCity"
-										className={classes.input}
-										name="city"
-										type="text"
-									/>
-									{errors.city && touched.city && (
-										<div className={classes.error}>{errors.city}</div>
+									<label className={classes.label}>Dog sizes</label>
+									<div className={classes["checkboxes-wrapper"]}>
+										{dogSizes}
+									</div>
+									{errors.dogSizes && touched.dogSizes && (
+										<div className={classes.error}>{errors.dogSizes}</div>
 									)}
 								</div>
 
-								<div className={classes["input-wrapper"]}>
-									<label htmlFor="walkerEmail" className={classes.label}>Email</label>
-									<Field
-										id="walkerEmail"
-										className={classes.input}
-										name="email"
-										type="email"
-									/>
-									{errors.email && touched.email && (
-										<div className={classes.error}>{errors.email}</div>
-									)}
-								</div>
+								<DefaultInput id="walkerEmail" label="Email" name="email" type="email" errors={errors} touched={touched} />
 
 								<div className={classes["input-wrapper"]}>
 									<label htmlFor="walkerPassword" className={classes.label}>Password</label>
@@ -146,8 +145,12 @@ class RegistrationBase extends Component {
 									)}
 								</div>
 
-								<div className={classes["input-wrapper"]}>
-									<input className={classes["input-file"]} type="file" onChange={this.handleChange.bind(this)}/>
+								<div className={classes["file-wrapper"]}>
+									<input type="file" onChange={this.handleFiles.bind(this)} className={classes.inputfile} id="file"/>
+									<label htmlFor="file">
+										<FontAwesomeIcon icon="download" /> Choose a file
+									</label>
+									<img src={this.state.imageSrc} className={classes.file} alt="" />
 								</div>
 
 								<button type="submit" className={classes.btn}>Sign up</button>

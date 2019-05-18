@@ -8,13 +8,9 @@
   padding-bottom: 150px;
 }
 
-h1{
-  font-size: 40px;
-  padding-top:  50px;
+.h1{
+  font-size: 32px;
+  padding-top: 50px;
   line-height: 1.4;
   font-weight: 900;
-}
-h1{
-  font-size: 32px;
-  padding-top:  50px;
 }

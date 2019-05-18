@@ -13,6 +13,14 @@ export const RegistrationSchema = Yup.object().shape({
 		}),
 	city: Yup.string()
 		.required("Required"),
+	salary: Yup.number()
+		.min(10, "Minimal salary is 10$")
+		.max(100, "Maximum salary is 100$")
+		.required("Required"),
+	checkboxes: Yup.array()
+		.required('At least one service is required'),
+	dogSizes: Yup.array()
+		.required('At least one size is required'),
 	email: Yup.string()
 		.email("Please specify a valid email.")
 		.required("Required"),
@@ -51,8 +59,21 @@ export const ChangeSchema = Yup.object().shape({
 	passwordOne: Yup.string()
 		.required("Required"),
 	passwordTwo: Yup.string()
-		.required("Required"),
+		.oneOf([Yup.ref('passwordOne'), null], 'Passwords must similar')		.required("Required"),
 	newPassword: Yup.string()
 		.min(8, "Must be longer than 8 characters")
 		.required("Required")
+})
+
+export const InfoChangeSchema = Yup.object().shape({
+	city: Yup.string()
+		.required("Required"),
+	salary: Yup.number()
+		.min(10, "Minimal salary is 10$")
+		.max(100, "Maximum salary is 100$")
+		.required("Required"),
+	checkboxes: Yup.array()
+		.required('At least one service is required'),
+	dogSizes: Yup.array()
+		.required('At least one size is required'),
 })

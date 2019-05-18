@@ -13,10 +13,11 @@ import DatePickerOneField from './DatePickerField/DatePickerOneField';
 import DatePickerField from './DatePickerField/DatePickerField'
 
 
-library.add(faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
 
-// DogWalker\src\components\ReusableComponents\CheckBox
-// DogWalker\src\components\MainContent\SearchForm\SearchForm.jsx
+library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
+
+
+
 
 
 const SearchForm=()=>(
@@ -76,6 +77,7 @@ const SearchForm=()=>(
                                         />
                                     )}
                   </div>
+
               </div>
               <div className={classes.secondButtonsBox}>
                   <label htmlFor="dogButtonsAtWorkGroup">For When You're At Work</label>
@@ -93,8 +95,6 @@ const SearchForm=()=>(
                   </div>
               </div>
             </div>
-
-
     <div>
           <Field
                 render={() => {
@@ -120,6 +120,7 @@ const SearchForm=()=>(
                           secondField={values.dogButtons==='Dog Boarding'?"Pick Up":"End date"}
                     />
                     </div>
+
                 </div>
                   case "Step2":
                     return   <div className={classes.cityInputAndRegularity}>

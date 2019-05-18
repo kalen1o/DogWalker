@@ -4,14 +4,16 @@ import classes from './SignIn.module.css';
 import { Formik, Form, Field } from "formik";
 import { SignInSchema } from '../../config/yupConfig';
 
-import SignInGoogle from '../../components/SignInGoogle';
 import SignInFacebook from '../../components/SignInFacebook';
+import DefaultInput from '../../components/ReusableComponents/DefaultInput';
 import { SignUpLink } from '../Registration';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withRouter } from 'react-router-dom';
 
 import { withFirebase } from '../../config/Firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { toast } from 'react-toastify';
 
 class SignInBase extends Component {
 	state = {
@@ -27,7 +29,6 @@ class SignInBase extends Component {
 			<div className={classes["signin-form-holder"]}>
 				<h1 className={classes.h1}>Sign in to DogWalker</h1>
 				<div className={classes["signin-form-wrapper"]}>
-					<SignInGoogle />
 					<SignInFacebook />
 					<h6 className={classes.h6}>— or —</h6>
 					<Formik
@@ -52,23 +53,12 @@ class SignInBase extends Component {
 											email: values.email,
 											password: ''
 										})
-										console.log(error)
+										toast.error(`${error.message}`)
 									})
 						}}
 						render={({errors, touched}) => (
 							<Form>
-								<div className={classes["input-wrapper"]}>
-									<label htmlFor="signInEmail" className={classes.label}>Email</label>
-									<Field
-										id="signInEmail"
-										className={classes.input}
-										name="email"
-										type="email"
-									/>
-									{errors.email && touched.email && (
-										<div className={classes.error}>{errors.email}</div>
-									)}
-								</div>
+								<DefaultInput id="signInEmail" label="Email" name="email" type="email" errors={errors} touched={touched} />
 
 								<div className={classes["input-wrapper"]}>
 									<label htmlFor="signInPassword" className={classes.label}>Password</label>

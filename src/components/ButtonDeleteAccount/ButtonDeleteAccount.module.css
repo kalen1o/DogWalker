@@ -1,0 +1,13 @@
+.delete-btn-wrapper {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.btn {
+	width: 100%;
+	background-color: #e5281a;
+	padding: 10px 16px;
+	border: none;
+	border-radius: 4px;
+	margin-bottom: 15px;
+}

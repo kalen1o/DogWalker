@@ -45,7 +45,6 @@ class Header extends Component {
 								<ul className={classes["mobile-menu"]}>
 									<li><Link to="search" ><span className={classes["mobile-menu-elem-wrapper"]}><FontAwesomeIcon icon="search"/></span> Search sitters</Link></li>
 									<li><Link to="services" ><span className={classes["mobile-menu-elem-wrapper"]}><FontAwesomeIcon icon="bone"/></span> Our Services</Link></li>
-									<li><Link to="create-pet" ><span className={classes["mobile-menu-elem-wrapper"]}><FontAwesomeIcon icon="dog"/></span> Create Pet</Link></li>
 									{authWalker ? <ButtonAuth /> : <ButtonNonAuth />}
 									<li><Link to="help" ><span className={classes["mobile-menu-elem-wrapper"]}><FontAwesomeIcon icon="question-circle"/></span> Help</Link></li>
 								</ul>

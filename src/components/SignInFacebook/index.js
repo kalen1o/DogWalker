@@ -8,6 +8,8 @@ import { withFirebase } from '../../config/Firebase';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { toast } from 'react-toastify';
+
 class SignInFacebookBase extends Component {
 	render() {
 		return (
@@ -16,18 +18,24 @@ class SignInFacebookBase extends Component {
 					this.props.firebase
 						.doSignInWithFacebook()
 						.then(socialAuthWalker => {
+							console.log(socialAuthWalker, '!')
 							return this.props.firebase
 								.user(socialAuthWalker.user.uid)
 								.set({
 									name: socialAuthWalker.user.displayName,
-									email: socialAuthWalker.user.email
+									email: socialAuthWalker.user.email,
+									city: socialAuthWalker.additionalUserInfo.profile.location.name,
+									salary: 50,
+									services: [ "Dog Boarding", "House Sitting", "Drop-In Visits", "Doggy Day Care", "Dog Walking" ],
+									dogSizes: [ "Small", "Medium", "Large", "Giant" ],
+									photo: socialAuthWalker.user.photoURL
 								})
 						})
 						.then(() => {
 							this.props.history.push("/")
 						})
 						.catch(error => {
-							console.log(error)
+							toast.error(`${error.message}`)
 						})
 				}}
 				render={() => (

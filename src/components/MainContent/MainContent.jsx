@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './MainContent.module.css';
 import SearchForm from './SearchForm/SearchForm';
 import ServicesForEveryDogAndCat from './ServicesForEveryDogAndCat/ServicesForEveryDogAndCat';
