@@ -1,5 +1,5 @@
 .localLovingPetCare{
-  background: url(../../images/header-background.jpg);
+  background: url(../../images/search-background.jpg);
   min-height: 500px;
   color: white;
   text-align: center;
@@ -13,4 +13,5 @@
   padding-top: 50px;
   line-height: 1.4;
   font-weight: 900;
+  margin: 0;
 }

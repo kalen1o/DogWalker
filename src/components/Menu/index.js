@@ -10,12 +10,12 @@ class Menu extends Component {
 		return (
 			<>
 				<ul className={classes["left-menu"]}>
-					<li><Link to="search" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="search"/></span> Search sitters</Link></li>
-					<li><Link to="services" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="bone"/></span> Our Services</Link></li>
+					<li><Link to="/search" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="search"/></span> Search sitters</Link></li>
+					<li><Link to="/services" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="bone"/></span> Our Services</Link></li>
 				</ul>
 				<ul className={classes["right-menu"]}>
 					{this.props.authWalker ? <ButtonAuth /> : <ButtonNonAuth />}
-					<li><Link to="help" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="question-circle"/></span> Help</Link></li>
+					<li><Link to="/help" ><span className={classes["menu-elem-wrapper"]}><FontAwesomeIcon icon="question-circle"/></span> Help</Link></li>
 				</ul>
 			</>
 		)

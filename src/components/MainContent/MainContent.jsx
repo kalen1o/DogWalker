@@ -14,13 +14,13 @@ import HowItWorks from './HowItWorks/HowItWorks';
 
 import { Formik } from 'formik';
 
-const MainContent =()=>{
+const MainContent =(props)=>{
   return(
     <div>
       <div className={classes.localLovingPetCare}>
-        <h1>Local, Loving Pet Care </h1>
+        <h1 className={classes.h1}>Local, Loving Pet Care </h1>
         <h2>Book trusted sitters and dog walkers who'll <br/>treat your pets like family.</h2>
-        <SearchForm />
+        <SearchForm history={props.history}/>
       </div>
 
       // < ServicesForEveryDogAndCat />

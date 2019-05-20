@@ -47,6 +47,12 @@ class WalkersComponentBase extends Component {
 		return array.filter(item => {
 			return filterKeys.every(key => {
 				if(!filters[key].length) return true
+				if(key === 'regularity') return true
+				// if(key === 'dogSizes' || key === 'daysOfTheWeek') {
+				// 	item[key].forEach(property => {
+				// 		return filters[key].includes(property)
+				// 	})
+				// }
 				if(key === 'services') {
 					return item[key].indexOf(filters[key]) === -1 ? false : true
 				} else {
