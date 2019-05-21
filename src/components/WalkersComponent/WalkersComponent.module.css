@@ -45,6 +45,10 @@
 	color: #06748a;
 }
 
+.name:hover {
+	text-decoration-line: underline;
+}
+
 .city {
 	margin: 0;
 	font-size: 14px;
@@ -59,6 +63,11 @@
 .salary {
 	margin: 0;
 	font-weight: 700;
+}
+
+.without-walkers {
+	padding: 70px 0;
+	text-align: center;
 }
 
 @media (min-width: 768px) {

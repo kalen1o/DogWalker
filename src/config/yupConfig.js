@@ -76,4 +76,6 @@ export const InfoChangeSchema = Yup.object().shape({
 		.required('At least one service is required'),
 	dogSizes: Yup.array()
 		.required('At least one size is required'),
+	daysOfTheWeek: Yup.array()
+		.required('At least one size is required')
 })

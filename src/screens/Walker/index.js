@@ -43,7 +43,7 @@ class WalkerBase extends Component {
 				return item.text === service ? 
 					(
 						<div key={item.name}>
-							<h4 className={classes.h4}>{item.text}</h4>
+							<h5 className={classes.h5}>{item.text}</h5>
 							<p className={classes["description"]}>{item.description}</p>
 						</div>
 					) :
@@ -57,7 +57,7 @@ class WalkerBase extends Component {
 				return item.dogSize === size ?
 					(
 						<div key={item.dogSize}>
-							<h4 className={classes.h4}>{item.dogSize}</h4>
+							<h5 className={classes.h5}>{item.dogSize}</h5>
 							<p className={classes["description"]}>{item.weight}</p>
 						</div>
 					) :
@@ -75,11 +75,12 @@ class WalkerBase extends Component {
 					<div className={classes["info-wrapper"]}>
 						<h1 className={classes.h1}>{this.state.info.name}</h1>
 						<h2 className={classes.h2}>{this.state.info.city}</h2>
+						<h3 className={classes.h3}>{this.state.info.email}</h3>
 						<button type="button" className={classes.btn}>Contact {this.state.info.name}</button>
 					</div>
 				</div>
 				<div className={classes["services-wrapper"]}>
-					<h3 className={classes.h3}>Services</h3>
+					<h4 className={classes.h4}>Services</h4>
 					{services}
 					<p className={classes.salary}>{this.state.info.salary}$</p>
 				</div>

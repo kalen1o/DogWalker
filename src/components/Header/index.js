@@ -17,7 +17,7 @@ class Header extends Component {
 	showMenu = (event) => {
 		event.preventDefault();
 		this.setState({ showMenu: true }, () => {
-			document.querySelector("." + classes.header).style.borderBottom = "1px solid black"
+			document.querySelector("." + classes.header).style.borderBottom = "1px solid #00bd70"
 			document.addEventListener('click', this.closeMenu);
 		})
 	}

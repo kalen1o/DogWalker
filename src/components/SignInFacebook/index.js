@@ -28,6 +28,7 @@ class SignInFacebookBase extends Component {
 									salary: 50,
 									services: [ "Dog Boarding", "House Sitting", "Drop-In Visits", "Doggy Day Care", "Dog Walking" ],
 									dogSizes: [ "Small", "Medium", "Large", "Giant" ],
+									daysOfTheWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
 									photo: socialAuthWalker.user.photoURL
 								})
 						})

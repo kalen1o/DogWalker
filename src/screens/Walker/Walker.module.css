@@ -5,9 +5,10 @@
 
 .walker {
 	max-width: 1100px;
-	margin: 0 auto 20px;
+	margin: 20px auto;
 	background-color: white;
 	padding: 20px;
+	border-radius: 4px;
 }
 
 .avatar-wrapper {
@@ -33,6 +34,12 @@
 	font-size: 20px;
 }
 
+.h3 {
+	margin: 0;
+	color: gray;
+	font-size: 16px;
+}
+
 .btn {
 	background-color: #14a96d;
 	color: white;
@@ -50,13 +57,13 @@
 	border-radius: 8px;
 }
 
-.h3 {
+.h4 {
 	margin: 0;
 	font-size: 25px;
 	color: gray;
 }
 
-.h4 {
+.h5 {
 	margin-bottom: 10px;
 	font-size: 16px;
 }

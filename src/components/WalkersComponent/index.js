@@ -28,7 +28,6 @@ class WalkersComponentBase extends Component {
 					uid: key
 				}))
 				let filtered = this.filter(walkersList, this.props.search)
-				console.log(filtered, '11111111111')
 				this.setState({
 					loading: true,
 					walkers: filtered.length ? filtered : null
@@ -48,11 +47,9 @@ class WalkersComponentBase extends Component {
 			return filterKeys.every(key => {
 				if(!filters[key].length) return true
 				if(key === 'regularity') return true
-				// if(key === 'dogSizes' || key === 'daysOfTheWeek') {
-				// 	item[key].forEach(property => {
-				// 		return filters[key].includes(property)
-				// 	})
-				// }
+				if(key === 'dogSizes' || key === 'daysOfTheWeek') {
+					return filters[key].every(property => item[key].indexOf(property) !== -1)
+				}
 				if(key === 'services') {
 					return item[key].indexOf(filters[key]) === -1 ? false : true
 				} else {
@@ -64,7 +61,7 @@ class WalkersComponentBase extends Component {
 
 	render() {
 		const { walkers, loading } = this.state;
-		console.log(this.state, 'state')
+		// console.log(this.props.search, 'search')
 		if (!loading) {
 			return (
 				<div className={classes.loading}>
@@ -93,9 +90,9 @@ class WalkersComponentBase extends Component {
 						))}
 					</div>
 				) : (
-					<div>
-						We couldn't find any sitters that matched your criteria.
-						Try changing your search criteria or updating your location.
+					<div className={classes["without-walkers"]}>
+						<h1 className={classes.h1}>We couldn't find any sitters that matched your criteria.</h1>
+						<h2 className={classes.h2}>Try changing your search criteria or updating your location.</h2>
 					</div>
 				)}
 			</div>
