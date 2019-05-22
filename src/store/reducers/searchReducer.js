@@ -7,7 +7,9 @@ const initialState = {
 		endDate: "",
 		dogSizes: [],
 		daysOfTheWeek: []
-	}
+	},
+	city: {},
+	markers: {}
 }
 
 function searchReducer (state = initialState, action) {
@@ -16,6 +18,17 @@ function searchReducer (state = initialState, action) {
 			return {
 				...state,
 				searchParam: action.payload.searchParam
+			}
+		case 'FETCH_LATITUDE_LONGTITUDE':
+			return {
+				...state,
+				city: action.payload.city
+			}
+		
+		case 'SET_MARKERS':
+			return {
+				...state,
+				markers: action.payload.markers
 			}
 
 		default:

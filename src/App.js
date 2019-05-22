@@ -27,6 +27,11 @@ import PasswordForgetPage from './screens/PasswordForget';
 import Account from './screens/Account';
 import Search from './screens/Search';
 import Walker from './screens/Walker';
+import DogBoarding from './components/DogBoarding/DogBoarding';
+import HouseSitting from './components/HouseSitting/HouseSitting';
+import DropInVisit from './components/DropInVisit/DropInVisit';
+import DoggyDay from './components/DoggyDay/DoggyDay';
+import Walking from './components/Walking/Walking';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -63,7 +68,6 @@ class App extends Component {
     this.listener();
   }
   render() {
-    console.log(this.props, 'here Redux')
     return (
       <BrowserRouter history = {createHistory()}>
         <Header />
@@ -77,6 +81,11 @@ class App extends Component {
             <Route path="/account" component = { Account } exact />
             <Route path="/search" component = { Search } exact />
             <Route path="/walker/:uid" component = { Walker } exact />
+            <Route path="/Dog-Boarding" component = { DogBoarding } exact />
+            <Route path="/House-Sitting" component = { HouseSitting } exact />
+            <Route path="/Drop-In-Visits" component = { DropInVisit } exact />
+            <Route path="/Doggy-Day-Care" component = { DoggyDay } exact />
+            <Route path="/Dog-Walking" component = { Walking } exact />
           </Switch>
           </div>
           <Footer />

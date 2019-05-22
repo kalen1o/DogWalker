@@ -49,7 +49,7 @@
 	text-decoration-line: underline;
 }
 
-.city {
+.city, .email {
 	margin: 0;
 	font-size: 14px;
 }

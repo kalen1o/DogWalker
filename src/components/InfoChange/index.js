@@ -32,7 +32,8 @@ class InfoChangeBase extends Component {
 						salary: this.props.authWalkerInfo.salary,
 						checkboxes: this.props.authWalkerInfo.services,
 						dogSizes: this.props.authWalkerInfo.dogSizes,
-						daysOfTheWeek: this.props.authWalkerInfo.daysOfTheWeek
+						daysOfTheWeek: this.props.authWalkerInfo.daysOfTheWeek,
+						address: this.props.authWalkerInfo.address
 					}}
 					validationSchema={InfoChangeSchema}
 					onSubmit={values => {
@@ -43,12 +44,15 @@ class InfoChangeBase extends Component {
 									salary: values.salary,
 									services: values.checkboxes,
 									dogSizes: values.dogSizes,
-									daysOfTheWeek: values.daysOfTheWeek
+									daysOfTheWeek: values.daysOfTheWeek,
+									address: values.address
 						})
 					}}
 					render={({errors, touched}) => (
 						<Form>
 							<DefaultInput id="walkerCityChange" label="City" name="city" type="text" errors={errors} touched={touched} />
+
+							<DefaultInput id="walkerAddressChange" label="Address" name="address" type="text" errors={errors} touched={touched} />
 
 							<DefaultInput id="walkerSalaryChange" label="Salary" name="salary" type="number" errors={errors} touched={touched} />
 
@@ -82,7 +86,7 @@ class InfoChangeBase extends Component {
 								)}
 							</div>
 
-							<button type="submit" className={classes.btn}>Sign up</button>
+							<button type="submit" className={classes.btn}>Save info</button>
 						</Form>
 					)}
 				/>

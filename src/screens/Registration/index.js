@@ -80,7 +80,8 @@ class RegistrationBase extends Component {
 											photo: this.state.imageSrc ? this.state.imageSrc : 'https://firebasestorage.googleapis.com/v0/b/dogwalker-88634.appspot.com/o/nouser.png?alt=media&token=c9ac80be-94e4-4129-92f7-2dbba891175b',
 											services: values.checkboxes,
 											dogSizes: values.dogSizes,
-											daysOfTheWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
+											daysOfTheWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+											address: '',
 										})
 								})
 								.then(() => {
