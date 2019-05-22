@@ -24,8 +24,7 @@ class ProgressLine extends Component{
   }
 
   render(){
-     console.log(this.state)
-
+    console.log(this.state)
     return(
       <div className={classes.progressLine}>
       <ul className={classes.progressbar}>

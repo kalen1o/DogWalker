@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Checkbox = (props) => (
 	<Field name={props.name}>
+
 			{({ field, form }) => (
-				<div className={props.box}>
+
+				<div className={props.box}>				
 					<input
 						className={classes.checkbox}
 						type="checkbox"

@@ -12,7 +12,7 @@ import HowItWorks from './HowItWorks/HowItWorks';
 //   ActivityIndicator,
 // } from 'react-native';
 
-import { Formik } from 'formik';
+
 
 const MainContent =()=>{
   return(
@@ -22,12 +22,10 @@ const MainContent =()=>{
         <h2>Book trusted sitters and dog walkers who'll <br/>treat your pets like family.</h2>
         <SearchForm />
       </div>
-
-      // < ServicesForEveryDogAndCat />
-
-
+      <ServicesForEveryDogAndCat />
+      <div className={classes.howItWorksBox}>      
       <HowItWorks />
-
+      </div>
     </div>
   )
 }

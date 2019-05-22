@@ -17,7 +17,7 @@ const DatePickerField=({
 }) =>{
     return(
                       <div className={classes.datePickerField}>
-
+                          <div className={classes.testClass}>
                             <DatePicker
                                 className={classes.datePicker}
                                 selected={value.startDate}
@@ -34,10 +34,13 @@ const DatePickerField=({
                                 minDate={new Date()}
                                 name='startDate'
                             />
+                          </div>
                           <span><FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/></span>
+
                           <div className={classes.arrow}>
                             <FontAwesomeIcon icon='long-arrow-alt-right'/>
                           </div>
+                          <div className={classes.testClass}>
                         <DatePicker
                               className={classes.datePicker}
                               selected={value.endDate}
@@ -54,6 +57,7 @@ const DatePickerField=({
                               minDate={new Date()}
                               name='endDate'
                         />
+                        </div>
                         <span>  <FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/> </span>
                           </div>
   )

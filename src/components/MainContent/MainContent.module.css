@@ -4,7 +4,7 @@
   color: white;
   text-align: center;
   line-height: 1.4;
-  max-height: 750px;
+  min-height: 750px;
   padding-bottom: 150px;
 }
 
@@ -13,4 +13,11 @@
   padding-top: 50px;
   line-height: 1.4;
   font-weight: 900;
+}
+@media (max-width: 768px){
+  .localLovingPetCare{
+    background: none;
+    padding-bottom: 50px;
+  }
+
 }

@@ -22,6 +22,7 @@
 	border-radius: 5px;
 	padding: 5px;
 	color: #66727c;
+	cursor: pointer;
 }
 
 .checkbox:checked + .label {
@@ -41,11 +42,14 @@
 
 .icon-wrapper {
 	display: block;
-	width: 100%;
+	width: 90%;
 }
 
 .value-wrapper {
 	display: block;
 	width: 100%;
 	color: #66727c;
+}
+.daysOfTheWeek {
+	border-top: 45px solid blue;
 }
