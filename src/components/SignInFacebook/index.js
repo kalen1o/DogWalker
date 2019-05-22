@@ -28,7 +28,9 @@ class SignInFacebookBase extends Component {
 									salary: 50,
 									services: [ "Dog Boarding", "House Sitting", "Drop-In Visits", "Doggy Day Care", "Dog Walking" ],
 									dogSizes: [ "Small", "Medium", "Large", "Giant" ],
-									photo: socialAuthWalker.user.photoURL
+									daysOfTheWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+									photo: socialAuthWalker.user.photoURL,
+									address: ''
 								})
 						})
 						.then(() => {

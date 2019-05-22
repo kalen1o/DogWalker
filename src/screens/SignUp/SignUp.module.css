@@ -38,7 +38,7 @@
 @media (min-width: 768px) {
 	.signup {
 		max-width: 500px;
-		margin: 0 auto 20px;
+		margin: 20px auto;
 		border-radius: 2px;
 		padding: 30px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, .5)

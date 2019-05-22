@@ -17,7 +17,6 @@ class Account extends Component {
 	componentWillMount() {
 		this.props.firebase.user(this.props.authWalker.uid).on('value', snapshot => {
 			const userInfo = snapshot.val()
-			console.log(userInfo)
 			this.setState({
 				loading: false,
 				info: userInfo

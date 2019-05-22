@@ -14,22 +14,26 @@ import DefaultInput from '../ReusableComponents/DefaultInput';
 class InfoChangeBase extends Component {
 	render() {
 		let services = data.dog.map(item => (
-			<Checkbox name="checkboxes" value={item.text} icon={item.icon} box={classes.box} key={item.text}/>
+			<Checkbox name="checkboxes" value={item.text} icon={item.icon} box={classes.box} key={item.text} />
 		))
 		let dogSizes = data.weights.map(item => (
 			<Checkbox name="dogSizes" value={item.dogSize} text={item.weight} box={classes.box} key={item.dogSize} />
+		))
+		let daysOfTheWeek = data.daysOfTheWeek.map(item => (
+			<Checkbox name="daysOfTheWeek" value={item.value} box={classes.day} key={item.day} />
 		))
 		let city = this.props.authWalkerInfo.city.split(",")[0]
 		return (
 			<div className={classes["info-change-form-wrapper"]}>
 				<h1 className={classes.h1}>Set account info</h1>
-				<div className={classes["info-change-form-holder"]}></div>
 				<Formik
 					initialValues={{
 						city: city,
 						salary: this.props.authWalkerInfo.salary,
 						checkboxes: this.props.authWalkerInfo.services,
-						dogSizes: this.props.authWalkerInfo.dogSizes
+						dogSizes: this.props.authWalkerInfo.dogSizes,
+						daysOfTheWeek: this.props.authWalkerInfo.daysOfTheWeek,
+						address: this.props.authWalkerInfo.address
 					}}
 					validationSchema={InfoChangeSchema}
 					onSubmit={values => {
@@ -39,12 +43,16 @@ class InfoChangeBase extends Component {
 									city: values.city,
 									salary: values.salary,
 									services: values.checkboxes,
-									dogSizes: values.dogSizes
+									dogSizes: values.dogSizes,
+									daysOfTheWeek: values.daysOfTheWeek,
+									address: values.address
 						})
 					}}
 					render={({errors, touched}) => (
 						<Form>
 							<DefaultInput id="walkerCityChange" label="City" name="city" type="text" errors={errors} touched={touched} />
+
+							<DefaultInput id="walkerAddressChange" label="Address" name="address" type="text" errors={errors} touched={touched} />
 
 							<DefaultInput id="walkerSalaryChange" label="Salary" name="salary" type="number" errors={errors} touched={touched} />
 
@@ -68,7 +76,17 @@ class InfoChangeBase extends Component {
 								)}
 							</div>
 
-							<button type="submit" className={classes.btn}>Sign up</button>
+							<div className={classes["input-wrapper"]}>
+								<label className={classes.label}>Work days</label>
+								<div className={classes["checkboxes-wrapper"]}>
+									{daysOfTheWeek}
+								</div>
+								{errors.daysOfTheWeek && touched.daysOfTheWeek && (
+									<div className={classes.error}>{errors.daysOfTheWeek}</div>
+								)}
+							</div>
+
+							<button type="submit" className={classes.btn}>Save info</button>
 						</Form>
 					)}
 				/>

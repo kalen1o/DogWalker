@@ -1,18 +1,25 @@
 .localLovingPetCare{
-  background: url(../../images/header-background.jpg);
+  background: url(../../images/search-background.jpg);
+  background-position: top;
+	background-size: cover;
   min-height: 500px;
   color: white;
   text-align: center;
   line-height: 1.4;
+<<<<<<< HEAD
   min-height: 750px;
   padding-bottom: 150px;
+=======
+  max-height: 750px;
+  padding: 50px 0;
+>>>>>>> kalen/master
 }
 
 .h1{
   font-size: 32px;
-  padding-top: 50px;
   line-height: 1.4;
   font-weight: 900;
+  margin: 0;
 }
 @media (max-width: 768px){
   .localLovingPetCare{

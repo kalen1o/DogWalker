@@ -5,6 +5,7 @@
 
 .header-content-wrapper {
 	display: flex;
+	position: relative;
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px;
@@ -22,10 +23,11 @@
 
 .mobile-menu li {
 	margin: 10px 0;
+	color: #66727c;
 }
 
 .mobile-menu li a {
-	color: black;
+	color: #66727c;
 	text-decoration: none;
 }
 
@@ -36,10 +38,6 @@
 }
 
 @media (min-width: 768px) {
-	.header {
-		background: url(../../images/header-background.jpg);
-	}
-
 	.header-content-wrapper {
 		justify-content: start;
 	}

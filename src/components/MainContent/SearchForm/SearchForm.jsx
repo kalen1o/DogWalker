@@ -10,21 +10,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,  faSync, faCalculator } from '@fortawesome/free-solid-svg-icons';
 import DatePickerOneField from './DatePickerField/DatePickerOneField';
 import DatePickerField from './DatePickerField/DatePickerField'
-
+import { connect } from 'react-redux';
+import setSearchParam from '../../../store/actions/setSearchParam';
 
 
 library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
 
 
 
-const SearchForm=()=>(
+const SearchForm = (props) => {
+  return (
   <>
 
   <div className={classes.searchFormContainer}>
       <Formik
         initialValues={{
-          dogButtons:'Dog Boarding',
-          step: "Step1",
+          services:'Dog Boarding',
+          // step: "Step1",
           city: "",
           regularity: "One Time",
           startDate: "",
@@ -33,10 +35,10 @@ const SearchForm=()=>(
           daysOfTheWeek: []
         }}
         onSubmit={values => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-              }, 500);
-            }}
+          const { setSearchParam } = props;
+          setSearchParam(values)
+          props.history.push('search')
+        }}
 
         validate={values=>{
           let errors={};
@@ -56,7 +58,6 @@ const SearchForm=()=>(
           }) => (
             <>
 
-
           <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
             <div className={classes.petType}><h3>I'm looking for service for my Dog</h3></div>
             <div className={classes.buttonsBox}>
@@ -68,13 +69,12 @@ const SearchForm=()=>(
                                           component={ButtonGroup}
                                           props={data}
                                           key={Math.random()}
-                                          firstNameField="dogButtons"
-                                          secondNameField="step"
+                                          firstNameField="services"
+                                          // secondNameField="step"
                                           classNameText='buttonField'
                                         />
                                     )}
                   </div>
-
               </div>
               <div className={classes.secondButtonsBox}>
                   <label htmlFor="dogButtonsAtWorkGroup">For When You're At Work</label>
@@ -84,8 +84,8 @@ const SearchForm=()=>(
                                                         component={ButtonGroup}
                                                         props={data}
                                                         key={Math.random()}
-                                                        firstNameField="dogButtons"
-                                                        secondNameField="step"
+                                                        firstNameField="services"
+                                                        // secondNameField="step"
                                                         classNameText='buttonField'
                                                   />
                                               )}
@@ -95,9 +95,10 @@ const SearchForm=()=>(
     <div>
           <Field
                 render={() => {
-                const step= values.step;
+                const step= values.services;
                 switch (step){
-                case "Step1":
+                case "Dog Boarding":
+                case "House Sitting":
                   return  <div className={classes.cityInputAndDatePicker}>
                   <div className={classes.cityInput}>
                       <Field
@@ -105,20 +106,22 @@ const SearchForm=()=>(
                             type="text"
                             id="city"
                             name="city"
-                            values={values.dogButtons}
+                            values={values.services}
                       />
                     </div>
                     <div className={classes.datePickerField}>
                     <label>For these days</label>
                     <Field
                           component={DatePickerField}
-                          firstField={values.dogButtons==='Dog Boarding'?"Drop off":"Start date"}
-                          secondField={values.dogButtons==='Dog Boarding'?"Pick Up":"End date"}
+                          firstField={values.services==='Dog Boarding'?"Drop off":"Start date"}
+                          secondField={values.services==='Dog Boarding'?"Pick Up":"End date"}
                     />
                     </div>
 
                 </div>
-                  case "Step2":
+                  case "Drop-In Visits":
+                  case "Doggy Day Care":
+                  case "Dog Walking":
                     return   <div className={classes.cityInputAndRegularity}>
                               <div className={classes.cityInputContainer}>
                                   <Field
@@ -126,9 +129,10 @@ const SearchForm=()=>(
                                         type="text"
                                         id="city"
                                         name="city"
-                                        values={values.dogButtons}
+                                        values={values.services}
                                   />
                               </div>
+
                               <div className={classes.oftenNeedServiceContainer}>
                               <label htmlFor="oftenNeedService">How often do you need this service? ({values.dogButtons})</label>
                                 <div id="oftenNeedService" className={classes.oftenNeedService}>
@@ -157,6 +161,7 @@ const SearchForm=()=>(
                                                   />
                                               </div>
                                   case "Repeat Weekly":
+
                                       return <div className={classes.daysOfTheWeekAndDatePickerOneFieldContainer}>
                                                 <div className={classes.daysOfTheWeekContainer}>
                                                 <label htmlFor="daysOfTheWeek">For which days?</label>
@@ -181,8 +186,6 @@ const SearchForm=()=>(
                                 }
                               }
                             }/>
-
-
                     </div>;
                   }
                 }}
@@ -202,7 +205,6 @@ const SearchForm=()=>(
                   />)}
             </div>
            </div>
-
             <button type='submit' className={classes.submitButton}>Search</button>
           </div>
           </Form>
@@ -211,6 +213,6 @@ const SearchForm=()=>(
       </Formik>
     </div>
   </>
-)
+)}
 
-export default SearchForm
+export default connect(state => ({searchParam: state.searchParam}), { setSearchParam })( SearchForm)
