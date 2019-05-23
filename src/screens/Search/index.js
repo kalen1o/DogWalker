@@ -99,8 +99,6 @@ class SearchBase extends Component {
 }
 
 
-export default Search;
-
 const Search = compose(
 	withFirebase,
 	connect(state => ({search: state.searchParam, city: state.city, markers: state.markers}), { FetchLatLng, FetchMarkers })

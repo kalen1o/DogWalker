@@ -132,9 +132,9 @@ const SearchForm = (props) => {
                                         values={values.services}
                                   />
                               </div>
-
+                                {  console.log(values)}
                               <div className={classes.oftenNeedServiceContainer}>
-                              <label htmlFor="oftenNeedService">How often do you need this service? ({values.dogButtons})</label>
+                              <label htmlFor="oftenNeedService">How often do you need this service? ({values.services})</label>
                                 <div id="oftenNeedService" className={classes.oftenNeedService}>
                                   {data.oftenNeedService.map(data=>
                                                       <Field

@@ -146,9 +146,10 @@
 }
 
 @media (max-width: 768px){
-  .buttonsBox, .cityInputAndDatePicker, .dogSizeAndWeights,.lastField, .cityInputAndRegularity, .daysOfTheWeekAndDatePickerOneFieldContainer {
+  .buttonsBox, .cityInputAndDatePicker, .lastField, .cityInputAndRegularity, .daysOfTheWeekAndDatePickerOneFieldContainer {
     display: block;
     font-size: 12px;
   }
+  
 
 }
