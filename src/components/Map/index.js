@@ -2,27 +2,26 @@ import React, { Component } from 'react';
 import classes from './Map.module.css';
 
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import CustomMarker from '../ReusableComponents/Marker';
 
 const Map = withScriptjs(withGoogleMap(props => {
 	let markers = props.markers.length ? 
 		props.markers.map(( item, index ) => {
 			console.log(item)
 			return (
-			<Marker
+			<CustomMarker
+				history={props.history}
+				link={props.markersUid[index]}
 				key={index}
 				position={item}
-				label={index}
+				label={`${++index}`}
 			/>
 		)}) : null
 	return (
 		<GoogleMap
-			defaultZoom={11}
+			defaultZoom={12}
 			defaultCenter={props.defaultCenter}>
 				{markers}
-				{/* <Marker
-					position={{ lat: 50.447585, lng: 30.522026 }}
-					label="1"
-				/> */}
 		</GoogleMap>
 	)
 }))

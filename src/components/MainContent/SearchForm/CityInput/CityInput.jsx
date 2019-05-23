@@ -19,6 +19,7 @@ const CityInput=({
                                 id={props.id}
                                 name={name}
                                 onChange={onChange}
+                                value={value}
                                         />
                         </div>
 

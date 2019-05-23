@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classes from './Header.module.css';
 
 import { AuthWalkerContext } from '../../config/Session';
+import data from '../constants/data';
+import { isTemplateElement } from '@babel/types';
 
 class Header extends Component {
 	state = {
@@ -44,7 +46,20 @@ class Header extends Component {
 							(
 								<ul className={classes["mobile-menu"]}>
 									<li><Link to="/search" ><span className={classes["mobile-menu-elem-wrapper"]}><FontAwesomeIcon icon="search"/></span> Search sitters</Link></li>
-									<li><Link to="/services" ><span className={classes["mobile-menu-elem-wrapper"]}><FontAwesomeIcon icon="bone"/></span> Our Services</Link></li>
+									<li className={classes["drop-menu"]}><span className={classes["mobile-menu-elem-wrapper"]}><FontAwesomeIcon icon="bone"/></span> Our Services
+										<div className={classes.drop}>
+											<ul className={classes["drop-ul"]}>
+												{data.dog.map(item => (
+													<li key={item.value}>
+														<Link to={`/${item.value}`}>
+															<FontAwesomeIcon icon={item.icon} />
+															{item.text}
+														</Link>
+													</li>
+												))}
+											</ul>
+										</div>
+									</li>
 									{authWalker ? <ButtonAuth /> : <ButtonNonAuth />}
 									<li><Link to="/help" ><span className={classes["mobile-menu-elem-wrapper"]}><FontAwesomeIcon icon="question-circle"/></span> Help</Link></li>
 								</ul>

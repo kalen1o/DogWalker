@@ -24,6 +24,7 @@
 .mobile-menu li {
 	margin: 10px 0;
 	color: #66727c;
+	position: relative;
 }
 
 .mobile-menu li a {
@@ -35,6 +36,36 @@
 	display: inline-block;
 	text-align: center;
 	width: 25px;
+}
+
+.mobile-menu .drop-menu {
+	display: inline-block;
+	margin: 0;
+}
+
+.mobile-menu > .drop-menu:hover .drop {
+	display: block;
+}
+
+.drop {
+	display: none;
+	position: absolute;
+	background-color: #00bd70;
+	color: white;
+	left: 100%;
+	top: 0;
+	min-width: 155px;
+	z-index: 1;
+}
+
+.drop-ul {
+	list-style: none;
+	padding: 5px 10px;
+}
+
+.drop-ul li {
+	text-decoration: none;
+	margin: 0;
 }
 
 @media (min-width: 768px) {

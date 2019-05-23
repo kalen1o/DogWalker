@@ -9,6 +9,7 @@ import { compose } from 'recompose';
 import { connect }   from 'react-redux';
 import FetchLatLng from '../../store/actions/fetchLatLng';
 import FetchMarkers from '../../store/actions/fetchMarkers';
+import GetUid from '../../store/actions/getUid';
 
 class SearchBase extends Component {
 	state = {
@@ -19,7 +20,7 @@ class SearchBase extends Component {
 
 	componentDidMount() {
 		let city = this.state.city.length ? this.state.city : 'Kiev';
-		const { FetchLatLng, FetchMarkers } = this.props;
+		const { FetchLatLng, FetchMarkers, GetUid } = this.props;
 		FetchLatLng(city)
 
 		this.setState({loading: false})
@@ -37,6 +38,7 @@ class SearchBase extends Component {
 				}))
 				let filtered = this.filter(walkersList, this.props.search)
 				FetchMarkers(filtered)
+				GetUid(filtered)
 				this.setState({
 					loading: true,
 					walkers: filtered.length ? filtered : null
@@ -88,9 +90,11 @@ class SearchBase extends Component {
 				<Map
 					defaultCenter={this.props.city}
 					markers={this.props.markers}
+					history={this.props.history}
+					markersUid={this.props.markersUid}
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhLPAAJXpqa3kBViOO3jZ7_O94EoyR8lU&v=3.exp&libraries=geometry,drawing,places"
 					loadingElement={<div style={{ height: `100%` }} />}
-					containerElement={<div style={{ height: `400px`, width: `50vw` }} />}
+					containerElement={<div style={{ height: `100vh`, width: `50vw`, zIndex: 0 }} />}
 					mapElement={<div style={{ height: `100%` }} />}
 				/>
 			</div>
@@ -101,7 +105,7 @@ class SearchBase extends Component {
 
 const Search = compose(
 	withFirebase,
-	connect(state => ({search: state.searchParam, city: state.city, markers: state.markers}), { FetchLatLng, FetchMarkers })
+	connect(state => ({search: state.searchParam, city: state.city, markers: state.markers, markersUid: state.markersUid}), { FetchLatLng, FetchMarkers, GetUid })
 )(SearchBase)
 
 export default Search;
