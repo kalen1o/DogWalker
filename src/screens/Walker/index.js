@@ -64,8 +64,6 @@ class WalkerBase extends Component {
 					null
 			}))
 		})
-
-		console.log(this.state.info, 'pla')
 		return (
 			<div className={classes.walker}>
 				<div className={classes["walker-wrapper"]}>

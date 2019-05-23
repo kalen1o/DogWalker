@@ -94,7 +94,7 @@ class SearchBase extends Component {
 					markersUid={this.props.markersUid}
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhLPAAJXpqa3kBViOO3jZ7_O94EoyR8lU&v=3.exp&libraries=geometry,drawing,places"
 					loadingElement={<div style={{ height: `100%` }} />}
-					containerElement={<div style={{ height: `100vh`, width: `50vw`, zIndex: 0 }} />}
+					containerElement={<div style={{ height: `100vh`, width: `100vw`, zIndex: 0 }} />}
 					mapElement={<div style={{ height: `100%` }} />}
 				/>
 			</div>

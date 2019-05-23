@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classes from '../HeaderWalking/HeaderWalking.module.css'
+import { Link } from 'react-router-dom';
 
 
 class HeaderWalking extends Component {
@@ -11,7 +12,7 @@ class HeaderWalking extends Component {
                 <h1>Dog Walking Made Easy</h1>
                 <h4>Welcome to the nation's largest network of dog walkers</h4>
 
-                <div><a href='#' className={classes.headerButton}>Book A Walk</a></div>
+                <div><Link to='/search' className={classes.headerButton}>Book A Walk</Link></div>
             </div>
         </div>
         );
