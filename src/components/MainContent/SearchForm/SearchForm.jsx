@@ -22,7 +22,6 @@ library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSy
 
 
 const SearchForm = (props) => {
-  console.log(props.searchParam, 'cric')
   return (
   <>
   

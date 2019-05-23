@@ -9,7 +9,6 @@ import classes from './Header.module.css';
 
 import { AuthWalkerContext } from '../../config/Session';
 import data from '../constants/data';
-import { isTemplateElement } from '@babel/types';
 
 class Header extends Component {
 	state = {

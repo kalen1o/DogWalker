@@ -7,7 +7,6 @@ import CustomMarker from '../ReusableComponents/Marker';
 const Map = withScriptjs(withGoogleMap(props => {
 	let markers = props.markers.length ? 
 		props.markers.map(( item, index ) => {
-			console.log(item)
 			return (
 			<CustomMarker
 				history={props.history}
