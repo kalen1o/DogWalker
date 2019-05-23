@@ -9,14 +9,14 @@ const ButtonGroup=(props) =>{
     return(
     <Field>
                       {({ field, form }) =>(<div >
-                        
+
                                   <button
                                   className={form.values[props.firstNameField] ===
                                     props.props.text? classes[props.classNameText+'Active']:classes[props.classNameText+'Usual']}
                                   name={props.props.name}
                                   onClick={(e)=>{
                                     form.setFieldValue(props.firstNameField, props.props.text)
-                                    form.setFieldValue(props.secondNameField, props.props.name)
+                                    // form.setFieldValue(props.secondNameField, props.props.name)
                                     form.setFieldValue(form.values.startDate, "")
                                   }}
                                   type='button'
