@@ -18,6 +18,7 @@ library.add( faCalendarAlt )
 }) =>{
     return(
                       <div className={classes.datePickerField}>
+                          <div className={classes.datePickerFieldWrapper}>
                             <DatePicker
                                 className={classes.datePicker}
                                 selected={value.startDate}
@@ -32,6 +33,7 @@ library.add( faCalendarAlt )
                                 minDate={new Date()}
                                 name='startDate'
                             />
+                          </div>  
                           <span><FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/></span>
 
                         </div>

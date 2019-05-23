@@ -1,8 +1,7 @@
 import React from 'react';
 import { Formik,  Form, Field,  } from "formik";
-import { render } from "react-dom";
 import Checkbox from './../../ReusableComponents/Checkbox';
-import ButtonGroup from './ButtonGroup/ButtonGroup';
+import ButtonGroup from './../../ReusableComponents/ButtonGroup/ButtonGroup';
 import CityInput from './CityInput/CityInput';
 import data from './../../constants/data';
 import classes from './SearchForm.module.css';
@@ -19,12 +18,10 @@ library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSy
 
 
 
-
-
 const SearchForm = (props) => {
   return (
   <>
-  
+
   <div className={classes.searchFormContainer}>
       <Formik
         initialValues={props.searchParam}
@@ -52,7 +49,6 @@ const SearchForm = (props) => {
           }) => (
             <>
 
-
           <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
             <div className={classes.petType}><h3>I'm looking for service for my Dog</h3></div>
             <div className={classes.buttonsBox}>
@@ -70,7 +66,6 @@ const SearchForm = (props) => {
                                         />
                                     )}
                   </div>
-
               </div>
               <div className={classes.secondButtonsBox}>
                   <label htmlFor="dogButtonsAtWorkGroup">For When You're At Work</label>
@@ -109,7 +104,6 @@ const SearchForm = (props) => {
                     <label>For these days</label>
                     <Field
                           component={DatePickerField}
-
                           firstField={values.services==='Dog Boarding'?"Drop off":"Start date"}
                           secondField={values.services==='Dog Boarding'?"Pick Up":"End date"}
                     />
@@ -120,7 +114,7 @@ const SearchForm = (props) => {
                   case "Doggy Day Care":
                   case "Dog Walking":
                     return   <div className={classes.cityInputAndRegularity}>
-                              <div>
+                              <div className={classes.cityInputContainer}>
                                   <Field
                                         component={CityInput}
                                         type="text"
@@ -129,10 +123,11 @@ const SearchForm = (props) => {
                                         values={values.services}
                                   />
                               </div>
-                    <div >
-                        <label htmlFor="oftenNeedService">How often do you need this service? ({values.services})</label>
-                        <div id="oftenNeedService" className={classes.oftenNeedService}>
-                        {data.oftenNeedService.map(data=>
+                                {  console.log(values)}
+                              <div className={classes.oftenNeedServiceContainer}>
+                              <label htmlFor="oftenNeedService">How often do you need this service? ({values.services})</label>
+                                <div id="oftenNeedService" className={classes.oftenNeedService}>
+                                  {data.oftenNeedService.map(data=>
                                                       <Field
                                                         component={ButtonGroup}
                                                         props={data}
@@ -140,32 +135,36 @@ const SearchForm = (props) => {
                                                         firstNameField="regularity"
                                                         classNameText='regularityButtonField'
                                                       /> )}
-                        </div>
-                      </div>
-                      <div className={classes.secondSwithCase}>
-                          <Field
+                                  </div>
+                              </div>
+
+                              <Field
                                 render={() => {
                                 const step= values.regularity;
                                 switch (step){
                                   case 'One Time':
                                       return <div className={classes.datePickerField2}>
-                                      <label>For what dates?</label>
-                                      <Field
-                                            component={DatePickerField}
-                                            firstField="Start date"
-                                            secondField="End date"
-                                      />
-                                      </div>
+                                                  <label>For what dates?</label>
+                                                  <Field
+                                                        component={DatePickerField}
+                                                        firstField="Start date"
+                                                        secondField="End date"
+                                                  />
+                                              </div>
                                   case "Repeat Weekly":
-                                      return <div>
-                                              <label htmlFor="daysOfTheWeek">For which days?</label>
-                                              <div className={classes.daysOfTheWeek} id="daysOfTheWeek">
-                                              {data.daysOfTheWeek.map(data=><Checkbox
-                                                        name="daysOfTheWeek"
-                                                        value={data.value}
-                                                        box={classes.daysOfTheWeek}
-                                                        key={Math.random()}
-                                                  />)}
+
+                                      return <div className={classes.daysOfTheWeekAndDatePickerOneFieldContainer}>
+                                                <div className={classes.daysOfTheWeekContainer}>
+                                                <label htmlFor="daysOfTheWeek">For which days?</label>
+                                                <div className={classes.daysOfTheWeek} id="daysOfTheWeek">
+                                                {data.daysOfTheWeek.map(data=><Checkbox
+                                                          name="daysOfTheWeek"
+                                                          value={data.value}
+                                                            box={classes.daysOfTheWeek}
+                                                          box='daysOfTheWeek'
+                                                          key={Math.random()}
+                                                    />)}
+                                                  </div>
                                               </div>
                                               <div className={classes.datePickerOneField}>
                                               <label>Start date</label>
@@ -178,8 +177,6 @@ const SearchForm = (props) => {
                                 }
                               }
                             }/>
-                      </div>
-
                     </div>;
                   }
                 }}
@@ -199,7 +196,6 @@ const SearchForm = (props) => {
                   />)}
             </div>
            </div>
-
             <button type='submit' className={classes.submitButton}>Search</button>
           </div>
           </Form>

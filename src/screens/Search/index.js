@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './Search.module.css';
-
 import WalkersComponent from '../../components/WalkersComponent';
+import SearchForm from '../../components/MainContent/SearchForm/SearchForm'
 import Map from '../../components/Map';
 
 import { withFirebase } from '../../config/Firebase';
@@ -85,6 +85,7 @@ class SearchBase extends Component {
 		}
 		return (
 			<div className={classes["search-wrapper"]}>
+				<SearchForm />
 				<WalkersComponent walkers={walkers}/>
 				<Map
 					defaultCenter={this.props.city}
@@ -100,6 +101,7 @@ class SearchBase extends Component {
 		)
 	}
 }
+
 
 const Search = compose(
 	withFirebase,

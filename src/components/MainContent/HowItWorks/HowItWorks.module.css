@@ -3,3 +3,14 @@
   margin-bottom: 30px;
   font-size: 26px;
 }
+.howItWorksContainer{
+  display: block;
+  min-height: 300px;
+}
+
+@media (max-width: 768px){
+  .howItWorksContainer{
+    font-size: 10px;
+  }
+
+}
