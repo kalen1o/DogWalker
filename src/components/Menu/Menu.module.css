@@ -28,16 +28,21 @@
 		cursor: pointer;
 	}
 
-	.left-menu li a, .right-menu li a, .services li a{
+	.left-menu li a, .right-menu li a, .services li a {
 		display: inline-block;
 		color: #00bd70;
 		text-decoration: none;
 	}
 
+	.services li a {
+		color: white;
+	}
+
 	.services {
-		background-color: white;
-		color: #00bd70;
+		background-color: #00bd70;
+		color: white;
 		position: absolute;
+		z-index: 100;
 		top: 100%;
 		left: 0;
 		right: 0;

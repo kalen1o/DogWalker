@@ -9,7 +9,8 @@ const initialState = {
 		daysOfTheWeek: []
 	},
 	city: {},
-	markers: {}
+	markers: {},
+	markersUid: []
 }
 
 function searchReducer (state = initialState, action) {
@@ -29,6 +30,12 @@ function searchReducer (state = initialState, action) {
 			return {
 				...state,
 				markers: action.payload.markers
+			}
+
+		case 'GET_UID':
+			return {
+				...state,
+				markersUid: action.payload.uid
 			}
 
 		default:

@@ -26,7 +26,6 @@ class Menu extends Component {
 	}
 	render() {
 		let click = this.state.showServices ? this.closeServices.bind(this) : this.showServices.bind(this);
-		console.log(this.state.showServices)
 		return (
 			<>
 				<ul className={classes["left-menu"]}>
@@ -42,7 +41,7 @@ class Menu extends Component {
 						<div className={classes.services}>
 							<ul className={classes["services-wrapper"]}>
 								{data.dog.map(item => (
-									<li>
+									<li key={item.value}>
 										<Link to={`/${item.value}`}>
 											<FontAwesomeIcon icon={item.icon} />
 											<span className={classes["service-text-wrapper"]}>{item.text}</span>

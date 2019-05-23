@@ -22,21 +22,13 @@ library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSy
 
 
 const SearchForm = (props) => {
+  console.log(props.searchParam, 'cric')
   return (
   <>
   
   <div className={classes.searchFormContainer}>
       <Formik
-        initialValues={{
-          services:'Dog Boarding',
-          // step: "Step1",
-          city: "",
-          regularity: "One Time",
-          startDate: "",
-          endDate:  "",
-          dogSizes: [],
-          daysOfTheWeek: []
-        }}
+        initialValues={props.searchParam}
         onSubmit={values => {
           const { setSearchParam } = props;
           setSearchParam(values)
