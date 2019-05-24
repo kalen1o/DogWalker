@@ -19,11 +19,11 @@ const MainContent =(props)=>{
     <div>
       <div className={classes.localLovingPetCare}>
         <h1 className={classes.h1}>Local, Loving Pet Care </h1>
-        <h2>Book trusted sitters and dog walkers who'll <br/>treat your pets like family.</h2>
+        <h2 className={classes.h2}>Book trusted sitters and dog walkers who'll <br/>treat your pets like family.</h2>
         <SearchForm history={props.history}/>
       </div>
       <ServicesForEveryDogAndCat />
-      <div className={classes.howItWorksBox}>      
+      <div className={classes.howItWorksBox}>
       <HowItWorks />
       </div>
     </div>
