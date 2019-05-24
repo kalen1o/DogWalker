@@ -12,7 +12,7 @@ import DatePickerOneField from './DatePickerField/DatePickerOneField';
 import DatePickerField from './DatePickerField/DatePickerField'
 import { connect } from 'react-redux';
 import setSearchParam from '../../../store/actions/setSearchParam';
-
+import { SearchSchema } from '../../../config/yupConfig';
 
 library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
 
@@ -25,19 +25,12 @@ const SearchForm = (props) => {
   <div className={classes.searchFormContainer}>
       <Formik
         initialValues={props.searchParam}
+        validationSchema={SearchSchema}
         onSubmit={values => {
           console.log(values, 1)
           const { setSearchParam } = props;
           setSearchParam(values)
           props.history.push('search')
-        }}
-
-        validate={values=>{
-          let errors={};
-          if (errors.name){
-            errors.name='Name is required';
-          }
-          return errors;
         }}
         >
         {({

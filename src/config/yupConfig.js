@@ -29,17 +29,8 @@ export const RegistrationSchema = Yup.object().shape({
 		.required("Required")
 });
 
-export const CreatePetSchema = Yup.object().shape({
-	petname: Yup.string()
-		.required("Required")
-		.matches(/^[a-zA-Z]+$/, {
-			message: 'Please specify a valid pet name.'
-		}),
-	email: Yup.string()
-		.email("Please specify a valid email.")
-		.required("Required"),
-	password: Yup.string()
-		.min(8, "Must be longer than 8 characters")
+export const SearchSchema = Yup.object().shape({
+	city: Yup.string()
 		.required("Required")
 })
 
