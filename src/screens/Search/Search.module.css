@@ -1,6 +1,10 @@
-
 .search-wrapper {
+	display: block;
+}
+
+.loading {
 	display: flex;
+	justify-content: center;
 }
 
 @media (min-width: 768px) {

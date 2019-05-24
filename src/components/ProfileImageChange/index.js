@@ -31,7 +31,6 @@ class ProfileImageChangeBase extends Component {
 				})
 	}
 	render() {
-		console.log(this.state)
 		return (
 			<div className={classes["profile-image-change-wrapper"]}>
 				<h1 className={classes.h1}>

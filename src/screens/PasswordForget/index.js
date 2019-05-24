@@ -14,6 +14,20 @@ import { withFirebase } from '../../config/Firebase';
 import { toast } from 'react-toastify';
 
 class PasswordForgetBase extends Component {
+	componentDidMount() {
+		this.listener = this.props.firebase.auth.onAuthStateChanged(
+			authWalker => {
+				if (authWalker) {
+					this.props.history.replace("/account")
+				}
+			}
+		)
+	}
+
+	componentWillUnmount() {
+		this.listener();
+	}
+
 	render() {
 		return (
 			<div className={classes["forget-form-wrapper"]}>

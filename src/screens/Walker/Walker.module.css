@@ -46,7 +46,8 @@
 	padding: 10px 16px;
 	border: none;
     border-radius: 4px;
-    margin: 15px 0;
+	margin: 15px 0;
+	cursor: pointer;
 }
 
 .services-wrapper {
@@ -87,6 +88,31 @@
 	width: 90%;
 	margin: 0 auto;
 }
+
+.Modal {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background-color: gray;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+  }
+
+  .ButtonOrderComplete {
+    display: inline-block;
+  }
 
 @media (min-width: 768px) {
 	.walker-wrapper {

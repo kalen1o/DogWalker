@@ -38,7 +38,6 @@ class Account extends Component {
 				</div>
 			)
 		}
-		console.log(this.state, 'here acc')
 		return (
 			<div className={classes.account}>
 				<div className={classes["account-info"]}>

@@ -26,6 +26,7 @@ const SearchForm = (props) => {
       <Formik
         initialValues={props.searchParam}
         onSubmit={values => {
+          console.log(values, 1)
           const { setSearchParam } = props;
           setSearchParam(values)
           props.history.push('search')
@@ -61,7 +62,6 @@ const SearchForm = (props) => {
                                           props={data}
                                           key={Math.random()}
                                           firstNameField="services"
-                                          // secondNameField="step"
                                           classNameText='buttonField'
                                         />
                                     )}
@@ -76,7 +76,6 @@ const SearchForm = (props) => {
                                                         props={data}
                                                         key={Math.random()}
                                                         firstNameField="services"
-                                                        // secondNameField="step"
                                                         classNameText='buttonField'
                                                   />
                                               )}
@@ -133,6 +132,7 @@ const SearchForm = (props) => {
                                                         props={data}
                                                         key={Math.random()}
                                                         firstNameField="regularity"
+                                                        secondNameField="endDate"
                                                         classNameText='regularityButtonField'
                                                       /> )}
                                   </div>

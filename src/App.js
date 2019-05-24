@@ -50,7 +50,7 @@ toast.configure({
 })
 
 class App extends Component {
-  state= {
+  state = {
     authWalker: null
   }
 
