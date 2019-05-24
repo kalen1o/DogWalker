@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './Search.module.css';
 import WalkersComponent from '../../components/WalkersComponent';
-import SearchForm from '../../components/MainContent/SearchForm/SearchForm'
+import SearchSittersForm from './SearchSittersForm/SearchSittersForm'
 import Map from '../../components/Map';
 
 import { withFirebase } from '../../config/Firebase';
@@ -85,7 +85,9 @@ class SearchBase extends Component {
 		}
 		return (
 			<div className={classes["search-wrapper"]}>
-				<SearchForm history={this.props.history}/>
+
+				<SearchSittersForm history={this.props.history}/>
+
 				<WalkersComponent walkers={walkers}/>
 				<Map
 					defaultCenter={this.props.city}

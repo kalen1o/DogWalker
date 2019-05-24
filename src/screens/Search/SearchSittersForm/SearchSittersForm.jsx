@@ -1,24 +1,23 @@
 import React from 'react';
 import { Formik,  Form, Field,  } from "formik";
-import Checkbox from './../../ReusableComponents/Checkbox';
-import ButtonGroup from './../../ReusableComponents/ButtonGroup/ButtonGroup';
-import CityInput from './../../ReusableComponents/CityInput/CityInput';
-import data from './../../constants/data';
-import classes from './SearchForm.module.css';
+import Checkbox from '../../../components/ReusableComponents/Checkbox';
+import ButtonGroup from '../../../components/ReusableComponents/ButtonGroup/ButtonGroup';
+import CityInput from '../../../components/ReusableComponents/CityInput/CityInput';
+import DatePickerOneField from '../../../components/ReusableComponents/DatePickerField/DatePickerOneField';
+import DatePickerField from '../../../components/ReusableComponents/DatePickerField/DatePickerField';
+import data from '../../../components/constants/data';
+import classes from './SearchSittersForm.module.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,  faSync, faCalculator } from '@fortawesome/free-solid-svg-icons';
-import DatePickerOneField from './../../ReusableComponents/DatePickerField/DatePickerOneField';
-import DatePickerField from './../../ReusableComponents/DatePickerField/DatePickerField'
 import { connect } from 'react-redux';
 import setSearchParam from '../../../store/actions/setSearchParam';
-import { SearchSchema } from '../../../config/yupConfig';
+import SliderRangeInput from './SliderRangeInput/SliderRangeInput';
+
 
 library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
 
-
-
-const SearchForm = (props) => {
+const SearchSittersForm = (props) => {
   return (
   <>
 
@@ -26,12 +25,18 @@ const SearchForm = (props) => {
 
       <Formik
         initialValues={props.searchParam}
-        validationSchema={SearchSchema}
         onSubmit={values => {
-          console.log(values, 1)
           const { setSearchParam } = props;
           setSearchParam(values)
           props.history.push('search')
+        }}
+
+        validate={values=>{
+          let errors={};
+          if (errors.name){
+            errors.name='Name is required';
+          }
+          return errors;
         }}
         >
         {({
@@ -43,12 +48,11 @@ const SearchForm = (props) => {
           }) => (
             <>
           <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
-            <div className={classes.petType}><h3>I'm looking for service for my Dog</h3></div>
+
             <div className={classes.buttonsBox}>
-              <div className={classes.firstButtonsBox} >
-                  <label htmlFor="dogButtonsAwayGroup">For When You're Away</label>
-                  <div id="dogButtonsAwayGroup" className={classes.dogAwayButtonsDiv}>
-                      {data.dog.slice(0,3).map(data=>
+                  <label htmlFor="serviceType">Service type</label>
+                  <div id="serviceType" className={classes.dogAwayButtonsDiv}>
+                      {data.dog.map(data=>
                                        <Field
                                           component={ButtonGroup}
                                           props={data}
@@ -58,24 +62,9 @@ const SearchForm = (props) => {
                                         />
                                     )}
                   </div>
-              </div>
-              <div className={classes.secondButtonsBox}>
-                  <label htmlFor="dogButtonsAtWorkGroup">For When You're At Work</label>
-                  <div id="dogButtonsAtWorkGroup" className={classes.dogAtWorkButtonsDiv}>
-                      {data.dog.slice(3,5).map(data=>
-                                                  <Field
-                                                        component={ButtonGroup}
-                                                        props={data}
-                                                        key={Math.random()}
-                                                        firstNameField="services"
-                                                        classNameText='buttonField'
-                                                  />
-                                              )}
-                  </div>
-              </div>
             </div>
-    <div>
-          <Field
+            <div>
+              <Field
                 render={() => {
                 const step= values.services;
                 switch (step){
@@ -92,7 +81,7 @@ const SearchForm = (props) => {
                       />
                     </div>
                     <div className={classes.datePickerField}>
-                    <label>For these days</label>
+                    <label>Dates</label>
                     <Field
                           component={DatePickerField}
                           firstField={values.services==='Dog Boarding'?"Drop off":"Start date"}
@@ -114,10 +103,9 @@ const SearchForm = (props) => {
                                         values={values.services}
                                   />
                               </div>
-                                {console.log(values)}
 
                               <div className={classes.oftenNeedServiceContainer}>
-                              <label htmlFor="oftenNeedService">How often do you need this service? ({values.services})</label>
+                              <label htmlFor="oftenNeedService">How often do you need {values.services} service? </label>
                                 <div id="oftenNeedService" className={classes.oftenNeedService}>
                                   {data.oftenNeedService.map(data=>
                                                       <Field
@@ -125,7 +113,6 @@ const SearchForm = (props) => {
                                                         props={data}
                                                         key={Math.random()}
                                                         firstNameField="regularity"
-                                                        secondNameField="endDate"
                                                         classNameText='regularityButtonField'
                                                       /> )}
                                   </div>
@@ -176,19 +163,29 @@ const SearchForm = (props) => {
               />
           </div>
 
+
           <div className={classes.lastField}>
           <div >
-          <div>My Dog Size</div>
-            <div className={classes.dogSizeAndWeights}>
-              {data.weights.map(data=><Checkbox
-                        name="dogSizes"
-                        value={data.dogSize}
-                        box='dogSizes'
-                        text={data.weight}
-                        key={Math.random()}
-                  />)}
-            </div>
-           </div>
+            <div>My Dog Size</div>
+              <div className={classes.dogSizeAndWeights}>
+                {data.weights.map(data=><Checkbox
+                          name="dogSizes"
+                          value={data.dogSize}
+                          box='dogSizes'
+                          text={data.weight}
+                          key={Math.random()}
+                    />)}
+              </div>
+             </div>
+
+             <div className={classes.sliderRangeInputContainer}>
+                 <Field
+                       component={SliderRangeInput}
+                       min={10}
+                       max={100}
+                 />
+             </div>
+
             <button type='submit' className={classes.submitButton}>Search</button>
           </div>
           </Form>
@@ -199,4 +196,4 @@ const SearchForm = (props) => {
   </>
 )}
 
-export default connect(state => ({searchParam: state.searchParam}), { setSearchParam })( SearchForm)
+export default connect(state => ({searchParam: state.searchParam}), { setSearchParam })(SearchSittersForm)
