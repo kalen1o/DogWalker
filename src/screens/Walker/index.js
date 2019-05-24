@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import classes from './Walker.module.css';
 
+import ReactModal from 'react-modal';
+import CreditCardValidation from '../../components/ReusableComponents/CreditCardValidation';
+
 import { withFirebase } from '../../config/Firebase';
 
 import { compose } from 'recompose';
@@ -9,8 +12,17 @@ import data from '../../components/constants/data';
 class WalkerBase extends Component {
 	state = {
 		loading: true,
-		info: {}
+		info: {},
+		showModal: false
 	}
+
+	handleOpenModal() {
+        this.setState({ showModal: true });
+	}
+	
+	handleCloseModal() {
+        this.setState({ showModal: false });
+    }
 
 	componentWillMount() {
 		this.props.firebase.user(this.props.match.params.uid).on('value', snapshot => {
@@ -74,7 +86,20 @@ class WalkerBase extends Component {
 						<h1 className={classes.h1}>{this.state.info.name}</h1>
 						<h2 className={classes.h2}>{this.state.info.city}</h2>
 						<h3 className={classes.h3}>{this.state.info.email}</h3>
-						<button type="button" className={classes.btn}>Contact {this.state.info.name}</button>
+						<button type="button" className={classes.btn} onClick={this.handleOpenModal.bind(this)}>Contact {this.state.info.name}</button>
+						<ReactModal
+							isOpen={this.state.showModal}
+							contentLabel="onRequestClose Example"
+							onRequestClose={this.handleCloseModal.bind(this)}
+							className={classes.Modal}
+							overlayClassName={classes.Overlay}
+						>
+							<h1>Your Order!</h1>
+							<CreditCardValidation />
+							<div className={classes.ButtonOrderComplete}>
+								<button onClick={this.handleCloseModal}>Confirm</button>
+							</div>    
+						</ReactModal>
 					</div>
 				</div>
 				<div className={classes["services-wrapper"]}>

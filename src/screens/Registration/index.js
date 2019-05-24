@@ -37,6 +37,20 @@ class RegistrationBase extends Component {
 		}
 	}
 
+	componentDidMount() {
+		this.listener = this.props.firebase.auth.onAuthStateChanged(
+			authWalker => {
+				if (authWalker) {
+					this.props.history.replace("/account")
+				}
+			}
+		)
+	}
+
+	componentWillUnmount() {
+		this.listener();
+	}
+
 	render() {
 		let services = data.dog.map(item => (
 			<Checkbox name="checkboxes" value={item.text} icon={item.icon} box={classes.box} key={item.text}/>

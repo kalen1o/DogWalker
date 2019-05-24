@@ -13,7 +13,6 @@ class ButtonDeleteAccountBase extends Component {
 		this.props.history.push("/signin")
 	}
 	render() {
-		console.log(this.props, 'btn')
 		return (
 			<div className={classes["delete-btn-wrapper"]}>
 				<button type="button" onClick={this.handleClick.bind(this)} className={classes.btn}>Delete this account</button>

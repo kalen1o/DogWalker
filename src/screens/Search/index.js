@@ -61,7 +61,7 @@ class SearchBase extends Component {
 		return array.filter(item => {
 			return filterKeys.every(key => {
 				if(!filters[key].length) return true
-				if(key === 'regularity') return true
+				if(key === 'regularity' || key === 'startDate' || key === 'endDate') return true
 				if(key === 'dogSizes' || key === 'daysOfTheWeek') {
 					return filters[key].every(property => item[key].indexOf(property) !== -1)
 				}
@@ -85,7 +85,9 @@ class SearchBase extends Component {
 		}
 		return (
 			<div className={classes["search-wrapper"]}>
-				<SearchSittersForm />
+
+				<SearchSittersForm history={this.props.history}/>
+
 				<WalkersComponent walkers={walkers}/>
 				<Map
 					defaultCenter={this.props.city}
