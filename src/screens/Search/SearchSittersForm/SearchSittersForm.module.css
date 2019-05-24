@@ -1,0 +1,16 @@
+.searchFormBox{
+  width: 320px;
+  box-sizing: border-box;
+  display: block;
+  padding: 5px;
+}
+.dogSizeAndWeights{
+  display: flex;
+  width: 95%;
+}
+
+.sliderRangeInputContainer{
+  margin: 5px;
+  padding: 5px;
+  width: 90%;
+}
