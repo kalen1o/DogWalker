@@ -24,7 +24,17 @@ const SearchSittersForm = (props) => {
   <div className={classes.searchFormContainer}>
 
       <Formik
-        initialValues={props.searchParam}
+        // initialValues={props.searchParam}
+        initialValues={{
+          services: "Dog Boarding",
+      		city: "",
+      		regularity: "One Time",
+      		startDate: "",
+      		endDate: "",
+      		dogSizes: [],
+      		daysOfTheWeek: [],
+          salary: [10, 100]
+        }}
         onSubmit={values => {
           const { setSearchParam } = props;
           setSearchParam(values)
