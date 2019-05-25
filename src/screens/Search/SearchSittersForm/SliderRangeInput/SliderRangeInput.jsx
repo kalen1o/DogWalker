@@ -1,11 +1,12 @@
 import React from 'react';
 import { Slider } from 'antd';
 import 'antd/lib/slider/style/index.css';
+import 'antd/lib/tooltip/style/index.css';
 import classes from './SliderRangeInput.module.css'
 
 const SliderRangeInput=({
-  field: { name, value, onChange, onBlur },
-  form: { errors, touched, setFieldValue },
+  field,
+  form,
   ...props
 }) =>{
   const marks = {
@@ -16,7 +17,7 @@ const SliderRangeInput=({
     label: <strong>$100</strong>,
   },
 };
-  console.log(value)
+  console.log(form.values)
     return(
                       <div>
                             <Slider
@@ -25,9 +26,10 @@ const SliderRangeInput=({
                                   min={props.min}
                                   max={props.max}
                                   defaultValue={[10, 100]}
-                                  tipFormatter={(value)=>{return `${value}$`}}
+
                                   onAfterChange={(value)=>
-                                  console.log('onAfterChange: ', value)}
+                                  form.setFieldValue("salary", value)
+                                  }
                           />
 
                         </div>
