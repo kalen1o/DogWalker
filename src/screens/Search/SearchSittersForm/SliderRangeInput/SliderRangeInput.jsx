@@ -1,6 +1,6 @@
 import React from 'react';
 import { Slider } from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/lib/slider/style/index.css';
 import classes from './SliderRangeInput.module.css'
 
 const SliderRangeInput=({
