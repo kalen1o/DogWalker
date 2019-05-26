@@ -197,4 +197,4 @@ const SearchForm = (props) => {
   </>
 )}
 
-export default connect(state => ({searchParam: state.searchParam}), { setSearchParam })( SearchForm)
+export default connect(state => ({searchParam: state.searchParam}), { setSearchParam })(SearchForm)

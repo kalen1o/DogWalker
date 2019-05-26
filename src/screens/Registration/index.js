@@ -137,7 +137,7 @@ class RegistrationBase extends Component {
 								</div>
 
 								<button type="submit" className={classes.btn}>Sign up</button>
-								<p className={classes.info}>By signing in or signing up, I agree to Rover.com's Terms of Service and Privacy Policy, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
+								<p className={classes.info}>By signing in or signing up, I agree to Rover.com's <Link to="/terms">Terms of Service</Link> and <Link to="/privacy">Privacy Policy</Link>, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
 								<p className={classes["have-account"]}>Already have a Rover account? <Link to="/signin">Sign in now.</Link></p>
 							</Form>
 						)}

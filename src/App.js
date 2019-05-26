@@ -32,6 +32,9 @@ import HouseSitting from './components/HouseSitting/HouseSitting';
 import DropInVisit from './components/DropInVisit/DropInVisit';
 import DoggyDay from './components/DoggyDay/DoggyDay';
 import Walking from './components/Walking/Walking';
+import About from './screens/About';
+import PrivacyStatement from './screens/PrivacyStatement';
+import TermsOfService from './screens/TermOfService';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -86,6 +89,9 @@ class App extends Component {
             <Route path="/Drop-In-Visits" component = { DropInVisit } exact />
             <Route path="/Doggy-Day-Care" component = { DoggyDay } exact />
             <Route path="/Dog-Walking" component = { Walking } exact />
+            <Route path="/aboutus" component = { About } exact />
+            <Route path="/privacy" component = { PrivacyStatement } exact /> 
+            <Route path="/terms" component = { TermsOfService } exact />
           </Switch>
           </div>
           <Footer />
