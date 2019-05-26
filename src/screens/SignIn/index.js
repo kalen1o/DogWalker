@@ -6,6 +6,8 @@ import { SignInSchema } from '../../config/yupConfig';
 
 import SignInFacebook from '../../components/SignInFacebook';
 import DefaultInput from '../../components/ReusableComponents/DefaultInput';
+import PasswordInput from '../../components/ReusableComponents/PasswordInput';
+
 import { SignUpLink } from '../Registration';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withRouter } from 'react-router-dom';
@@ -15,17 +17,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { toast } from 'react-toastify';
 
-class SignInBase extends Component {
-	state = {
-		showPassword: false
-	}
-
-	handleShowPassword = () => {
-		this.setState({showPassword: !this.state.showPassword})
-	}
-	
+class SignInBase extends Component {	
 	render() {
-		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
 			<div className={classes["signin-form-holder"]}>
 				<h1 className={classes.h1}>Sign in to DogWalker</h1>
@@ -61,16 +54,7 @@ class SignInBase extends Component {
 							<Form>
 								<DefaultInput id="signInEmail" label="Email" name="email" type="email" errors={errors} touched={touched} />
 
-								<div className={classes["input-wrapper"]}>
-									<label htmlFor="signInPassword" className={classes.label}>Password</label>
-									<Field
-										id="signInPassword"
-										className={classes.input}
-										name="password"
-										type={this.state.showPassword ? 'text': 'password'}
-									/>
-									<button onClick={this.handleShowPassword} type="button" className={classes.eye}><FontAwesomeIcon icon={showPassword} /></button>
-								</div>
+								<PasswordInput id="signInPassword" label="Password" name="password" errors={errors} touched={touched} />
 
 								<button type="submit" className={classes.btn}>Sign in</button>
 								<PasswordForgetLink />

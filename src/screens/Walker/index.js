@@ -84,7 +84,7 @@ class WalkerBase extends Component {
 					</div>
 					<div className={classes["info-wrapper"]}>
 						<h1 className={classes.h1}>{this.state.info.name}</h1>
-						<h2 className={classes.h2}>{this.state.info.city}</h2>
+						<h2 className={classes.h2}>{this.state.info.city} {this.state.info.address}</h2>
 						<h3 className={classes.h3}>{this.state.info.email}</h3>
 						<button type="button" className={classes.btn} onClick={this.handleOpenModal.bind(this)}>Contact {this.state.info.name}</button>
 						<ReactModal
@@ -97,7 +97,7 @@ class WalkerBase extends Component {
 							<h1>Your Order!</h1>
 							<CreditCardValidation />
 							<div className={classes.ButtonOrderComplete}>
-								<button onClick={this.handleCloseModal}>Confirm</button>
+								<button onClick={this.handleCloseModal.bind(this)}>Confirm</button>
 							</div>    
 						</ReactModal>
 					</div>

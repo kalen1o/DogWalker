@@ -113,7 +113,6 @@ const SearchForm = (props) => {
                                         values={values.services}
                                   />
                               </div>
-                                {console.log(values)}
 
                               <div className={classes.oftenNeedServiceContainer}>
                               <label htmlFor="oftenNeedService">How often do you need this service? ({values.services})</label>

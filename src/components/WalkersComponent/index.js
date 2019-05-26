@@ -15,7 +15,7 @@ class WalkersComponent extends Component {
 								<div className={classes["walker-info-wrapper"]}>
 									<div>
 										<h1 className={classes.h1}>{++index}. <Link to={`walker/${item.uid}`} className={classes.name}>{item.name}</Link></h1>
-										<p className={classes.city}>{item.city}</p>
+										<p className={classes.city}>{item.city} {item.address}</p>
 										<p className={classes.email}>{item.email}</p>
 									</div>
 									<div>
