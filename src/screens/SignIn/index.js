@@ -23,20 +23,6 @@ class SignInBase extends Component {
 	handleShowPassword = () => {
 		this.setState({showPassword: !this.state.showPassword})
 	}
-
-	componentDidMount() {
-		this.listener = this.props.firebase.auth.onAuthStateChanged(
-			authWalker => {
-				if (authWalker) {
-					this.props.history.replace("/account")
-				}
-			}
-		)
-	}
-
-	componentWillUnmount() {
-		this.listener();
-	}
 	
 	render() {
 		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';

@@ -7,20 +7,6 @@ import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../config/Firebase';
 
 class SignUp extends Component {
-	componentDidMount() {
-		this.listener = this.props.firebase.auth.onAuthStateChanged(
-			authWalker => {
-				if (authWalker) {
-					this.props.history.replace("/account")
-				}
-			}
-		)
-	}
-
-	componentWillUnmount() {
-		this.listener();
-	}
-
 	render() {
 		return (
 			<div className={classes.signup}>

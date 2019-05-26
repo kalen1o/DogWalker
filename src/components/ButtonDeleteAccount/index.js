@@ -6,11 +6,12 @@ import { withFirebase } from '../../config/Firebase';
 
 class ButtonDeleteAccountBase extends Component {
 	handleClick = () => {
+		this.props.firebase.deleteUser().then(
+			this.props.history.push("/signin")
+		)
+
 		this.props.firebase.user(this.props.authWalker.uid)
 			.remove()
-
-		this.props.firebase.deleteUser()
-		this.props.history.push("/signin")
 	}
 	render() {
 		return (

@@ -14,7 +14,7 @@ class Account extends Component {
 		info: {}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.firebase.user(this.props.authWalker.uid).on('value', snapshot => {
 			const userInfo = snapshot.val()
 			this.setState({
@@ -41,7 +41,7 @@ class Account extends Component {
 		return (
 			<div className={classes.account}>
 				<div className={classes["account-info"]}>
-					<ProfileImageChange profileImage={this.state.info.photo} authWalker={this.props.authWalker} />
+					<ProfileImageChange profileImage={this.state.info ? this.state.info.photo : ""} authWalker={this.props.authWalker} />
 					<InfoChange authWalkerInfo={this.state.info} authWalker={this.props.authWalker}/>
 				</div>
 				<PasswordChange />

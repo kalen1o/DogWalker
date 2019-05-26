@@ -19,7 +19,40 @@ class SearchBase extends Component {
 	}
 
 	componentDidMount() {
-		let city = this.state.city.length ? this.state.city : 'Kiev';
+		this.onClickSearch()
+	}
+
+	componentWillUnmount() {
+		this.props.firebase.users().off();
+	}
+
+	filter = (array, filters) => {
+		const filterKeys = Object.keys(filters)
+		return array.filter(item => {
+			return filterKeys.every(key => {
+				if(!filters[key].length) return true
+				if(key === 'regularity' || key === 'startDate' || key === 'endDate') return true
+				if(key === 'dogSizes' || key === 'daysOfTheWeek') {
+					return filters[key].every(property => item[key].indexOf(property) !== -1)
+				}
+				if(key === 'salary') {
+					if (item[key] > filters[key][0] && item[key] < filters[key][1]) {
+						return true
+					} else {
+						return false
+					}
+				}
+				if(key === 'services') {
+					return item[key].indexOf(filters[key]) === -1 ? false : true
+				} else {
+					return item[key] === filters[key] ? true : false
+				}
+			})
+		})
+	}
+
+	onClickSearch = () => {
+		let city = this.props.search.city.length ? this.props.search.city : 'Kiev';
 		const { FetchLatLng, FetchMarkers, GetUid } = this.props;
 		FetchLatLng(city)
 
@@ -52,53 +85,35 @@ class SearchBase extends Component {
 		})
 	}
 
-	componentWillUnmount() {
-		this.props.firebase.users().off();
-	}
-
-	filter = (array, filters) => {
-		const filterKeys = Object.keys(filters)
-		return array.filter(item => {
-			return filterKeys.every(key => {
-				if(!filters[key].length) return true
-				if(key === 'regularity' || key === 'startDate' || key === 'endDate') return true
-				if(key === 'dogSizes' || key === 'daysOfTheWeek') {
-					return filters[key].every(property => item[key].indexOf(property) !== -1)
-				}
-				if(key === 'services') {
-					return item[key].indexOf(filters[key]) === -1 ? false : true
-				} else {
-					return item[key] === filters[key] ? true : false
-				}
-			})
-		})
-	}
-
 	render() {
 		const { walkers, loading } = this.state;
-		if (!loading) {
-			return (
-				<div className={classes.loading}>
-					<img alt="loading" src="https://cdn.dribbble.com/users/238583/screenshots/3630870/lagif-grande.gif"/>
-				</div>
-			)
-		}
 		return (
 			<div className={classes["search-wrapper"]}>
 
-				<SearchSittersForm history={this.props.history}/>
+				<SearchSittersForm onClickSearch={this.onClickSearch.bind(this)} history={this.props.history}/>
 
-				<WalkersComponent walkers={walkers}/>
-				<Map
-					defaultCenter={this.props.city}
-					markers={this.props.markers}
-					history={this.props.history}
-					markersUid={this.props.markersUid}
-					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhLPAAJXpqa3kBViOO3jZ7_O94EoyR8lU&v=3.exp&libraries=geometry,drawing,places"
-					loadingElement={<div style={{ height: `100%` }} />}
-					containerElement={<div style={{ height: `100vh`, width: `100vw`, zIndex: 0 }} />}
-					mapElement={<div style={{ height: `100%` }} />}
-				/>
+				{!loading
+					? (
+						<div className={classes.loading}>
+					<img alt="loading" src="https://cdn.dribbble.com/users/238583/screenshots/3630870/lagif-grande.gif"/>
+				</div>
+					)
+					: (
+						<div className={classes["search-wrapper"]}>
+							<WalkersComponent walkers={walkers}/>
+							<Map
+								defaultCenter={this.props.city}
+								markers={this.props.markers}
+								history={this.props.history}
+								markersUid={this.props.markersUid}
+								googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhLPAAJXpqa3kBViOO3jZ7_O94EoyR8lU&v=3.exp&libraries=geometry,drawing,places"
+								loadingElement={<div style={{ height: `100%` }} />}
+								containerElement={<div style={{ width: `calc(100vw - 640px)`, zIndex: 0 }} />}
+								mapElement={<div style={{ height: `100%` }} />}
+							/>
+						</div>
+					)
+				}
 			</div>
 		)
 	}

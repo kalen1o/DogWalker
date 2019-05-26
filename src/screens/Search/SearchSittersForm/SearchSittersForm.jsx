@@ -24,21 +24,11 @@ const SearchSittersForm = (props) => {
   <div className={classes.searchFormContainer}>
 
       <Formik
-        // initialValues={props.searchParam}
-        initialValues={{
-          services: "Dog Boarding",
-      		city: "",
-      		regularity: "One Time",
-      		startDate: "",
-      		endDate: "",
-      		dogSizes: [],
-      		daysOfTheWeek: [],
-          salary: [10, 100]
-        }}
+        initialValues={props.searchParam}
         onSubmit={values => {
           const { setSearchParam } = props;
           setSearchParam(values)
-          props.history.push('search')
+          props.onClickSearch()
         }}
 
         validate={values=>{
@@ -193,6 +183,7 @@ const SearchSittersForm = (props) => {
                        component={SliderRangeInput}
                        min={10}
                        max={100}
+                       defaultValue={values.salary}
                  />
              </div>
 

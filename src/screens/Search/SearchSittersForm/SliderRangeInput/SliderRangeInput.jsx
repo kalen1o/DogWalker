@@ -16,7 +16,6 @@ const SliderRangeInput=({
     label: <strong>$100</strong>,
   },
 };
-  console.log(form.values)
     return(
                       <div>
                             <Slider
@@ -24,10 +23,10 @@ const SliderRangeInput=({
                                   marks={marks}
                                   min={props.min}
                                   max={props.max}
-                                  defaultValue={[10, 100]}
+                                  defaultValue={props.defaultValue}
 
                                   onAfterChange={(value)=>
-                                  form.setFieldValue("salary", value)
+                                    form.setFieldValue("salary", value)
                                   }
                           />
 

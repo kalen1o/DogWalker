@@ -28,7 +28,6 @@ const SearchForm = (props) => {
         initialValues={props.searchParam}
         validationSchema={SearchSchema}
         onSubmit={values => {
-          console.log(values, 1)
           const { setSearchParam } = props;
           setSearchParam(values)
           props.history.push('search')

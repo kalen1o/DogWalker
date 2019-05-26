@@ -10,7 +10,7 @@ const withAuthorization = condition => Component => {
 			this.listener = this.props.firebase.auth.onAuthStateChanged(
 				authWalker => {
 					if (!condition(authWalker)) {
-						this.props.history.push("signin");
+						this.props.history.push("/signin");
 					}
 				},
 			);
@@ -22,8 +22,11 @@ const withAuthorization = condition => Component => {
 		render() {
 		return (
 			<AuthWalkerContext.Consumer>
-				{authWalker => 
-					condition(authWalker) ? <Component {...this.props} authWalker={authWalker} /> : null
+				{authWalker => {
+						return condition(authWalker) 
+							? <Component {...this.props} authWalker={authWalker} /> 
+							: null
+					}
 				}
 			</AuthWalkerContext.Consumer>
 		)

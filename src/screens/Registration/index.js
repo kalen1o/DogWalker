@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import classes from './Registration.module.css';
 import { Formik, Form, Field } from "formik";
 import { RegistrationSchema } from '../../config/yupConfig';
-import {Link, withRouter} from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+
+import { compose } from 'recompose';
+import { withFirebase } from '../../config/Firebase';
 
 import Checkbox from '../../components/ReusableComponents/Checkbox';
 import DefaultInput from '../../components/ReusableComponents/DefaultInput';
 import data from '../../components/constants/data'
 
-import { withFirebase } from '../../config/Firebase';
-import { compose } from 'recompose';
+import { withAuthorization } from '../../config/Session';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -37,21 +39,8 @@ class RegistrationBase extends Component {
 		}
 	}
 
-	componentDidMount() {
-		this.listener = this.props.firebase.auth.onAuthStateChanged(
-			authWalker => {
-				if (authWalker) {
-					this.props.history.replace("/account")
-				}
-			}
-		)
-	}
-
-	componentWillUnmount() {
-		this.listener();
-	}
-
 	render() {
+		console.log(this.state, 'here')
 		let services = data.dog.map(item => (
 			<Checkbox name="checkboxes" value={item.text} icon={item.icon} box={classes.box} key={item.text}/>
 		))
@@ -76,11 +65,9 @@ class RegistrationBase extends Component {
 						}}
 						validationSchema={RegistrationSchema}
 						onSubmit={ ( values, { resetForm } ) => {
-							console.log(values)
 							this.props.firebase
 								.doCreateUserWithEmailAndPassword(values.email, values.password)
 								.then((authWalker) => {
-									console.log(authWalker, '3')
 									authWalker.user.updateProfile({
 										displayName: `${values.firstname} ${values.lastname}`
 									})

@@ -8,6 +8,10 @@
 	width: 25px;
 }
 
+.services {
+	display: none;
+}
+
 @media (min-width: 768px) {	
 	.left-menu, .right-menu {
 		display: flex;
@@ -39,6 +43,7 @@
 	}
 
 	.services {
+		display: block;
 		background-color: #00bd70;
 		color: white;
 		position: absolute;

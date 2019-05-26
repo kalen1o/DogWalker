@@ -6,7 +6,8 @@ const initialState = {
 		startDate: "",
 		endDate: "",
 		dogSizes: [],
-		daysOfTheWeek: []
+		daysOfTheWeek: [],
+		salary: [10, 100]
 	},
 	city: {},
 	markers: {},
