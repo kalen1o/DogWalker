@@ -8,7 +8,7 @@
    position: relative;
    border-radius: 4px;
    text-align: center;
-   width: calc(90%);
+   width: 90%;
 }
 
 .buttonFieldActive .fontAwesome{
@@ -66,7 +66,8 @@
   box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
-  width: calc(95%)
+  width: 95%;
+  height: 40px;
 }
 
 .regularityButtonFieldUsual .fontAwesome{
@@ -88,15 +89,35 @@
 }
 .regularityButtonFieldActive{
   display: flex;
+  position: relative;
+  border: none;
+  font: inherit;
+  color: inherit;
   color: #40484f;
   font-size: 14px;
   padding: 7px 15px;
   background-color: transparent;
   cursor: pointer;
+  border: 1px solid #cfd7de;
+  height: 40px;
   border: 3px solid #14a96d;
   box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   margin-right: 10px;
-  width: calc(95%);
+  width: 95%;
+  position: relative;
+}
+.buttonFieldActive:active, .buttonFieldUsual:active,.regularityButtonFieldActive:active,
+.regularityButtonFieldUsual:active{
+  outline: none;
+}
+
+
+@media (max-width: 768px) and (min-width: 300px){
+  .buttonFieldActive, .buttonFieldUsual,.regularityButtonFieldActive,
+  .regularityButtonFieldUsual{
+    font-size: 12px;
+  }
+
 }

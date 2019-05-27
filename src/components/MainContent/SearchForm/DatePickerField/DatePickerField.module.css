@@ -4,9 +4,7 @@
   width: 100%;
   justify-content: center;
 }
-.dayColor-disabled {
-  color: grey;
-}
+
 
 .datePicker {
   color: #00bd70;
@@ -23,15 +21,11 @@
   display: block ;
   width: 100%;
   background-color: white;
-  max-width: 365px;
+  max-width: 90%;
 }
 .testClass >div >div>div{
   float:none;
-}
-
-.react-datepicker-wrapper div{
-  display: block ;
-  width: 100%;
+  overflow: hidden;
 }
 
 .arrow{
@@ -60,7 +54,10 @@
   font-size: 14px;
 }
 .dayColor-disabled {
-  color: grey;
+  color: #ccc;
+}
+.dayColor-disabledEnd {
+  color: #ccc;
 }
 
 @media (max-width: 768px) {

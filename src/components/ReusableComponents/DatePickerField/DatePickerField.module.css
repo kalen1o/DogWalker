@@ -5,7 +5,7 @@
   justify-content: center;
 }
 .dayColor-disabled {
-  color: grey;
+  color: #ccc;
 }
 
 .datePicker {
@@ -60,7 +60,7 @@
   font-size: 14px;
 }
 .dayColor-disabled {
-  color: grey;
+  color: #ccc;
 }
 
 @media (max-width: 768px) {

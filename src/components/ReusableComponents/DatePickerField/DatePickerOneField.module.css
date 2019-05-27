@@ -3,7 +3,7 @@
   position: relative;
 }
 .dayColor-disabled {
-  color: grey;
+  color: #ccc;
 }
 .datePicker {
   color: #00bd70;
@@ -48,7 +48,4 @@
 .dayColor{
   color:  green;
   font-size: 14px;
-}
-.react-datepicker__day--disabled{
-  color: grey;
 }
