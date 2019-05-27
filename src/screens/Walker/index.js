@@ -17,12 +17,12 @@ class WalkerBase extends Component {
 	}
 
 	handleOpenModal() {
-        this.setState({ showModal: true });
+		this.setState({ showModal: true });
 	}
-	
+
 	handleCloseModal() {
-        this.setState({ showModal: false });
-    }
+		this.setState({ showModal: false });
+	}
 
 	componentWillMount() {
 		this.props.firebase.user(this.props.match.params.uid).on('value', snapshot => {
@@ -44,7 +44,7 @@ class WalkerBase extends Component {
 		if (loading) {
 			return (
 				<div className={classes.flexwrapper}>
-					<img alt="loading" src="https://cdn.dribbble.com/users/238583/screenshots/3630870/lagif-grande.gif"/>
+					<img alt="loading" src="https://cdn.dribbble.com/users/238583/screenshots/3630870/lagif-grande.gif" />
 				</div>
 			)
 		}
@@ -52,7 +52,7 @@ class WalkerBase extends Component {
 		let services = [];
 		this.state.info.services.forEach(service => {
 			services.push(data.dog.map(item => {
-				return item.text === service ? 
+				return item.text === service ?
 					(
 						<div key={item.name}>
 							<h5 className={classes.h5}>{item.text}</h5>
@@ -80,7 +80,7 @@ class WalkerBase extends Component {
 			<div className={classes.walker}>
 				<div className={classes["walker-wrapper"]}>
 					<div className={classes["avatar-wrapper"]}>
-						<img src={`${this.state.info.photo}`} alt={this.state.info.name} className={classes.avatar}/>
+						<img src={`${this.state.info.photo}`} alt={this.state.info.name} className={classes.avatar} />
 					</div>
 					<div className={classes["info-wrapper"]}>
 						<h1 className={classes.h1}>{this.state.info.name}</h1>
@@ -94,11 +94,18 @@ class WalkerBase extends Component {
 							className={classes.Modal}
 							overlayClassName={classes.Overlay}
 						>
-							<h1>Your Order!</h1>
-							<CreditCardValidation />
-							<div className={classes.ButtonOrderComplete}>
-								<button onClick={this.handleCloseModal.bind(this)}>Confirm</button>
-							</div>    
+							<div className={classes.ModalWrap}>
+								<h1>Your Order!</h1>
+								<div className={classes.emailModal}>
+									<input type='email' name='email' placeholder='Email Address' value={this.state.info.email} disabled/>
+								</div> 
+								<CreditCardValidation />
+ 
+
+								<div className={classes.ButtonOrderComplete}>
+									<button onClick={this.handleCloseModal.bind(this)} type='submit'>Confirm</button>
+								</div>
+							</div>
 						</ReactModal>
 					</div>
 				</div>

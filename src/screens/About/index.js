@@ -1,6 +1,19 @@
 import React from 'react';
 import classes from './About.module.css';
-
+import aaron from '../../images/walker/aaron.jpg';
+import greg from '../../images/walker/greg.jpg';
+import philip from '../../images/walker/philip.jpg';
+import jason from '../../images/walker/jason.jpg';
+import scott from '../../images/walker/scott.jpg';
+import brent from '../../images/walker/brent.jpg';
+import john from '../../images/walker/john.jpg';
+import megan from '../../images/walker/megan.jpg';
+import paul from '../../images/walker/paul.jpg';
+import halle from '../../images/walker/halle.jpg';
+import heather from '../../images/walker/heather.jpg';
+import derek from '../../images/walker/derek.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return <div className={classes.about}>
@@ -63,19 +76,19 @@ const About = () => {
                             <div className={classes.contentblockflex}>
                                 <div className={classes.colsm6}>
                                     <ol className={classes.roverlist}>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>Background or identity checks</span></li>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>The Walker Guarantee</span></li>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>Reservation protection</span></li>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>24/7 support</span></li>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>Secure online payments</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> Background or identity checks</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> The Walker Guarantee</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> Reservation protection</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> 24/7 support</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> Secure online payments</span></li>
                                     </ol>
                                 </div>
                                 <div className={classes.colsm6}>
                                     <ul className={classes.roverlist}>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>Ongoing sitter education</span></li>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>Photo updates</span></li>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>Verified reviews</span></li>
-                                        <li className="margin_v_x2"><span className={`fas fa-angle-right ${classes.span}`}>Trust and safety experts</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> Ongoing sitter education</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> Photo updates</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> Verified reviews</span></li>
+                                        <li className="margin_v_x2"><span className={`fas ${classes.span}`}><FontAwesomeIcon icon="angle-right" /> Trust and safety experts</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -90,23 +103,23 @@ const About = () => {
                             <div className={classes.rowmarginvx6}>
                                 <div className={classes.colsm66}>
                                     <ul className={classes.roverlist}>
-                                        <li className={classes.marginCol}><a className={`fas fa-angle-right ${classes.a}`} href="http://localhost:3000/">Dog Boarding</a></li>
-                                        <li className={classes.marginCol}><a className={`fas fa-angle-right ${classes.a}`} href="http://localhost:3000/">Pet Sitting</a></li>
-                                        <li className={classes.marginCol}><a className={`fas fa-angle-right ${classes.a}`} href="http://localhost:3000/">Dog Walking</a></li>
+                                        <li className={classes.marginCol}><Link to="/Dog-Boarding" className={`fas ${classes.a}`} href="http://localhost:3000/"><FontAwesomeIcon icon="angle-right" /> Dog Boarding</Link></li>
+                                        <li className={classes.marginCol}><Link to="/House-Sitting" className={`fas ${classes.a}`} href="http://localhost:3000/"><FontAwesomeIcon icon="angle-right" /> Pet Sitting</Link></li>
+                                        <li className={classes.marginCol}><Link to="/Drop-In-Visits" className={`fas ${classes.a}`} href="http://localhost:3000/"><FontAwesomeIcon icon="angle-right" /> Dog Walking</Link></li>
                                     </ul>
                                 </div>
                                 <div className={classes.colsm66}>
                                     <ul className={classes.roverlist}>
-                                        <li className={classes.marginCol}><a className={`fas fa-angle-right ${classes.a}`} href="http://localhost:3000/">Doggy Day Care</a></li>
-                                        <li className={classes.marginCol}><a className={`fas fa-angle-right ${classes.a}`} href="http://localhost:3000/">Drop-In Visits</a></li>
-                                        <li className={classes.marginCol}><a className={`fas fa-angle-right ${classes.a}`} href="http://localhost:3000/">House Sitting</a></li>
+                                        <li className={classes.marginCol}><Link to="/Doggy-Day-Care" className={`fas ${classes.a}`} href="http://localhost:3000/"><FontAwesomeIcon icon="angle-right" /> Doggy Day Care</Link></li>
+                                        <li className={classes.marginCol}><Link to="/Drop-In-Visits" className={`fas ${classes.a}`} href="http://localhost:3000/"><FontAwesomeIcon icon="angle-right" /> Drop-In Visits</Link></li>
+                                        <li className={classes.marginCol}><Link to="/House-Sitting" className={`fas ${classes.a}`} href="http://localhost:3000/"><FontAwesomeIcon icon="angle-right" /> House Sitting</Link></li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div className="btndiv">
                                 <div className={classes.btnclick}>
-                                    <a className={classes.roverbtn} href="/search/">Search Sitters</a>
+                                    <Link className={classes.roverbtn} to="/search">Search Sitters</Link>
                                 </div>
                             </div>
 
@@ -122,105 +135,89 @@ const About = () => {
                                 
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/aaron-easterly.b2e3cb9010cf.jpg" alt="aaron-easterly" />
+                                        <img className={classes.imgcircleimgavatar} src={aaron} alt="aaron-easterly" />
                                         <h4 className="margin-x1">Aaron Easterly</h4>
                                         <div className="text-uppercase text-muted small-text">Chief Executive Officer</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/greg-gottesman.3cd31ba4b35e.jpg" alt="greg-gottesman" />
+                                        <img className={classes.imgcircleimgavatar} src={greg} alt="greg-gottesman" />
                                         <h4 className="margin-x1">Greg Gottesman</h4>
                                         <div className="text-uppercase text-muted small-text">Founder &amp; Board Member</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/philip-kimmey.3b93cc885bbb.jpg" alt="philip-kimmey" />
+                                        <img className={classes.imgcircleimgavatar} src={philip} alt="philip-kimmey" />
                                         <h4 className="margin-x1">Philip Kimmey</h4>
                                         <div className="text-uppercase text-muted small-text">Co-Founder &amp; Director of Software Development</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/tracy-knox.83e82fa2f44f.jpg" alt="tracy-knox" />
-                                        <h4 className="margin-x1">Tracy Knox</h4>
-                                        <div className="text-uppercase text-muted small-text">Chief Financial Officer</div>
-                                    </div>
-                                </div>
-                                <div className={classes.colsm4colxs6}>
-                                    <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/jason-kreitzer.4d24aa4da903.jpg" alt="jason-kreitzer" />
+                                        <img className={classes.imgcircleimgavatar} src={jason} alt="jason-kreitzer" />
                                         <h4 className="margin-x1">Jason Kreitzer</h4>
                                         <div className="text-uppercase text-muted small-text">Senior VP, Product Management and Marketplace</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/scott-porad.32d2bfa45e6c.jpg" alt="scott-porad" />
+                                        <img className={classes.imgcircleimgavatar} src={scott} alt="scott-porad" />
                                         <h4 className="margin-x1">Scott Porad</h4>
                                         <div className="text-uppercase text-muted small-text">Chief Technology Officer</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/brent-turner.708953c2e949.jpg" alt="brent-turner" />
+                                        <img className={classes.imgcircleimgavatar} src={brent} alt="brent-turner" />
                                         <h4 className="margin-x1">Brent Turner</h4>
                                         <div className="text-uppercase text-muted small-text">Chief Operating Officer</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/john-lapham.ea6dd313a0a0.jpg" alt="john-lapham" />
+                                        <img className={classes.imgcircleimgavatar} src={john} alt="john-lapham" />
                                         <h4 className="margin-x1">John Lapham</h4>
                                         <div className="text-uppercase text-muted small-text">General Counsel</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/megan-teepe.3b1ea137fdaa.jpg" alt="megan-teepe" />
+                                        <img className={classes.imgcircleimgavatar} src={megan} alt="megan-teepe" />
                                         <h4 className="margin-x1">Megan Teepe</h4>
                                         <div className="text-uppercase text-muted small-text">GM, International</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/paul-dixon.9e69c12971c8.jpg" alt="paul-dixon" />
+                                        <img className={classes.imgcircleimgavatar} src={paul} alt="paul-dixon" />
                                         <h4 className="margin-x1">Paul Dixon</h4>
                                         <div className="text-uppercase text-muted small-text">VP &amp; GM, Walker Now</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/halle-hutchison.c321af97e399.jpg" alt="halle-hutchison" />
+                                        <img className={classes.imgcircleimgavatar} src={halle} alt="halle-hutchison" />
                                         <h4 className="margin-x1">Halle Hutchison</h4>
                                         <div className="text-uppercase text-muted small-text">VP, Marketing</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/heather-buser.27c204e324a3.jpg" alt="heather-buser" />
+                                        <img className={classes.imgcircleimgavatar} src={heather} alt="heather-buser" />
                                         <h4 className="margin-x1">Heather Buser</h4>
                                         <div className="text-uppercase text-muted small-text">VP, Accounting</div>
                                     </div>
                                 </div>
                                 <div className={classes.colsm4colxs6}>
                                     <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/derek-chang.bfdb695870da.jpg" alt="derek-chang" />
+                                        <img className={classes.imgcircleimgavatar} src={derek} alt="derek-chang" />
                                         <h4 className="margin-x1">Derek Chang</h4>
                                         <div className="text-uppercase text-muted small-text">VP, Operations</div>
                                     </div>
                                 </div>
-                                <div className={classes.colsm4colxs6}>
-                                    <div className="aboutusteamtextcenter">
-                                        <img className={classes.imgcircleimgavatar} src="images/walker/melissa-weiland.4086dc61de90.jpg" alt="melissa-weiland" />
-                                        <h4 className="margin-x1">Melissa Weiland</h4>
-                                        <div className="text-uppercase text-muted small-text">VP, Deputy General Counsel</div>
-                                    </div>
-                                </div>
                             </div>
-
-
                         </div>
         </div>
 

@@ -35,11 +35,12 @@ import Walking from './components/Walking/Walking';
 import About from './screens/About';
 import PrivacyStatement from './screens/PrivacyStatement';
 import TermsOfService from './screens/TermOfService';
+import Help from './screens/Help';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload } from '@fortawesome/free-solid-svg-icons';
-library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload);
+import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload, faAngleRight);
 
 const store = createStore(searchReducer, applyMiddleware(thunk))
 
@@ -92,6 +93,7 @@ class App extends Component {
             <Route path="/aboutus" component = { About } exact />
             <Route path="/privacy" component = { PrivacyStatement } exact /> 
             <Route path="/terms" component = { TermsOfService } exact />
+            <Route path="/help" component = { Help } exact />
           </Switch>
           </div>
           <Footer />

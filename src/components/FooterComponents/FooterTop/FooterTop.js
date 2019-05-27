@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import classes from './FooterTop.module.css'
-import FooterList from '../FooterList/FooterList';
+import classes from './FooterTop.module.css';
+import FooterList from '../FooterList/FooterList.js';
+import FooterListClick from '../FooterListClick/FooterListClick.js';
 
 class FooterTop extends Component {
     state = {
@@ -82,8 +83,8 @@ class FooterTop extends Component {
                     <FooterList list={this.state.listAboutMore} />
                 </div>
                 <div className={classes.ListCities}>
-                    <FooterList list={this.state.listTopCities}/>
-                    <FooterList list={this.state.listTopCities2} />
+                    <FooterListClick list={this.state.listTopCities}/>
+                    <FooterListClick list={this.state.listTopCities2} />
                 </div>
             </div>
         );
