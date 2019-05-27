@@ -113,7 +113,6 @@ const SearchForm = (props) => {
                                         values={values.services}
                                   />
                               </div>
-                                {console.log(values)}
 
                               <div className={classes.oftenNeedServiceContainer}>
                               <label htmlFor="oftenNeedService">How often do you need this service? ({values.services})</label>
@@ -198,4 +197,4 @@ const SearchForm = (props) => {
   </>
 )}
 
-export default connect(state => ({searchParam: state.searchParam}), { setSearchParam })( SearchForm)
+export default connect(state => ({searchParam: state.searchParam}), { setSearchParam })(SearchForm)

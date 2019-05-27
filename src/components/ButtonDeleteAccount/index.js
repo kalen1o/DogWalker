@@ -4,6 +4,8 @@ import classes from './ButtonDeleteAccount.module.css';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../config/Firebase';
 
+import { toast } from 'react-toastify';
+
 class ButtonDeleteAccountBase extends Component {
 	handleClick = () => {
 		this.props.firebase.deleteUser().then(
@@ -12,6 +14,8 @@ class ButtonDeleteAccountBase extends Component {
 
 		this.props.firebase.user(this.props.authWalker.uid)
 			.remove()
+
+			toast.success("The profile is deleted!")
 	}
 	render() {
 		return (

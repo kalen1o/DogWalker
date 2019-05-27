@@ -44,7 +44,7 @@ class FooterTop extends Component {
             { id: 5, content: 'Zhytomyr' },
             { id: 6, content: 'Zaporizhzhia' },
             { id: 7, content: 'Ivano-Frankivsk' },
-            { id: 8, content: 'Kyiv' },
+            { id: 8, content: 'Kiev' },
             { id: 9, content: 'Kirovohrad' },
             { id: 10, content: 'Luhansk' },
             { id: 11, content: 'Lutsk' },

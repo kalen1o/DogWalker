@@ -6,6 +6,8 @@ import { withFirebase } from '../../config/Firebase';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { toast } from 'react-toastify';
+
 class ProfileImageChangeBase extends Component {
 	state = {
 		photo: this.props.profileImage
@@ -29,6 +31,8 @@ class ProfileImageChangeBase extends Component {
 				.update({
 					photo: this.state.photo
 				})
+
+		toast.success("You changed your profile image successfully!")
 	}
 	render() {
 		return (

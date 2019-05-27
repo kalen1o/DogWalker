@@ -11,6 +11,8 @@ import data from '../constants/data';
 import Checkbox from '../ReusableComponents/Checkbox';
 import DefaultInput from '../ReusableComponents/DefaultInput';
 
+import { toast } from 'react-toastify';
+
 class InfoChangeBase extends Component {
 	render() {
 		let services = data.dog.map(item => (
@@ -47,6 +49,8 @@ class InfoChangeBase extends Component {
 									daysOfTheWeek: values.daysOfTheWeek,
 									address: values.address
 						})
+
+						toast.success("You changed your profile info successfully!")
 					}}
 					render={({errors, touched}) => (
 						<Form>

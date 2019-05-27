@@ -9,9 +9,8 @@ import { withFirebase } from '../../config/Firebase';
 
 import Checkbox from '../../components/ReusableComponents/Checkbox';
 import DefaultInput from '../../components/ReusableComponents/DefaultInput';
+import PasswordInput from '../../components/ReusableComponents/PasswordInput';
 import data from '../../components/constants/data'
-
-import { withAuthorization } from '../../config/Session';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -19,12 +18,7 @@ import { toast } from 'react-toastify';
 
 class RegistrationBase extends Component {
 	state = {
-		showPassword: false,
 		imageSrc: ''
-	}
-
-	handleShowPassword = () => {
-		this.setState({showPassword: !this.state.showPassword})
 	}
 
 	handleFiles = (event) => {
@@ -40,14 +34,12 @@ class RegistrationBase extends Component {
 	}
 
 	render() {
-		console.log(this.state, 'here')
 		let services = data.dog.map(item => (
 			<Checkbox name="checkboxes" value={item.text} icon={item.icon} box={classes.box} key={item.text}/>
 		))
 		let dogSizes = data.weights.map(item => (
 			<Checkbox name="dogSizes" value={item.dogSize} text={item.weight} box={classes["box-dog"]} key={item.dogSize} />
 		))
-		const showPassword = this.state.showPassword ? 'eye-slash' : 'eye';
 		return (
 			<div className={classes["form-holder"]}>
 				<h1 className={classes.h1}>Sign up for DogWalker</h1>
@@ -134,19 +126,7 @@ class RegistrationBase extends Component {
 
 								<DefaultInput id="walkerEmail" label="Email" name="email" type="email" errors={errors} touched={touched} />
 
-								<div className={classes["input-wrapper"]}>
-									<label htmlFor="walkerPassword" className={classes.label}>Password</label>
-									<Field
-										id="walkerPassword"
-										className={classes.input}
-										name="password"
-										type={this.state.showPassword ? 'text': 'password'}
-									/>
-									<button onClick={this.handleShowPassword} type="button" className={classes.eye}><FontAwesomeIcon icon={showPassword} /></button>
-									{errors.password && touched.password && (
-										<div className={classes.error}>{errors.password}</div>
-									)}
-								</div>
+								<PasswordInput id="walkerPassword" label="Password"	name="password" errors={errors} touched={touched} />
 
 								<div className={classes["file-wrapper"]}>
 									<input type="file" onChange={this.handleFiles.bind(this)} className={classes.inputfile} id="file"/>
@@ -157,7 +137,7 @@ class RegistrationBase extends Component {
 								</div>
 
 								<button type="submit" className={classes.btn}>Sign up</button>
-								<p className={classes.info}>By signing in or signing up, I agree to Rover.com's Terms of Service and Privacy Policy, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
+								<p className={classes.info}>By signing in or signing up, I agree to Rover.com's <Link to="/terms">Terms of Service</Link> and <Link to="/privacy">Privacy Policy</Link>, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
 								<p className={classes["have-account"]}>Already have a Rover account? <Link to="/signin">Sign in now.</Link></p>
 							</Form>
 						)}
