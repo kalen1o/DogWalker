@@ -1,6 +1,7 @@
 .progressLine {
       width: 100%;
       margin: 0 auto;
+      margin-left: -15px;
   }
   .progressbar {
       counter-reset: step;
@@ -45,18 +46,18 @@
   .progressbar li:first-child:after {
       content: none;
   }
-  /* .progressbar li:hover {
+  .progressbar li:hover {
       color: rgb(0, 189, 112);
-  } */
-  /* .progressbar li:hover:before {
+  }
+  .progressbar li:hover:before {
       border-color: rgb(0, 189, 112);
   }
   .progressbar li:hover h3{
     color: black;
-  } */
-  /* .progressbar li:hover .fontAwesome {
+  }
+  .progressbar li:hover .fontAwesome {
     color: rgb(0, 189, 112);
-  } */
+  }
 
   .progressbar li.active:before {
       content: "\f1b0";

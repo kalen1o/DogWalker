@@ -29,11 +29,12 @@ library.add( faCalendarAlt )
                                 } }
                                 placeholderText={props.firstField}
                                 dateFormat="MMMM d, yyyy "
-                                dayClassName={date => date.getTime() + 8.64e+7 >= new Date().getTime() ? classes.dayColor : classes["dayColor-disabled"]}
+                                dayClassName={date => date.getTime() + 8.64e+7 >= new Date().getTime() ?
+                                                classes.dayColor : classes["dayColor-disabled"]}
                                 minDate={new Date()}
                                 name='startDate'
                             />
-                          </div>  
+                          </div>
                           <span><FontAwesomeIcon className={classes.calcIcon} icon='calendar-alt'/></span>
 
                         </div>
