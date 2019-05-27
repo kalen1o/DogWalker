@@ -3,7 +3,7 @@
   position: relative;
 }
 .dayColor-disabled {
-  color: grey;
+  color: #ccc;
 }
 .datePicker {
   color: #00bd70;
@@ -16,9 +16,15 @@
   height: 40px;
   display: block;
 }
-.datePickerFieldWrapper, .datePickerFieldWrapper>div, .datePickerFieldWrapper>div>div {
-  display: block;
-  width: 100%;
+.datePickerFieldWrapper,.datePickerFieldWrapper >div,  .datePickerFieldWrapper >div >div{
+ display: block ;
+ width: 100%;
+ background-color: white;
+ max-width: 365px;
+ 
+}
+.datePickerFieldWrapper >div >div>div{
+ float:none;
 }
 
 .arrow{
@@ -40,15 +46,9 @@
     width: 0;
     font-size: calc(100%);
     color: #cfd7de;
-
 }
-.calcIcon{
 
-}
 .dayColor{
   color:  green;
   font-size: 14px;
-}
-.react-datepicker__day--disabled{
-  color: grey;
 }

@@ -77,11 +77,11 @@
 }
 .dogSizeAndWeights div{
   text-align: center;
-  width: 90%;
+  width: 95%;
 }
 .submitButton{
   display: block;
-  width: 95%;
+  width: 100%;
   background: #14a96d;
   border-color: #14a96d;
   color: #fff;
@@ -142,14 +142,21 @@
 }
 
 .daysOfTheWeek  label {
-	max-height: 40px;
+	height: 40px;
 }
 
-@media (max-width: 768px){
-  .buttonsBox, .cityInputAndDatePicker, .lastField, .cityInputAndRegularity, .daysOfTheWeekAndDatePickerOneFieldContainer {
+@media (max-width: 768px) and (min-width: 300px){
+  .buttonsBox, .cityInputAndDatePicker, .lastField, .cityInputAndRegularity, .daysOfTheWeekAndDatePickerOneFieldContainer, .oftenNeedServiceContainer {
     display: block;
     font-size: 12px;
+
   }
-  
+  .lastField{
+    margin-top: 40px;
+  }
+  .lastField label{
+    font-size: 12px;
+  }
+
 
 }
