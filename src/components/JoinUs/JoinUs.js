@@ -8,7 +8,7 @@ class JoinUs extends Component {
     render() {
         return (
             <div className={classes.JoinUs} id='1'>
-                <h3>Stay in touch with the Rover app</h3> 
+                <h3>Stay in touch with the DogWalker app</h3> 
                 <div className={classes.storeButtonsCont}>
                     <a href='#1'><img src={ios} width='' height='' alt=''/></a>
                     <a href='#1'><img src={android} width='' height='' alt=''/></a>

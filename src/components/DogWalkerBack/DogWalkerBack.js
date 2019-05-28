@@ -16,12 +16,12 @@ class DogWalkerBack extends Component {
                     <div className={classes.DogWalkerBackItem}>
                         <img src={money} alt='money'/>
                         <h4>Cashless payments</h4>
-                        <p>Book and pay, all through Rover’s safe and secure platform—no cash, check, or tips necessary.</p>
+                        <p>Book and pay, all through DogWalker’s safe and secure platform—no cash, check, or tips necessary.</p>
                     </div>
-                    <div className={classes.DogWalkerBackItem}> 
+                    <div className={classes.DogWalkerBackItem}>
                         <img src={insurance} alt='insurance'/>
-                        <h4>Rover Guarantee</h4>
-                        <p>Every stay booked through Rover is covered by the Rover Guarantee. Learn More</p>
+                        <h4>DogWalker Guarantee</h4>
+                        <p>Every stay booked through DogWalker is covered by the DogWalker Guarantee. Learn More</p>
                     </div>
                     <div className={classes.DogWalkerBackItem}>
                         <img src={protection} alt='protection'/>
