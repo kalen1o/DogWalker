@@ -16,8 +16,10 @@ const SliderRangeInput=({
     label: <strong>$100</strong>,
   },
 };
+// {console.log(marks[10].label.props.children)}
     return(
                       <div>
+
                             <Slider
                                   range
                                   marks={marks}

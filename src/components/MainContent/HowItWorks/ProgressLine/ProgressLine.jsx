@@ -29,13 +29,13 @@ class ProgressLine extends Component{
       <ul className={classes.progressbar}>
           <li onClick={this.handleOnClick('step1')}  className={this.state.step1 ? classes.active: null} >
             <FontAwesomeIcon className={classes.fontAwesome} icon='search' /> <br/>
-              <h3>Search</h3> Read verified reviews and pick  <br/> the perfect sitter.</li>
+              <h3>Search</h3> <br/>Read verified reviews and pick  <br/> the perfect sitter.</li>
           <li onClick={this.handleOnClick('step2')}  className={this.state.step2 ? classes.active: null} >
             <FontAwesomeIcon className={classes.fontAwesome} icon='mobile-alt' /> <br/>
-              <h3>Book & pay on DogWalker</h3>Book and pay securely through the website or app.</li>
+              <h3>Book & pay <br/>on DogWalker</h3>Book and pay securely<br/> through the website or app.</li>
           <li onClick={this.handleOnClick('step3')}  className={this.state.step3 ? classes.active: null} >
             <FontAwesomeIcon className={classes.fontAwesome} icon='user-shield' /> <br/>
-              <h3>Relax</h3> Get the DogWalker Guarantee, 24/7 support, and reservation protection.</li>
+              <h3>Relax</h3> <br/>Get the DogWalker<br/> Guarantee, 24/7 support,<br/> and reservation protection.</li>
         </ul>
       </div>
     )

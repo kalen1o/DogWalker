@@ -157,10 +157,10 @@ const SearchForm = (props) => {
                                               </div>
                                               <div className={classes.datePickerOneField}>
                                               <label>Start date</label>
-                                              <Field
-                                                    component={DatePickerOneField}
-                                                    firstField="Start date"
-                                              />
+                                                <Field
+                                                      component={DatePickerOneField}
+                                                      firstField="Start date"
+                                                />
                                               </div>
                                       </div>
                                       default:

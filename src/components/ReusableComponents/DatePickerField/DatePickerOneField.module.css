@@ -1,6 +1,8 @@
 .datePickerField{
   display: flex;
   position: relative;
+  max-height: 40px;
+  margin-bottom: 10px;
 }
 .dayColor-disabled {
   color: #ccc;
@@ -19,16 +21,11 @@
 .datePickerFieldWrapper, .datePickerFieldWrapper>div, .datePickerFieldWrapper>div>div {
   display: block;
   width: 100%;
+  background-color: white
 }
 
-.arrow{
-  color: rgb(207, 215, 222);
-  display: block;
-  font-size: 18px;
-  height: 21.8182px;
-  line-height: 22.4px;
-  margin-right: 22px;
-  margin-top: 15px;
+.datePickerFieldWrapper>div >div>div{
+  float:none;
 }
 
 .calcIcon {

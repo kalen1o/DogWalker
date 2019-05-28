@@ -7,14 +7,11 @@ import DatePickerOneField from '../../../components/ReusableComponents/DatePicke
 import DatePickerField from '../../../components/ReusableComponents/DatePickerField/DatePickerField';
 import data from '../../../components/constants/data';
 import classes from './SearchSittersForm.module.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,  faSync, faCalculator } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import setSearchParam from '../../../store/actions/setSearchParam';
 import SliderRangeInput from './SliderRangeInput/SliderRangeInput';
 
 
-library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
 
 const SearchSittersForm = (props) => {
   return (
@@ -46,7 +43,7 @@ const SearchSittersForm = (props) => {
           setFieldValue
           }) => (
             <>
-          <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
+          <Form onSubmit={handleSubmit} className={classes.searchSittersFormBox}>
 
             <div className={classes.buttonsBox}>
                   <label htmlFor="serviceType">Service type</label>
@@ -63,7 +60,7 @@ const SearchSittersForm = (props) => {
                   </div>
             </div>
 
-            
+
 
             <div>
               <Field
@@ -125,7 +122,7 @@ const SearchSittersForm = (props) => {
                                 const step= values.regularity;
                                 switch (step){
                                   case 'One Time':
-                                      return <div className={classes.datePickerField2}>
+                                      return <div className={classes.datePickerField}>
                                                   <label>For what dates?</label>
                                                   <Field
                                                         component={DatePickerField}
