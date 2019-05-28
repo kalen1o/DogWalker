@@ -8,9 +8,9 @@ class FooterTop extends Component {
         listLearnMore: [
             { id: 1, title: 'Learn More' },
             { id: 2, content: 'Read Our Blog' },
-            { id: 3, content: 'Rover Q&A Community' },
-            { id: 4, content: 'Rover Store' },
-            { id: 5, content: 'Rover Guarantee' },
+            { id: 3, content: 'DogWalker Q&A Community' },
+            { id: 4, content: 'DogWalker Store' },
+            { id: 5, content: 'DogWalker Guarantee' },
             { id: 6, content: 'Safety' },
             { id: 7, content: 'Sit a Dog, Save a Life' },
 
@@ -22,7 +22,7 @@ class FooterTop extends Component {
         ],
 
         listAboutMore: [
-            { id: 1, title: 'About Rover' },
+            { id: 1, title: 'About DogWalker' },
             { id: 2, content: 'About Us' },
             { id: 3, content: 'Contact Us' },
             { id: 4, content: 'Joining Forces' },
@@ -34,11 +34,11 @@ class FooterTop extends Component {
             { id: 10, content: 'Cookie Policy' },
             { id: 11, content: 'Terms of Service' },
             { id: 12, content: 'Interest-Based Ads' },
-            { id: 13, content: 'Rover UK' }
+            { id: 13, content: 'DogWalker UK' }
         ],
 
         listTopCities: [
-            { id: 1, title: 'Top Rover Cities' },
+            { id: 1, title: 'Top DogWalker Cities' },
             { id: 2, content: 'Vinnytsia' },
             { id: 3, content: 'Dnipropetrovsk' },
             { id: 4, content: 'Donetsk' },
@@ -70,7 +70,7 @@ class FooterTop extends Component {
             { id: 26, content: 'Chernivtsi' },
             { id: 27, content: 'Chernihiv' }
         ]
-        
+
     }
     render() {
         return (
@@ -93,4 +93,3 @@ class FooterTop extends Component {
 
 
 export default FooterTop
-
