@@ -4,10 +4,12 @@ import { compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import setSearchParam from '../../../store/actions/setSearchParam';
+import FetchMarkers from '../../../store/actions/fetchMarkers';
+import GetUid from '../../../store/actions/getUid';
 
 class HeaderDogBoardingBase extends Component {
     onClick = () => {
-        const { setSearchParam } = this.props;
+        const { setSearchParam, FetchMarkers, GetUid } = this.props;
         setSearchParam({
             services: "Dog Boarding",
             city: "",
@@ -18,6 +20,8 @@ class HeaderDogBoardingBase extends Component {
             daysOfTheWeek: [],
             salary: [10, 100]
         })
+        FetchMarkers({})
+        GetUid([])
         this.props.history.push("/search")
     }
 
@@ -38,7 +42,7 @@ class HeaderDogBoardingBase extends Component {
 
 const HeaderDogBoarding = compose(
     withRouter,
-    connect(null, { setSearchParam })
+    connect(null, { setSearchParam, FetchMarkers, GetUid })
 )(HeaderDogBoardingBase)
 
 export default HeaderDogBoarding

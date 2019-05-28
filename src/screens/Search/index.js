@@ -86,6 +86,7 @@ class SearchBase extends Component {
 	}
 
 	render() {
+		console.log(this.props, 'here')
 		const { walkers, loading } = this.state;
 		return (
 			<div className={classes["search-wrapper"]}>

@@ -4,10 +4,12 @@ import { compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import setSearchParam from '../../../store/actions/setSearchParam';
+import FetchMarkers from '../../../store/actions/fetchMarkers';
+import GetUid from '../../../store/actions/getUid';
 
 class HeaderDoggyDayBase extends Component {
     onClick = () => {
-        const { setSearchParam } = this.props;
+        const { setSearchParam, FetchMarkers, GetUid } = this.props;
         setSearchParam({
             services: "Doggy Day Care",
             city: "",
@@ -18,6 +20,8 @@ class HeaderDoggyDayBase extends Component {
             daysOfTheWeek: [],
             salary: [10, 100]
         })
+        FetchMarkers({})
+        GetUid([])
         this.props.history.push("/search")
     }
 
@@ -37,7 +41,7 @@ class HeaderDoggyDayBase extends Component {
 
 const HeaderDoggyDay = compose(
     withRouter,
-    connect(null, { setSearchParam })
+    connect(null, { setSearchParam, FetchMarkers, GetUid })
 )(HeaderDoggyDayBase)
 
 export default HeaderDoggyDay

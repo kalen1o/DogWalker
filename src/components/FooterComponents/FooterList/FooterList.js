@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './FooterList.module.css'
-
+import { Link } from 'react-router-dom';
 
 const FooterList = (props) => (
   <div className={classes.FooterList}>
@@ -14,7 +14,7 @@ const FooterList = (props) => (
     <ul>
       {props.list.map(item => (
         <li key={item.id}>
-          <div><a href='#'>{item.content}</a></div>
+          <div><Link to="/">{item.content}</Link></div>
         </li>
       ))}
     </ul>

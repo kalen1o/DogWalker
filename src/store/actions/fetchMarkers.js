@@ -1,4 +1,10 @@
 const FetchMarkers = (data) => dispatch => {
+	if(!data.length) {
+		return dispatch({
+			type: 'SET_MARKERS',
+			payload: { markers: {} }
+		})
+	}
 	Promise.all(data.map(item => {
 		let place = item.address.length ? `${item.city} ${item.address}` : `${item.city}`;
 
