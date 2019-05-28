@@ -43,7 +43,7 @@ const SearchSittersForm = (props) => {
           setFieldValue
           }) => (
             <>
-          <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
+          <Form onSubmit={handleSubmit} className={classes.searchSittersFormBox}>
 
             <div className={classes.buttonsBox}>
                   <label htmlFor="serviceType">Service type</label>
@@ -122,7 +122,7 @@ const SearchSittersForm = (props) => {
                                 const step= values.regularity;
                                 switch (step){
                                   case 'One Time':
-                                      return <div className={classes.datePickerField2}>
+                                      return <div className={classes.datePickerField}>
                                                   <label>For what dates?</label>
                                                   <Field
                                                         component={DatePickerField}

@@ -30,7 +30,8 @@ const DatePickerField=({
                                 } }
                                 placeholderText={props.firstField}
                                 dateFormat="MMMM d, yyyy "
-                                dayClassName={date => date.getTime() + 8.64e+7 >= new Date().getTime() ? classes.dayColor : classes["dayColor-disabled"]}
+                                dayClassName={date => date.getTime() + 8.64e+7 >= new Date().getTime() ?
+                                        classes.dayColor : classes["dayColor-disabled"]}
                                 minDate={new Date()}
                                 name='startDate'
                             />
@@ -53,7 +54,8 @@ const DatePickerField=({
                               } }
                               placeholderText={props.secondField}
                               dateFormat="MMMM d, yyyy "
-                              dayClassName={date => date.getDate() <=  31 ? classes.dayColor : undefined}
+                              dayClassName={date => date.getTime() + 8.64e+7 >= new Date().getTime() ?
+                                      classes.dayColor : classes["dayColor-disabled"]}
                               minDate={new Date()}
                               name='endDate'
                         />

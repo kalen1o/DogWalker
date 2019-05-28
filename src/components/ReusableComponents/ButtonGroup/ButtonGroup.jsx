@@ -16,8 +16,9 @@ const ButtonGroup=(props) =>{
                                   name={props.props.name}
                                   onClick={(e)=>{
                                     form.setFieldValue(props.firstNameField, props.props.text)
-                                    form.setFieldValue(props.secondNameField, "")
                                     form.setFieldValue('daysOfTheWeek', [])
+                                    form.setFieldValue('startDate', '')
+                                    form.setFieldValue('endDate', '')
                                   }}
                                   type='button'
                                   value={props.text}
