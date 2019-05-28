@@ -35,7 +35,7 @@ class FooterListBase extends Component {
         <ul>
           {this.props.list.map(item => (
             <li key={item.id}>
-              <div onClick={this.onClick.bind(this)}>{item.content}</div>
+              <div onClick={this.onClick.bind(this)} className={classes.a}>{item.content}</div>
             </li>
           ))}
         </ul>

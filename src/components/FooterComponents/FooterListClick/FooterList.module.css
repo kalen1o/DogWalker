@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.FooterList a:hover{
+.FooterList .a:hover{
     text-decoration-line: underline;
 }
 
