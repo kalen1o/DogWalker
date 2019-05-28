@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './SignIn.module.css';
 
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { SignInSchema } from '../../config/yupConfig';
 
 import SignInFacebook from '../../components/SignInFacebook';
@@ -13,7 +13,6 @@ import { PasswordForgetLink } from '../PasswordForget';
 import { withRouter } from 'react-router-dom';
 
 import { withFirebase } from '../../config/Firebase';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { toast } from 'react-toastify';
 

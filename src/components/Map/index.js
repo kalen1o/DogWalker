@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import classes from './Map.module.css';
+import React from 'react';
 
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import CustomMarker from '../ReusableComponents/Marker';
 
 const Map = withScriptjs(withGoogleMap(props => {

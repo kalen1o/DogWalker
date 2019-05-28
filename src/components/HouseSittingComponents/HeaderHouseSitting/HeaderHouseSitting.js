@@ -1,23 +1,42 @@
 import React, { Component } from 'react'
 import classes from '../HeaderHouseSitting/HeaderHouseSitting.module.css'
-import { Link } from 'react-router-dom';
+import { compose } from 'recompose';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import setSearchParam from '../../../store/actions/setSearchParam';
 
-class HeaderHouseSitting extends Component {
+class HeaderHouseSittingBase extends Component {
+    onClick = () => {
+        const { setSearchParam } = this.props;
+        setSearchParam({
+            services: "House Sitting",
+            city: "",
+            regularity: "One Time",
+            startDate: "",
+            endDate: "",
+            dogSizes: [],
+            daysOfTheWeek: [],
+            salary: [10, 100]
+        })
+        this.props.history.push("/search")
+    }
 
     render() {
         return (
             <div className={classes.HeaderHouseSitting}>
             <div className={classes.content}>
-                <h1>No more kennels—the next level of<br /> dog boarding is here</h1>
-                <h4>Over 65,000 sitters have listed their services on Rover, making it easy to<br />
-                    discover your dog's home away from home</h4>
-
-                <div><Link to='/search' className={classes.headerButton}>Book Dog Boarding</Link></div>
+                <h1>Your perfect pet sitter is also your <br /> perfect house sitter</h1>
+                <h4>Meet the nation's largest network of pet sitters</h4>
+                <div><span onClick={this.onClick} className={classes.headerButton}>Book House Sitting</span></div>
             </div>
         </div>
         );
     }
 }
 
+const HeaderHouseSitting = compose(
+    withRouter,
+    connect(null, { setSearchParam })
+)(HeaderHouseSittingBase)
 
 export default HeaderHouseSitting

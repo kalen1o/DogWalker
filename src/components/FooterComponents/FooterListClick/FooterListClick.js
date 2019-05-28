@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import classes from './FooterList.module.css'
 
-import { connect }   from 'react-redux';
+import { connect } from 'react-redux';
 import setSearchParam from '../../../store/actions/setSearchParam';
 
 import { compose } from 'recompose';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 class FooterListBase extends Component {
   onClick = (event) => {

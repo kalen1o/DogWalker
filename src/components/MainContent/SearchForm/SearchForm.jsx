@@ -6,7 +6,6 @@ import CityInput from './../../ReusableComponents/CityInput/CityInput';
 import data from './../../constants/data';
 import classes from './SearchForm.module.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,  faSync, faCalculator } from '@fortawesome/free-solid-svg-icons';
 import DatePickerOneField from './../../ReusableComponents/DatePickerField/DatePickerOneField';
 import DatePickerField from './../../ReusableComponents/DatePickerField/DatePickerField'
@@ -151,8 +150,7 @@ const SearchForm = (props) => {
                                                 {data.daysOfTheWeek.map(data=><Checkbox
                                                           name="daysOfTheWeek"
                                                           value={data.value}
-                                                            box={classes.daysOfTheWeek}
-                                                          box='daysOfTheWeek'
+                                                          box={classes.daysOfTheWeek}
                                                           key={Math.random()}
                                                     />)}
                                                   </div>
@@ -165,10 +163,14 @@ const SearchForm = (props) => {
                                                 />
                                               </div>
                                       </div>
+                                      default:
+                                          return null
                                 }
                               }
                             }/>
                     </div>;
+                    default:
+                        return null
                   }
                 }}
               />

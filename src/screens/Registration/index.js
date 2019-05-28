@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Registration.module.css';
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { RegistrationSchema } from '../../config/yupConfig';
 import { Link, withRouter } from 'react-router-dom';
 

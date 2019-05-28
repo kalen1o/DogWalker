@@ -139,8 +139,7 @@ const SearchSittersForm = (props) => {
                                                 {data.daysOfTheWeek.map(data=><Checkbox
                                                           name="daysOfTheWeek"
                                                           value={data.value}
-                                                            box={classes.daysOfTheWeek}
-                                                          box='daysOfTheWeek'
+                                                          box={classes.daysOfTheWeek}
                                                           key={Math.random()}
                                                     />)}
                                                   </div>
@@ -153,10 +152,14 @@ const SearchSittersForm = (props) => {
                                               />
                                               </div>
                                       </div>
+                                      default:
+                                          return null
                                 }
                               }
                             }/>
                     </div>;
+                    default:
+                      return null
                   }
                 }}
               />

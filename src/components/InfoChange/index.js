@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './InfoChange.module.css';
 
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { withRouter } from 'react-router-dom';
 
 import { withFirebase } from '../../config/Firebase';

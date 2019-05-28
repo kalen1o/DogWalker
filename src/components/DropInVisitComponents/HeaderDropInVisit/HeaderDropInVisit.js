@@ -1,23 +1,43 @@
 import React, { Component } from 'react'
 import classes from '../HeaderDropInVisit/HeaderDropInVisit.module.css'
-import { Link } from 'react-router-dom';
+import { compose } from 'recompose';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import setSearchParam from '../../../store/actions/setSearchParam';
 
-class HeaderDropInVisit extends Component {
+class HeaderDropInVisitBase extends Component {
+    onClick = () => {
+        const { setSearchParam } = this.props;
+        setSearchParam({
+            services: "Drop-In Visits",
+            city: "",
+            regularity: "One Time",
+            startDate: "",
+            endDate: "",
+            dogSizes: [],
+            daysOfTheWeek: [],
+            salary: [10, 100]
+        })
+        this.props.history.push("/search")
+    }
 
     render() {
         return (
             <div className={classes.HeaderDropInVisit}>
             <div className={classes.content}>
-                <h1>No more kennels—the next level of<br /> dog boarding is here</h1>
-                <h4>Over 65,000 sitters have listed their services on Rover, making it easy to<br />
-                    discover your dog's home away from home</h4>
+                <h1>Book drop-in visits in 10,000 cities,<br /> including yours</h1>
+                <h4>Personalized care for your pet—without breaking the bank</h4>
 
-                <div><Link to='/search' className={classes.headerButton}>Book Dog Boarding</Link></div>
+                <div><span onClick={this.onClick} className={classes.headerButton}>Book A Visit</span></div>
             </div>
         </div>
         );
     }
 }
 
+const HeaderDropInVisit = compose(
+    withRouter,
+    connect(null, { setSearchParam })
+)(HeaderDropInVisitBase)
 
 export default HeaderDropInVisit

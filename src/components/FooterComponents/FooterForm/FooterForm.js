@@ -10,7 +10,7 @@ class FooterForm extends Component {
 					<input type='email' name='email' placeholder='Email Address' />
 					<button type='submit'>Submit</button>
 					<p>By providing my e-mail address, I consent to receive marketing <br />
-						communications from Rover.com and its affiliates. <a href='#'>Privacy Policy</a></p>
+						communications from Rover.com and its affiliates. <a href='https://www.google.ru'>Privacy Policy</a></p>
 				</form>
 			</div>
 		)

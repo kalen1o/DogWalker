@@ -50,7 +50,8 @@ export const ChangeSchema = Yup.object().shape({
 	passwordOne: Yup.string()
 		.required("Required"),
 	passwordTwo: Yup.string()
-		.oneOf([Yup.ref('passwordOne'), null], 'Passwords must similar')		.required("Required"),
+		.oneOf([Yup.ref('passwordOne'), null], 'Passwords must similar')		
+		.required("Required"),
 	newPassword: Yup.string()
 		.min(8, "Must be longer than 8 characters")
 		.required("Required")

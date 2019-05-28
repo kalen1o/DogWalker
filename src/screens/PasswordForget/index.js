@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './PasswordForget.module.css';
 
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { ForgetSchema } from '../../config/yupConfig';
 
 import DefaultInput from '../../components/ReusableComponents/DefaultInput';
