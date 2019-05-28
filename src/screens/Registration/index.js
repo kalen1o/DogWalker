@@ -97,7 +97,7 @@ class RegistrationBase extends Component {
 						render={({errors, touched}) => (
 							<Form>
 								<DefaultInput id="walkerFirstName" label="Firstname" name="firstname" type="text" errors={errors} touched={touched} />
-								
+
 								<DefaultInput id="walkerLastName" label="Lastname" name="lastname" type="text" errors={errors} touched={touched} />
 
 								<DefaultInput id="walkerCity" label="City" name="city" type="text" errors={errors} touched={touched} />
@@ -137,8 +137,8 @@ class RegistrationBase extends Component {
 								</div>
 
 								<button type="submit" className={classes.btn}>Sign up</button>
-								<p className={classes.info}>By signing in or signing up, I agree to Rover.com's <Link to="/terms">Terms of Service</Link> and <Link to="/privacy">Privacy Policy</Link>, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
-								<p className={classes["have-account"]}>Already have a Rover account? <Link to="/signin">Sign in now.</Link></p>
+								<p className={classes.info}>By signing in or signing up, I agree to DogWalker.com's <Link to="/terms">Terms of Service</Link> and <Link to="/privacy">Privacy Policy</Link>, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
+								<p className={classes["have-account"]}>Already have a DogWalker account? <Link to="/signin">Sign in now.</Link></p>
 							</Form>
 						)}
 					/>

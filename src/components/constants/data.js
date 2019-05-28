@@ -64,6 +64,34 @@
   oftenNeedService:[
     {text:"One Time", icon: "calculator", value: "One-Time"},
     {text:"Repeat Weekly", icon: "sync", value: "Repeat-Weekly"}
+  ],
+  cities:[    
+    { id: 2, content: 'Vinnytsia' },
+    { id: 3, content: 'Dnipropetrovsk' },
+    { id: 4, content: 'Donetsk' },
+    { id: 5, content: 'Zhytomyr' },
+    { id: 6, content: 'Zaporizhzhia' },
+    { id: 7, content: 'Ivano-Frankivsk' },
+    { id: 8, content: 'Kiev' },
+    { id: 9, content: 'Kirovohrad' },
+    { id: 10, content: 'Luhansk' },
+    { id: 11, content: 'Lutsk' },
+    { id: 12, content: 'Lviv' },
+    { id: 13, content: 'Mykolaiv' },
+    { id: 14, content: 'Odesa' },
+    { id: 15, content: 'Poltava' },
+    { id: 16, content: 'Rivne' },
+    { id: 17, content: 'Sevastopol' },
+    { id: 18, content: 'Simferopol' },
+    { id: 19, content: 'Sumy' },
+    { id: 20, content: 'Ternopil' },
+    { id: 21, content: 'Uzhhorod' },
+    { id: 22, content: 'Kharkiv' },
+    { id: 23, content: 'Kherson' },
+    { id: 24, content: 'Khmelnytskyi' },
+    { id: 25, content: 'Cherkasy' },
+    { id: 26, content: 'Chernivtsi' },
+    { id: 27, content: 'Chernihiv' }
   ]
 }
 
