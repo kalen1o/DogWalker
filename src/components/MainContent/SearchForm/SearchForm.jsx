@@ -43,7 +43,7 @@ const SearchForm = (props) => {
 
             <>
           <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
-            
+
             <div className={classes.petType}><h3>I'm looking for service for my Dog</h3></div>
             <div className={classes.buttonsBox}>
               <div className={classes.firstButtonsBox} >
@@ -149,7 +149,7 @@ const SearchForm = (props) => {
                                       return <div className={classes.daysOfTheWeekAndDatePickerOneFieldContainer}>
                                                 <div className={classes.daysOfTheWeekContainer}>
                                                 <label htmlFor="daysOfTheWeek">For which days?</label>
-                                                <div className={classes.daysOfTheWeek} id="daysOfTheWeek">
+                                                <div className={classes.daysOfTheWeekBox} id="daysOfTheWeek">
                                                 {data.daysOfTheWeek.map(data=><Checkbox
                                                           name="daysOfTheWeek"
                                                           value={data.value}
