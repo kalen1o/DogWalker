@@ -1,4 +1,4 @@
-.main, .container1, .maintextcent, .services, h3, .contentblock, .colxs12 {
+.main, .container1, .maintextcent, .services, .h3, .contentblock, .colxs12, .marginTB30px, .btndiv {
 	padding: 30px 20% 30px 20%;
 	margin: 0 auto;
 	text-align: center;
@@ -22,7 +22,7 @@
   .maintextcent p {
 	margin-top: 10px!important;
 	text-align: left;
-  }
+	}
   
   .h3{
 	font-family: inherit;
@@ -33,7 +33,7 @@
 	text-align: center;
   }
   
-  .h2, h2 {
+  .h2 {
 	font-family: inherit;
 	color: inherit;
 	font-size: 32px;
@@ -76,16 +76,16 @@
   }  
   
   .colsm4colxs6 {
-	max-width: 150px;
+	max-width: 170px;
 	padding-left: 15px;
 	padding-right: 15px;
-	min-height: 290px;
+	min-height: 310px;
 	text-align: center;
   }
   
   .aboutusteamtextcenter {
 	
-	max-width: 140px;
+	max-width: 160px;
   }
   
   
@@ -93,6 +93,7 @@
 	width: 140px;
 	height: 140px;
 	border-radius: 50%;
+	/*background-image: url("./img/aaron.jpg")*/
   }
   
   li {
@@ -104,6 +105,8 @@
   }
   
   .span {
+	cursor: pointer;
+	color: #14a96d;
 	float: left;
 	margin-top: 10px!important;
 	margin-bottom: 10px!important;
@@ -125,6 +128,9 @@
 	cursor: pointer;
 	background-image: none;
 	border: 1px solid #14a96d;
+	background-color: #14a96d;
+	text-decoration: none;
+	color: #fff;
 	white-space: nowrap;
 	padding: 8px 15px;
 	font-size: 14px;
@@ -137,8 +143,8 @@
   }
   
   .btnclick {
-	width: 100px;
-	margin-left: 50%!important;
+	/*width: 100px;
+	margin-left: 50%!important;*/
   }
   
   .bgdark {
@@ -168,7 +174,7 @@
   
   .colsm6 {
 	min-width: 300px;
-	padding-left: 30px!important;
+
 	padding-right: 30px!important;
   }
   
@@ -181,7 +187,7 @@
   }
   
   .marginCol a {
-	color: gray;
+	color: #14a96d;
 	margin: 10px;
 	text-align: left;
   }
@@ -194,4 +200,14 @@
   
   .fa, .fas {
 	text-align: left;
-  }
+	}
+
+.a::before {
+	margin: 0 10px 0 -20px;
+	color: #14a96d;
+}
+
+.span::before {
+	margin: 0 10px 0 -20px;
+	color: #14a96d;
+}

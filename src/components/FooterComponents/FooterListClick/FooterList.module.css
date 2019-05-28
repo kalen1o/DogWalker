@@ -1,3 +1,4 @@
+
 .FooterList ul{
     padding-left: 0;
 }
@@ -6,10 +7,11 @@
     list-style: none;
 }
 
-.FooterList a{
-    text-decoration: none;
+.FooterList div{
+    /* text-decoration: none; */
     color: #999999;
     font-size: 13px;
+    cursor: pointer;
 }
 
 .FooterList a:hover{
