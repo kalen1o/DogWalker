@@ -20,9 +20,8 @@ library.add( faCalendarAlt )
                       <div className={classes.datePickerField}>
                           <div className={classes.datePickerFieldWrapper}>
                             <DatePicker
-                                className={classes.datePicker}
-                                selected={value.startDate}
-                                startDate={value.startDate}
+                                className={classes.datePickerOne}
+                                selected={value.startDate}                                
                                 onChange={(e)=>{
                                     setFieldValue('startDate',e)
                                     // new Date(e).toLocaleDateString()

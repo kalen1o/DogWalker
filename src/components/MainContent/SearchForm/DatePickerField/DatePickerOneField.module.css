@@ -5,7 +5,7 @@
 .dayColor-disabled {
   color: #ccc;
 }
-.datePicker {
+.datePickerOne {
   color: #00bd70;
   border: 1px solid #cfd7de;
   border-radius: 4px;
@@ -15,27 +15,15 @@
   padding: 5px;
   height: 40px;
   display: block;
+  background-color: white;
 }
-.datePickerFieldWrapper,.datePickerFieldWrapper >div,  .datePickerFieldWrapper >div >div{
+/* .datePickerFieldWrapper,.datePickerFieldWrapper >div,  .datePickerFieldWrapper >div >div{
  display: block ;
  width: 100%;
  background-color: white;
  max-width: 365px;
- 
-}
-.datePickerFieldWrapper >div >div>div{
- float:none;
-}
-
-.arrow{
-  color: rgb(207, 215, 222);
-  display: block;
-  font-size: 18px;
-  height: 21.8182px;
-  line-height: 22.4px;
-  margin-right: 22px;
-  margin-top: 15px;
-}
+} */
+/* .datePickerFieldWrapper >div >div */
 
 .calcIcon {
     position: relative;
@@ -51,4 +39,7 @@
 .dayColor{
   color:  green;
   font-size: 14px;
+}
+.datePickerField{
+  border: 5px solid blue;
 }

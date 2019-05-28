@@ -27,6 +27,9 @@
   float:none;
   overflow: hidden;
 }
+.testClass{
+  max-height: 40px;
+}
 
 .arrow{
   color: rgb(207, 215, 222);
