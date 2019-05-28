@@ -1,11 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import classes from '../CreditCardValidation/CreditCardValidation.module.css'
-import ReactDOM from "react-dom";
 import { Number, Cvc, Expiration } from "react-credit-card-primitives";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
 
 class CreditCardValidation extends React.Component {
   state = {
@@ -26,7 +21,7 @@ class CreditCardValidation extends React.Component {
           <div>
             <input {...getInputProps()} maxLength='19' required />
             <div className={classes.paymentLabel}>
-              {type == 'Visa' ? <i className="fa fa-cc-visa" /> : type == 'Mastercard' ? <i className="fa fa-cc-mastercard" /> : <small>(only Visa or Mastercard)</small>}
+              {type === 'Visa' ? <i className="fa fa-cc-visa" /> : type === 'Mastercard' ? <i className="fa fa-cc-mastercard" /> : <small>(only Visa or Mastercard)</small>}
             </div>
 
           </div>
@@ -56,10 +51,10 @@ class CreditCardValidation extends React.Component {
         render={({ getInputProps, value, valid, error, month, year }) => (
           <div>
             <input {...getInputProps()} maxLength='7' />
-            <div>{error == 'err_monthyear' ?
-              <strong>Please, fill in these fields.</strong> : error == 'err_month' ?
-                <span className={classes.wrong}>Incorrect month</span> : error == 'err_year' ?
-                  <span className={classes.wrong}>Incorrect year</span> : error == 'err_pastdate' ?
+            <div>{error === 'err_monthyear' ?
+              <strong>Please, fill in these fields.</strong> : error === 'err_month' ?
+                <span className={classes.wrong}>Incorrect month</span> : error === 'err_year' ?
+                  <span className={classes.wrong}>Incorrect year</span> : error === 'err_pastdate' ?
                     <span className={classes.wrong}>Error pastdate</span> : ''}</div>
           </div>
         )} />

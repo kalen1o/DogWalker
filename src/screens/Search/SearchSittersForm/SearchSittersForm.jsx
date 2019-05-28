@@ -8,7 +8,6 @@ import DatePickerField from '../../../components/ReusableComponents/DatePickerFi
 import data from '../../../components/constants/data';
 import classes from './SearchSittersForm.module.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,  faSync, faCalculator } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import setSearchParam from '../../../store/actions/setSearchParam';
@@ -143,8 +142,7 @@ const SearchSittersForm = (props) => {
                                                 {data.daysOfTheWeek.map(data=><Checkbox
                                                           name="daysOfTheWeek"
                                                           value={data.value}
-                                                            box={classes.daysOfTheWeek}
-                                                          box='daysOfTheWeek'
+                                                          box={classes.daysOfTheWeek}
                                                           key={Math.random()}
                                                     />)}
                                                   </div>
@@ -157,10 +155,14 @@ const SearchSittersForm = (props) => {
                                               />
                                               </div>
                                       </div>
+                                      default:
+                                          return null
                                 }
                               }
                             }/>
                     </div>;
+                    default:
+                      return null
                   }
                 }}
               />

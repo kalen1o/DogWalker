@@ -3,13 +3,11 @@ import classes from './PasswordChange.module.css';
 
 import PasswordInput from '../ReusableComponents/PasswordInput';
 
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { withRouter } from 'react-router-dom';
 
 import { withFirebase } from '../../config/Firebase';
 import { ChangeSchema } from '../../config/yupConfig';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { toast } from 'react-toastify';
 

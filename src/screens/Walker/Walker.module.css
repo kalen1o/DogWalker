@@ -24,6 +24,11 @@
 	text-align: center;
 }
 
+.ModalWrap input {
+	padding: 5px;
+	font-size: 14px;
+}
+
 .h1 {
 	margin: 0;
 	font-size: 30px;
@@ -89,46 +94,23 @@
 	margin: 0 auto;
 }
 
-.Modal {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	background-color: rgba(0, 0, 0, 0.5);
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	
-  }
-
-  .Overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-		bottom: 0; 
-		border: none;
-  }
-
-  .ButtonOrderComplete {
+.ButtonOrderComplete {
 	display: inline-block;
-  }
-  .ButtonOrderComplete button {
-	  background: #14A96D;
-	  border: 1px#14A96D;
-	  border-radius: 3px;
-	  color: #fff;
-	  padding: 5px 10px;
-  }
+}
+.ButtonOrderComplete button {
+	background: #14A96D;
+	border: 1px#14A96D;
+	border-radius: 3px;
+	color: #fff;
+	padding: 5px 10px;
+}
 
-	.ButtonOrderComplete button:hover {
-		background: #11925E;
-		cursor: pointer;
-	}
+.ButtonOrderComplete button:hover {
+	background: #11925E;
+	cursor: pointer;
+}
 
-  .ModalWrap {
+.ModalWrap {
 	background-color: #fff;
 	max-width: 300px;
 	padding: 20px;
@@ -137,7 +119,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	border: 1px solid green;
-  }
+}
 
 @media (min-width: 768px) {
 	.walker-wrapper {

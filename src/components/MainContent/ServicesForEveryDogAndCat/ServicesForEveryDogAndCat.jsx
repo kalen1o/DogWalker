@@ -2,9 +2,9 @@ import React from 'react';
 import classes from './ServicesForEveryDogAndCat.module.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat, faLongArrowAltRight, faUserShield, faCheck } from '@fortawesome/free-solid-svg-icons';
+import {faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat, faUserShield, faCheck } from '@fortawesome/free-solid-svg-icons';
 import data from './../../constants/data'
-
+import { Link } from 'react-router-dom';
 
 library.add(faHome,faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faUserShield, faCheck )
 
@@ -39,7 +39,7 @@ let ServicesForEveryDogAndCat=()=>{
                       <li>All sitters are approved by our team of sitter specialists</li>
                   </ul>
                 </div>
-                  <button  className={classes.bookYourNextSitter}>Book your next DogWalker sitter</button>
+                  <Link to="/search" className={classes.bookYourNextSitter}>Book your next DogWalker sitter</Link>
               </div>
         </div>
 

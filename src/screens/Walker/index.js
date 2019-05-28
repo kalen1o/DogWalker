@@ -1,13 +1,32 @@
 import React, { Component } from 'react';
 import classes from './Walker.module.css';
 
-import ReactModal from 'react-modal';
+import Modal from 'react-modal';
 import CreditCardValidation from '../../components/ReusableComponents/CreditCardValidation';
 
 import { withFirebase } from '../../config/Firebase';
 
 import { compose } from 'recompose';
 import data from '../../components/constants/data';
+
+const customStyles = {
+	content: {
+		display: "block",
+		color: "black",
+		backgroundColor: "transparent",
+		position: "fixed",
+		top: "50%",
+		left: "50%",
+		right: "auto",
+		bottom: "auto",
+		transform: "translate(-50%, -50%)",
+		textAlign: "center",
+		padding: "30px"
+	}
+}
+
+Modal.setAppElement('#root')
+Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, .5)';
 
 class WalkerBase extends Component {
 	state = {
@@ -87,12 +106,10 @@ class WalkerBase extends Component {
 						<h2 className={classes.h2}>{this.state.info.city} {this.state.info.address}</h2>
 						<h3 className={classes.h3}>{this.state.info.email}</h3>
 						<button type="button" className={classes.btn} onClick={this.handleOpenModal.bind(this)}>Contact {this.state.info.name}</button>
-						<ReactModal
+						<Modal
 							isOpen={this.state.showModal}
-							contentLabel="onRequestClose Example"
 							onRequestClose={this.handleCloseModal.bind(this)}
-							className={classes.Modal}
-							overlayClassName={classes.Overlay}
+							style={customStyles}
 						>
 							<div className={classes.ModalWrap}>
 								<h1>Your Order!</h1>
@@ -106,7 +123,7 @@ class WalkerBase extends Component {
 									<button onClick={this.handleCloseModal.bind(this)} type='submit'>Confirm</button>
 								</div>
 							</div>
-						</ReactModal>
+						</Modal>
 					</div>
 				</div>
 				<div className={classes["services-wrapper"]}>

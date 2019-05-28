@@ -2,7 +2,6 @@ import React from 'react';
 import { Slider } from 'antd';
 import 'antd/lib/slider/style/index.css';
 import 'antd/lib/tooltip/style/index.css';
-import classes from './SliderRangeInput.module.css'
 
 const SliderRangeInput=({
   field,

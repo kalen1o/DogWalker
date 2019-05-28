@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
 import classes from '../HeaderDogBoarding/HeaderDogBoarding.module.css'
-import { Link } from 'react-router-dom';
+import { compose } from 'recompose';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import setSearchParam from '../../../store/actions/setSearchParam';
 
-class HeaderDogBoarding extends Component {
+class HeaderDogBoardingBase extends Component {
+    onClick = () => {
+        const { setSearchParam } = this.props;
+        setSearchParam({
+            services: "Dog Boarding",
+            city: "",
+            regularity: "One Time",
+            startDate: "",
+            endDate: "",
+            dogSizes: [],
+            daysOfTheWeek: [],
+            salary: [10, 100]
+        })
+        this.props.history.push("/search")
+    }
 
     render() {
         return (
@@ -12,12 +29,16 @@ class HeaderDogBoarding extends Component {
                 <h4>Over 65,000 sitters have listed their services on Rover, making it easy to<br />
                     discover your dog's home away from home</h4>
 
-                <div><Link to='/search' className={classes.headerButton}>Book Dog Boarding</Link></div>
+                <div><span onClick={this.onClick} className={classes.headerButton}>Book Dog Boarding</span></div>
             </div>
         </div>
         );
     }
 }
 
+const HeaderDogBoarding = compose(
+    withRouter,
+    connect(null, { setSearchParam })
+)(HeaderDogBoardingBase)
 
 export default HeaderDogBoarding
