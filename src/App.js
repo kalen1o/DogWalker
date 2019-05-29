@@ -11,8 +11,8 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import searchReducer from './store/reducers/searchReducer';
 
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import createHistory from "history/createBrowserHistory";
+import {Router, Route, Switch} from 'react-router-dom';
+import { createBrowserHistory } from "history";
 
 import Header from './components/Header';
 import SignUp from './screens/SignUp';
@@ -36,11 +36,12 @@ import About from './screens/About';
 import PrivacyStatement from './screens/PrivacyStatement';
 import TermsOfService from './screens/TermOfService';
 import Help from './screens/Help';
+import NotFound from './screens/NotFound';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload, faAngleRight);
+import { faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload, faAngleRight, faTimes } from '@fortawesome/free-solid-svg-icons';
+library.add(fab, faPaw, faBars, faSearch, faBone, faIdCard, faUserCircle, faQuestionCircle, faEnvelope, faUserCog, faUserTimes, faEye, faEyeSlash, faDownload, faAngleRight, faTimes);
 
 const store = createStore(searchReducer, applyMiddleware(thunk))
 
@@ -52,6 +53,8 @@ toast.configure({
   pauseOnHover: true,
   draggable: true
 })
+
+const history = createBrowserHistory()
 
 class App extends Component {
   state = {
@@ -73,7 +76,7 @@ class App extends Component {
   }
   render() {
     return (
-      <BrowserRouter history = {createHistory()}>
+      <Router history = {history}>
         <Header />
         <div className="content-wrapper">
           <Switch>
@@ -94,10 +97,11 @@ class App extends Component {
             <Route path="/privacy" component = { PrivacyStatement } exact /> 
             <Route path="/terms" component = { TermsOfService } exact />
             <Route path="/help" component = { Help } exact />
+            <Route component = { NotFound } />
           </Switch>
           </div>
           <Footer />
-      </BrowserRouter>
+      </Router>
     );
   }
 

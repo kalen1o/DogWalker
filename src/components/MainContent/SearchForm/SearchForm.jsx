@@ -46,7 +46,8 @@ const SearchForm = (props) => {
           handleSubmit,
           handleReset,
           setFieldValue
-          }) => (
+          }) => {
+            return (
 
             <>
           <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
@@ -203,7 +204,7 @@ const SearchForm = (props) => {
           </div>
           </Form>
           </>
-        )}
+        )}}
       </Formik>
     </div>
   </>

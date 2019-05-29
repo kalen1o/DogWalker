@@ -7,34 +7,34 @@ class FooterTop extends Component {
     state = {
         listLearnMore: [
             { id: 1, title: 'Learn More' },
-            { id: 2, content: 'Read Our Blog' },
-            { id: 3, content: 'DogWalker Q&A Community' },
-            { id: 4, content: 'DogWalker Store' },
-            { id: 5, content: 'DogWalker Guarantee' },
-            { id: 6, content: 'Safety' },
-            { id: 7, content: 'Sit a Dog, Save a Life' },
+            { id: 2, content: 'Read Our Blog', link: "/404" },
+            { id: 3, content: 'DogWalker Q&A Community', link: "/404" },
+            { id: 4, content: 'DogWalker Store', link: "/404" },
+            { id: 5, content: 'DogWalker Guarantee', link: "/404" },
+            { id: 6, content: 'Safety', link: "/404" },
+            { id: 7, content: 'Sit a Dog, Save a Life', link: "/404" },
 
         ],
 
         listHelp: [
             { id: 1, title: 'Need Help?' },
-            { id: 2, content: 'Help Center' }
+            { id: 2, content: 'Help Center', link: "/help" }
         ],
 
         listAboutMore: [
             { id: 1, title: 'About DogWalker' },
-            { id: 2, content: 'About Us' },
-            { id: 3, content: 'Contact Us' },
-            { id: 4, content: 'Joining Forces' },
-            { id: 5, content: 'Get The App' },
-            { id: 6, content: 'Press' },
-            { id: 7, content: 'Careers' },
-            { id: 8, content: 'Partners' },
-            { id: 9, content: 'Privacy Policy' },
-            { id: 10, content: 'Cookie Policy' },
-            { id: 11, content: 'Terms of Service' },
-            { id: 12, content: 'Interest-Based Ads' },
-            { id: 13, content: 'DogWalker UK' }
+            { id: 2, content: 'About Us', link: "/aboutus" },
+            { id: 3, content: 'Contact Us', link: "/404" },
+            { id: 4, content: 'Joining Forces', link: "/404" },
+            { id: 5, content: 'Get The App', link: "/404" },
+            { id: 6, content: 'Press', link: "/404" },
+            { id: 7, content: 'Careers', link: "/404" },
+            { id: 8, content: 'Partners', link: "/404" },
+            { id: 9, content: 'Privacy Policy', link: "/privacy" },
+            { id: 10, content: 'Cookie Policy', link: "/404" },
+            { id: 11, content: 'Terms of Service', link: "/terms" },
+            { id: 12, content: 'Interest-Based Ads', link: "/404" },
+            { id: 13, content: 'DogWalker UK', link: "/404" }
         ],
 
         listTopCities: [
