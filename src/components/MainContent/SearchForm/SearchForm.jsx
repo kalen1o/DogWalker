@@ -18,6 +18,7 @@ library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSy
 
 
 const SearchForm = (props) => {
+
   return (
   <>
 
@@ -39,8 +40,10 @@ const SearchForm = (props) => {
           isSubmitting,
           setFieldValue
           }) => (
+
             <>
           <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
+
             <div className={classes.petType}><h3>I'm looking for service for my Dog</h3></div>
             <div className={classes.buttonsBox}>
               <div className={classes.firstButtonsBox} >
@@ -83,7 +86,7 @@ const SearchForm = (props) => {
                   <div className={classes.cityInput}>
                       <Field
                             component={CityInput}
-                            type="text"
+                            // type="text"
                             id="city"
                             name="city"
                             values={values.services}
@@ -146,7 +149,7 @@ const SearchForm = (props) => {
                                       return <div className={classes.daysOfTheWeekAndDatePickerOneFieldContainer}>
                                                 <div className={classes.daysOfTheWeekContainer}>
                                                 <label htmlFor="daysOfTheWeek">For which days?</label>
-                                                <div className={classes.daysOfTheWeek} id="daysOfTheWeek">
+                                                <div className={classes.daysOfTheWeekBox} id="daysOfTheWeek">
                                                 {data.daysOfTheWeek.map(data=><Checkbox
                                                           name="daysOfTheWeek"
                                                           value={data.value}

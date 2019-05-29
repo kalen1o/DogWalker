@@ -49,7 +49,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  
+  margin-bottom: 10px;
 }
 
 .datePickerField{
@@ -121,17 +121,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.daysOfTheWeek{
+.daysOfTheWeekBox{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
+  margin-right: 20px;
 }
 .daysOfTheWeek div{
   text-align: center;
   width: 100%;
 }
 .daysOfTheWeek{
-  margin-right: 20px;
+
   border-radius: 0px;
 }
 
@@ -156,6 +156,9 @@
   }
   .lastField label{
     font-size: 12px;
+  }
+  .daysOfTheWeekBox{
+    margin-right: 5px;
   }
 
 

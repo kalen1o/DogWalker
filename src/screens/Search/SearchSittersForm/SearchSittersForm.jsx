@@ -135,7 +135,7 @@ const SearchSittersForm = (props) => {
                                       return <div className={classes.daysOfTheWeekAndDatePickerOneFieldContainer}>
                                                 <div className={classes.daysOfTheWeekContainer}>
                                                 <label htmlFor="daysOfTheWeek">For which days?</label>
-                                                <div className={classes.daysOfTheWeek} id="daysOfTheWeek">
+                                                <div className={classes.daysOfTheWeekBox} id="daysOfTheWeek">
                                                 {data.daysOfTheWeek.map(data=><Checkbox
                                                           name="daysOfTheWeek"
                                                           value={data.value}

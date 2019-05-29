@@ -16,8 +16,8 @@ class SignUp extends Component {
 				<h6 className={classes["h6-registration"]}>— or —</h6>
 				<ButtonRegistration />
 				</div>
-				<p className={classes["sign-info"]}>By signing in or signing up, I agree to Rover.com's <Link to="/terms">Terms of Service</Link> and <Link to="/privacy">Privacy Policy</Link>, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
-				<p className={classes["have-account"]}>Already have a Rover account? <Link to="/signin">Sign in now.</Link></p>
+				<p className={classes["sign-info"]}>By signing in or signing up, I agree to DogWalker.com's <Link to="/terms">Terms of Service</Link> and <Link to="/privacy">Privacy Policy</Link>, confirm that I am 18 years of age or older, and consent to receiving email communication.</p>
+				<p className={classes["have-account"]}>Already have a DogWalker account? <Link to="/signin">Sign in now.</Link></p>
 			</div>
 		)
 	}
