@@ -40,9 +40,7 @@ import data from '../../constants/data'
 
 const CityInput=({
   field: { name, value, onChange, onBlur },
-<<<<<<< HEAD
-  form:{setFieldValue, handleChange, errors, touched},
-  form,
+  form:{setFieldValue, handleChange, errors, touched},  
   ...props
 }) =>{
 const { Option } = Select;
