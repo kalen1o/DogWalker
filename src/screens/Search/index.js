@@ -14,8 +14,7 @@ import GetUid from '../../store/actions/getUid';
 class SearchBase extends Component {
 	state = {
 		loading: true,
-		walkers: null,
-		city: this.props.search.city
+		walkers: null
 	}
 
 	componentDidMount() {
@@ -86,8 +85,7 @@ class SearchBase extends Component {
 	}
 
 	render() {
-		console.log(this.state.city, 'here')
-		console.log(this.props.search.city, 'here2')
+		console.log(this.props.city, 'here')
 		const { walkers, loading } = this.state;
 		return (
 			<div className={classes["search-wrapper"]}>

@@ -1,5 +1,7 @@
-const FetchLatLng = (city) => dispatch => {
-	fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyDhLPAAJXpqa3kBViOO3jZ7_O94EoyR8lU`)
+import { async } from "q";
+
+const FetchLatLng = (city) => async dispatch => {
+	await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyDhLPAAJXpqa3kBViOO3jZ7_O94EoyR8lU`)
 		.then(response => response.json())
 			.then(city => dispatch({
 				type: "FETCH_LATITUDE_LONGTITUDE",
