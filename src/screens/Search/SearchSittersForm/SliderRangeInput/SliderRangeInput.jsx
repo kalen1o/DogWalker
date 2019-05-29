@@ -16,6 +16,7 @@ const SliderRangeInput=({
     label: <strong>${field.value.salary[1]}</strong>,
   },
 };
+
     return(
                       <div>
 
