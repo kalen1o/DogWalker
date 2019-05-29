@@ -10,13 +10,12 @@ const SliderRangeInput=({
 }) =>{
   const marks = {
   10:  {
-    label: <strong>$10</strong>,
+    label: <strong>${field.value.salary[0]}</strong>,
   },
   100:  {
-    label: <strong>$100</strong>,
+    label: <strong>${field.value.salary[1]}</strong>,
   },
 };
-// {console.log(marks[10].label.props.children)}
     return(
                       <div>
 

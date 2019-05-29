@@ -1,5 +1,3 @@
-import { async } from "q";
-
 const FetchLatLng = (city) => async dispatch => {
 	await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyDhLPAAJXpqa3kBViOO3jZ7_O94EoyR8lU`)
 		.then(response => response.json())
