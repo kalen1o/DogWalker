@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import setSearchParam from '../../../store/actions/setSearchParam';
 import { SearchSchema } from '../../../config/yupConfig';
 
+
 library.add(faHome, faSuitcaseRolling, faPaw, faDog, faSun,faWalking, faCat,faSync, faCalculator )
 
 
@@ -32,18 +33,24 @@ const SearchForm = (props) => {
           setSearchParam(values)
           props.history.push('search')
         }}
+
         >
         {({
           values,
-          handleSubmit,
-          handleChange,
+          touched,
+          errors,
+          dirty,
           isSubmitting,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          handleReset,
           setFieldValue
           }) => (
 
             <>
           <Form onSubmit={handleSubmit} className={classes.searchFormBox}>
-
+            
             <div className={classes.petType}><h3>I'm looking for service for my Dog</h3></div>
             <div className={classes.buttonsBox}>
               <div className={classes.firstButtonsBox} >

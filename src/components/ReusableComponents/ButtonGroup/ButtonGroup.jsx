@@ -9,7 +9,7 @@ const ButtonGroup=(props) =>{
     return(
     <Field>
                       {({ field, form }) =>(<div >
-
+                            
                                   <button
                                   className={form.values[props.firstNameField] ===
                                     props.props.text? classes[props.classNameText+'Active']:classes[props.classNameText+'Usual']}
@@ -19,7 +19,7 @@ const ButtonGroup=(props) =>{
                                     form.setFieldValue('daysOfTheWeek', [])
                                     form.setFieldValue('startDate', '')
                                     form.setFieldValue('endDate', '')
-                                    form.setFieldValue('city', '')
+                                    // form.setFieldValue('city', '')
                                   }}
                                   type='button'
                                   value={props.text}

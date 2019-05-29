@@ -25,6 +25,10 @@ label{
   box-sizing: border-box;
   margin-bottom: 10px;
 }
+.inputError{
+  border: 1px solid red;
+  width: 95%;
+}
 @media (max-width: 768px) {
 	.cityInput {
 		width: 95%

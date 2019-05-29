@@ -6,37 +6,48 @@ import data from '../../constants/data'
 
 const CityInput=({
   field: { name, value, onChange, onBlur },
-  form:{setFieldValue},
+  form:{setFieldValue, handleChange, errors, touched},
+  form,
   ...props
 }) =>{
 const { Option } = Select;
+
+
     return(
                       <div >
                           <label htmlFor="city"> {props.values} near</label>
+
                           <Select
                               showSearch
+                              allowClear={true}
                               id={props.id}
-                              className={classes.cityInput}
+                              className={
+                                    errors.city && touched.city ? classes.inputError : classes.cityInput
+                                  }
                               size="large"
-                              value={value}                              
+                              value={value}
                               placeholder="Enter City"
                               optionFilterProp="children"
-                              onChange={(value)=>{
-                                setFieldValue('city', value)
-                              }}
+                              onChange={
+                                handleChange('city')
+                                // (value)=>{setFieldValue('city', value)}
+                              }
                               filterOption={(input, option) =>
                                 option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                               }
                             >
                           {data.cities.map(data=>  <Option value={data.content} key={Math.random()}>{data.content}</Option>)}
+                          </Select>
 
-                          </Select>,
+
                         </div>
 
   )
 }
 
-
+// {errors.city &&
+//         <p style={{ fontSize: 12, color: 'red' }}>*{errors.city}</p>
+//       }
 
 // const CityInput=({
 //   field: { name, value, onChange, onBlur },
