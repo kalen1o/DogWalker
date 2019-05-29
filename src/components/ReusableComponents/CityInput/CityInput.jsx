@@ -18,7 +18,7 @@ import data from '../../constants/data'
 //                               id={props.id}
 //                               className={classes.cityInput}
 //                               size="large"
-//                               value={value}                              
+//                               value={value}
 //                               placeholder="Enter City"
 //                               optionFilterProp="children"
 //                               onChange={(value)=>{
@@ -40,26 +40,45 @@ import data from '../../constants/data'
 
 const CityInput=({
   field: { name, value, onChange, onBlur },
-  form: { errors, touched, setFieldValue },
+  form:{setFieldValue, handleChange, errors, touched},  
   ...props
 }) =>{
+const { Option } = Select;
+
+
     return(
                       <div>
                           <label htmlFor="city"> {props.values} near</label>
-                            <input
-                                className={classes.cityInput + (errors[name] && touched[name] ? ` ${classes["is-invalid"]}` : '')}
-                                type={props.type}
-                                placeholder="Enter city"
-                                id={props.id}
-                                name={name}
-                                onChange={onChange}
-                                value={value}
-                                        />
+
+
+                          <Select
+                              showSearch
+                              allowClear={true}
+                              id={props.id}
+                              className={
+                                    errors.city && touched.city ? classes.inputError : classes.cityInput
+                                  }
+                              size="large"
+                              value={value}
+                              placeholder="Enter City"
+                              optionFilterProp="children"
+                              onChange={
+                                handleChange('city')
+                                // (value)=>{setFieldValue('city', value)}
+                              }
+                              filterOption={(input, option) =>
+                                option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                              }
+                            >
+                          {data.cities.map(data=>  <Option value={data.content} key={Math.random()}>{data.content}</Option>)}
+                          </Select>
                         </div>
 
   )
 }
 
-
+// {errors.city &&
+//         <p style={{ fontSize: 12, color: 'red' }}>*{errors.city}</p>
+//       }
 
 export default CityInput;

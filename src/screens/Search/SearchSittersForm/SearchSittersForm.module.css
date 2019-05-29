@@ -11,7 +11,6 @@
 .dogSizeAndWeights{
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
   width: 95%;
 }
 .buttonsBox{
@@ -51,6 +50,12 @@
   font-size: 14px;
   line-height: 1.6;
   border-radius: 4px;
+}
+.submitButton:hover {
+  background-color: #11925e;
+}
+.submitButton:focus{
+  outline: 0;
 }
 
 .dogSizes {
