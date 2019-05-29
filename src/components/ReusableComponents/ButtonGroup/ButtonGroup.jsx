@@ -9,7 +9,7 @@ const ButtonGroup=(props) =>{
     return(
     <Field>
                       {({ field, form }) =>(<div >
-                            
+
                                   <button
                                   className={form.values[props.firstNameField] ===
                                     props.props.text? classes[props.classNameText+'Active']:classes[props.classNameText+'Usual']}

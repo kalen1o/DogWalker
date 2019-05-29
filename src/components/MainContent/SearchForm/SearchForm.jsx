@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik,  Form, Field,  } from "formik";
+import { Formik,  Form, Field } from "formik";
 import Checkbox from './../../ReusableComponents/Checkbox';
 import ButtonGroup from './../../ReusableComponents/ButtonGroup/ButtonGroup';
 import CityInput from './../../ReusableComponents/CityInput/CityInput';
@@ -93,7 +93,7 @@ const SearchForm = (props) => {
                   <div className={classes.cityInput}>
                       <Field
                             component={CityInput}
-                            // type="text"
+                            type="text"
                             id="city"
                             name="city"
                             values={values.services}
