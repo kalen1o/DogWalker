@@ -1,3 +1,6 @@
+.searchFormContainer {
+  background-color: white;
+}
 .searchSittersFormBox{
   width: 320px;
   box-sizing: border-box;
@@ -7,6 +10,8 @@
 }
 .dogSizeAndWeights{
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   width: 95%;
 }
 .buttonsBox{
@@ -46,6 +51,10 @@
   font-size: 14px;
   line-height: 1.6;
   border-radius: 4px;
+}
+
+.dogSizes {
+  width: calc(50% - 2px )
 }
 
 @media (max-width: 768px) and (min-width: 300px){

@@ -173,7 +173,7 @@ const SearchSittersForm = (props) => {
                 {data.weights.map(data=><Checkbox
                           name="dogSizes"
                           value={data.dogSize}
-                          box='dogSizes'
+                          box={classes.dogSizes}
                           text={data.weight}
                           key={Math.random()}
                     />)}

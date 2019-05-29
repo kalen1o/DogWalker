@@ -16,7 +16,7 @@ label{
 .cityInput{
   padding: 8px;
   box-shadow: none;
-  /* border: 1px solid #cfd7de; */
+  border: 1px solid #cfd7de;
   width: 95%;
   height: 40px;
   font-size: 14px;
@@ -24,6 +24,12 @@ label{
   color: #1b1f23;
   box-sizing: border-box;
   margin-bottom: 10px;
+}
+
+.is-invalid {
+  width: 95%;
+  height: 40px;
+	border: 1px solid #e5281a;
 }
 @media (max-width: 768px) {
 	.cityInput {
