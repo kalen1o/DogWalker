@@ -24,10 +24,12 @@
   font-weight: 700;
   text-align: center;
 }
-.submitButton {
-  background-color: #7FFFD4;
+.submitButton:hover {
+  background-color: #11925e;
 }
-
+.submitButton:focus{
+  outline: 0;
+}
 .buttonsBox {
   margin: 0 auto;
   display: grid;
@@ -144,6 +146,7 @@
 .daysOfTheWeek  label {
 	height: 40px;
 }
+
 
 @media (max-width: 768px) and (min-width: 300px){
   .buttonsBox, .cityInputAndDatePicker, .lastField, .cityInputAndRegularity, .daysOfTheWeekAndDatePickerOneFieldContainer, .oftenNeedServiceContainer {

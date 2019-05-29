@@ -19,6 +19,7 @@ const ButtonGroup=(props) =>{
                                     form.setFieldValue('daysOfTheWeek', [])
                                     form.setFieldValue('startDate', '')
                                     form.setFieldValue('endDate', '')
+                                    // form.setFieldValue('city', '')
                                   }}
                                   type='button'
                                   value={props.text}
