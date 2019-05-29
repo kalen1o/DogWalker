@@ -14,7 +14,7 @@ const FooterList = (props) => (
     <ul>
       {props.list.map(item => (
         <li key={item.id}>
-          <div><Link to="/">{item.content}</Link></div>
+          <div><Link to={`${item.link}`}>{item.content}</Link></div>
         </li>
       ))}
     </ul>

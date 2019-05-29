@@ -36,6 +36,7 @@ import About from './screens/About';
 import PrivacyStatement from './screens/PrivacyStatement';
 import TermsOfService from './screens/TermOfService';
 import Help from './screens/Help';
+import NotFound from './screens/NotFound';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -96,6 +97,7 @@ class App extends Component {
             <Route path="/privacy" component = { PrivacyStatement } exact /> 
             <Route path="/terms" component = { TermsOfService } exact />
             <Route path="/help" component = { Help } exact />
+            <Route component = { NotFound } />
           </Switch>
           </div>
           <Footer />
